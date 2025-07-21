@@ -5,7 +5,7 @@
 * Automatically skip intros
 * Automatically play the next episode
 * Skip the popups that ask if you're "Still here?"
-* Search *all* of Netflix's genre's
+* Search *all* of Netflix's genres
 
 ## Options
 
