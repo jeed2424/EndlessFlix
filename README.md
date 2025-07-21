@@ -15,8 +15,8 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 
 ## Live link
 
-[Link to Chrome Webstore](https://google.com)
-Not yet live on Chrome Webstore. Link will updated when it is.
+[Link to Chrome Web Store](https://google.com)
+Not yet live on Chrome Web Store. Link will updated when it is.
 
 
 ## Libraries & Credits
