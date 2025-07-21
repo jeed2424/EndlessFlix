@@ -1,6 +1,6 @@
 # EndlessFlix
 
-[EndlessFlix](https://chrome.google.com/webstore/detail/hdadmgabliibighlbejhlglfjgplfmhb) is a chrome extension that improves the Netflix experience for power users. It's features include:
+EndlessFlix is a (Chrome)[https://www.google.com] and [Firefox](https://addons.mozilla.org/en-CA/firefox/addon/endlessflix/) extension that improves the Netflix experience for power users. It's features include:
 
 * Automatically skip intros
 * Automatically play the next episode
@@ -16,7 +16,8 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 ## Live link
 
 [Link to Chrome Web Store](https://google.com)
-Not yet live on Chrome Web Store. Link will updated when it is.
+[Link to Firefox Add-On](https://addons.mozilla.org/en-CA/firefox/addon/endlessflix/)
+Not yet live on either Chrome Web Store or Firefox Add-On. Link will updated when it is.
 
 
 ## Libraries & Credits
