@@ -1,0 +1,133 @@
+body {
+  width: 500px;
+  background-color: black;
+  color: #e8090b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: #e8090b;
+}
+
+#messages {
+  opacity: 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.append input[type=range] + input[type=text] {
+  border-radius: 0px;
+  margin-left: -6px;
+}
+
+input[type="range"] {
+  vertical-align: top;
+  border-radius: 4px 0 0 4px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #3071a9;
+}
+
+.footer {
+  font-size: 75%;
+  padding-bottom: 5px;
+  display: inline;
+}
+
+.checkBackground {
+  background-color: black !important;
+}
+
+#results {
+  overflow-y: scroll;
+  max-height: 230px;
+  float: left;
+}
+
+#results::-webkit-scrollbar {
+  width: 0px; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
+}
+
+/* optional: show position indicator in red */
+#results::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+.entry {
+  font-size: 15px;
+}
+
+#genreSearch:focus {
+  color: #e8090b;
+}
+
+.lastField {
+  padding-bottom: 10px;
+}
+
+#genreSearch::placeholder {
+  color: #e4e4e4
+}
+
+#genreSearch {
+  float: left;
+  width: 100%;
+  background-color: black;
+  border: 1px solid #e8090b;
+  padding: 5px;
+  height: 30px;
+  border-radius: 3px;
+  outline: none;
+  color: #e8090b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#contrast {
+  cursor: pointer;
+}
+
+
+.high-contrast {
+  background-color: white !important;
+  color: black;
+}
+
+.high-contrast a {
+  color: black !important;
+}
+
+
+.high-contrast #genreSearch {
+  float: left;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #e8090b;
+  padding: 5px;
+  height: 30px;
+  border-radius: 3px;
+  outline: none;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.high-contrast #genreSearch::placeholder {
+  color: #464646;
+}
