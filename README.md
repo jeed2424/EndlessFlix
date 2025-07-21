@@ -16,7 +16,9 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 ## Live link
 
 [Link to Chrome Web Store](https://google.com)
+
 [Link to Firefox Add-On](https://addons.mozilla.org/en-CA/firefox/addon/endlessflix/)
+
 Not yet live on either Chrome Web Store or Firefox Add-On. Link will updated when it is.
 
 
