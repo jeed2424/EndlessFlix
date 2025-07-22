@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "EndlessFlix",
-  "description": "Check out extension website (GitHub) for more details",
+  "description": "Automatically play next episode, skip intros, skip \"Are you still watching?\" prompt, and more! Check out website for more details.",
   "version": "2.7",
   "browser_specific_settings": {
     "gecko": {
