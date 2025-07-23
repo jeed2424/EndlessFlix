@@ -19,7 +19,9 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 
 [Link to Firefox Add-On](https://addons.mozilla.org/en-CA/firefox/addon/endlessflix/)
 
+## Support this project
 
+[Buy Me A Coffee](coff.ee/jeed2424)
 
 ## Libraries & Credits
 
