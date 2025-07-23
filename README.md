@@ -21,7 +21,7 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 
 ## Support this project
 
-[Buy Me A Coffee](coff.ee/jeed2424)
+[Buy Me A Coffee](https://buymeacoffee.com/jeed2424)
 
 ## Libraries & Credits
 
