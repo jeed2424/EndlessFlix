@@ -1,3 +1,30 @@
+/* Reset and prevent scrollbars */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: auto;
+}
+
+/* Hide scrollbars in Firefox */
+html {
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbars in WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    width: 500px;
+    background-color: black;
+    color: #e8090b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Open Sans', sans-serif;
+}
+
 body {
   width: 500px;
   background-color: black;
