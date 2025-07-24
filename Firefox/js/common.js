@@ -32,13 +32,11 @@ function sendOptions(options) {
     'options': options
   };
 
-  // Send options to all tabs
-  browser.windows.getAll(null, function (windows) {
-    for (let i = 0; i < windows.length; i++) {
-      browser.tabs.getAllInWindow(windows[i].id, function (tabs) {
-        for (let j = 0; j < tabs.length; j++) {
-          browser.tabs.sendMessage(tabs[j].id, request);
-        }
+  // Send options to all tabs - updated for Manifest V3
+  browser.tabs.query({}, function(tabs) {
+    for (let tab of tabs) {
+      browser.tabs.sendMessage(tab.id, request).catch(() => {
+        // Ignore errors for tabs that can't receive messages
       });
     }
   });
@@ -56,5 +54,5 @@ function injectScript(file_path, tag) {
   node.appendChild(script);
 }
 
-injectScript(browser.extension.getURL('js/playerInject.js'), 'body');
-injectScript(browser.extension.getURL('js/selectors.js'), 'body');
+injectScript(browser.runtime.getURL('js/playerInject.js'), 'body');
+injectScript(browser.runtime.getURL('js/selectors.js'), 'body');
