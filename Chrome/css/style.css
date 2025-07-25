@@ -131,3 +131,7 @@ input[type=range]::-webkit-slider-runnable-track {
 .high-contrast #genreSearch::placeholder {
   color: #464646;
 }
+
+.inline-display {
+    display: inline;
+}
