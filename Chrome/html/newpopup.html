@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EndlessFlix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 275px;
+            height: 444px;
+            background-color: #141F23;
+            color: white;
+            font-family: 'Figtree', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .border-left {
+            position: absolute;
+            top: 28px; /* Start after the title area */
+            left: 8px;
+            bottom: 8px;
+            width: 2px;
+            background-color: #316E7D;
+            pointer-events: none;
+        }
+
+        .border-right {
+            position: absolute;
+            top: 28px; /* Start after the title area */
+            right: 8px;
+            bottom: 8px;
+            width: 2px;
+            background-color: #316E7D;
+            pointer-events: none;
+        }
+
+        .border-bottom {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            height: 2px;
+            background-color: #316E7D;
+            pointer-events: none;
+        }
+
+        .border-top-left {
+            position: absolute;
+            top: 28px; /* Vertical center of title (16px padding + 24px/2 font height) */
+            left: 8px;
+            width: 48px; /* Leave 8px gap from title */
+            height: 2px;
+            background-color: #316E7D;
+            pointer-events: none;
+        }
+
+        .border-top-right {
+            position: absolute;
+            top: 28px; /* Vertical center of title (16px padding + 24px/2 font height) */
+            right: 8px;
+            width: 48px; /* Leave 8px gap from title */
+            height: 2px;
+            background-color: #316E7D;
+            pointer-events: none;
+        }
+
+        .container {
+            padding: 16px 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #E96C4C;
+            margin-bottom: 16px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .toggle {
+            width: 128px;
+            height: 24px;
+            border: 2px solid #316E7D;
+            border-radius: 0px;
+            display: flex;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-option {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0px;
+            transition: all 0.2s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .toggle-option.active {
+            background-color: #316E7D;
+            color: white;
+        }
+
+        .toggle-option:not(.active) {
+            color: white;
+        }
+      
+        .toggle:hover {
+            background-color: #16272E;
+            color: white;
+        }
+
+        .options-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #316E7D;
+            border-radius: 0px;
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox.checked {
+            background-color: #141F23;
+        }
+
+        .checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .option-text {
+            font-size: 12px;
+            font-weight: bold;
+            line-height: auto;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-container {
+            margin-top: 16px;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 24px;
+            background-color: transparent;
+            border: 2px solid #316E7D;
+            border-radius: 4px;
+            padding: 0 8px;
+            color: white;
+            font-family: 'Figtree', sans-serif;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: white;
+        }
+
+        .bottom-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 16px;
+        }
+
+        .button {
+            width: 64px;
+            height: 24px;
+            background-color: #141F23;
+            border: 2px solid #316E7D;
+            border-radius: 4px;
+            color: white;
+            font-family: 'Figtree', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #16272E;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="border-left"></div>
+    <div class="border-right"></div>
+    <div class="border-bottom"></div>
+    <div class="border-top-left"></div>
+    <div class="border-top-right"></div>
+    <div class="container">
+        <div class="title">ENDLESSFLIX</div>
+        
+        <div class="toggle-container">
+            <div class="toggle" id="mainToggle">
+                <div class="toggle-option active" data-state="on">On</div>
+                <div class="toggle-option" data-state="off">Off</div>
+            </div>
+        </div>
+
+        <div class="options-list">
+            <div class="option-item">
+                <div class="checkbox checked" data-option="skipTitleSequences"></div>
+                <div class="option-text">Skip Title Sequences</div>
+            </div>
+            
+            <div class="option-item">
+                <div class="checkbox checked" data-option="autoPlayNext"></div>
+                <div class="option-text">Automatically Play Next Episode</div>
+            </div>
+            
+            <div class="option-item">
+                <div class="checkbox" data-option="alwaysWatchCredits"></div>
+                <div class="option-text">Always Watch Credits</div>
+            </div>
+            
+            <div class="option-item">
+                <div class="checkbox" data-option="hidePromotedVideos"></div>
+                <div class="option-text">Hide Promoted Videos</div>
+            </div>
+            
+            <div class="option-item">
+                <div class="checkbox checked" data-option="dontPromptStillThere"></div>
+                <div class="option-text">Don't Prompt "Still there?"</div>
+            </div>
+            
+            <div class="option-item">
+                <div class="checkbox" data-option="dontMinimizeEndCredits"></div>
+                <div class="option-text">Don't Minimize End Credits</div>
+            </div>
+            
+            <div class="option-item">
+                <div class="checkbox" data-option="hideDownvotedContent"></div>
+                <div class="option-text">Hide Downvoted Content</div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Genre Search" id="genreSearch">
+        </div>
+
+        <div class="bottom-buttons">
+            <button class="button" id="helpButton">Help</button>
+            <button class="button" id="sourceButton">Source</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle functionality
+        document.getElementById('mainToggle').addEventListener('click', function(e) {
+            if (e.target.classList.contains('toggle-option')) {
+                document.querySelectorAll('.toggle-option').forEach(opt => opt.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
+
+        // Checkbox functionality
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('click', function() {
+                this.classList.toggle('checked');
+            });
+        });
+
+        // Option text click functionality
+        document.querySelectorAll('.option-text').forEach(text => {
+            text.addEventListener('click', function() {
+                const checkbox = this.parentElement.querySelector('.checkbox');
+                checkbox.classList.toggle('checked');
+            });
+        });
+
+        // Button functionality (placeholder)
+        document.getElementById('helpButton').addEventListener('click', function() {
+            console.log('Help clicked');
+        });
+
+        document.getElementById('sourceButton').addEventListener('click', function() {
+            console.log('Source clicked');
+        });
+    </script>
+</body>
+</html>
