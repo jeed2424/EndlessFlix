@@ -1,39 +1,67 @@
-let options;
-let fuse;
+// EndlessFlix Popup Script - Vanilla JavaScript Version
+// Cross-browser compatibility layer
+const browserType = (() => {
+    if (typeof browser !== 'undefined') {
+        return browser; // Firefox
+    } else if (typeof chrome !== 'undefined') {
+        return chrome; // Chrome
+    } else {
+        throw new Error('Extension API not available');
+    }
+})();
 
-// Wait for DOM to be ready
+let options = {};
+
+// Global error handlers for unhandled Promise rejections
+window.addEventListener('unhandledrejection', function(event) {
+    if (event.reason && (
+        (event.reason.message && event.reason.message.includes('Could not establish connection')) ||
+        (event.reason.message && event.reason.message.includes('Receiving end does not exist')) ||
+        (event.reason.toString && event.reason.toString().includes('Could not establish connection')) ||
+        (event.reason.toString && event.reason.toString().includes('Receiving end does not exist'))
+    )) {
+        // Silently handle Chrome extension messaging error
+        event.preventDefault(); // Prevent the error from showing in console
+        return;
+    }
+    // For other errors, log them normally
+    console.log('🚨 Unhandled Promise rejection:', event.reason);
+});
+
+window.addEventListener('error', function(event) {
+    if (event.error && (
+        (event.error.message && event.error.message.includes('Could not establish connection')) ||
+        (event.error.message && event.error.message.includes('Receiving end does not exist'))
+    )) {
+        // Silently handle Chrome extension messaging error
+        event.preventDefault();
+        return;
+    }
+    // For other errors, log them normally
+    console.log('🚨 Global error:', event.error);
+});
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle link clicks
-    document.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A' && e.target.getAttribute('href')) {
-            chrome.tabs.create({url: e.target.getAttribute('href')});
-            e.preventDefault();
-            return false;
-        }
-    });
-
-    loadOptions(function (recOptions) {
-        options = recOptions;
+    loadOptions(function(receivedOptions) {
+        options = receivedOptions;
         
         // Set checkbox states based on loaded options
-        setCheckboxState("chkTitleSequence", options.skipTitleSequence);
-        setCheckboxState("chkPromptStillHere", options.skipStillHere);
-        setCheckboxState("chkPlayNext", options.autoPlayNext);
-        setCheckboxState("chkWatchCredits", options.watchCredits);
-        setCheckboxState("chkDontMinimzeEndCreditsOfShow", options.dontMinimzeEndCreditsOfShow);
-        setCheckboxState("chkDisAutoPlayInBrowse", options.disableAutoPlayOnBrowse);
-        setCheckboxState("chkHideDownvoted", options.hideDisliked);
-
-        // Setup event listeners
-        setupEventListeners();
+        setCheckboxState('skipTitleSequences', options.skipTitleSequence);
+        setCheckboxState('autoPlayNext', options.autoPlayNext);
+        setCheckboxState('alwaysWatchCredits', options.watchCredits);
+        setCheckboxState('hidePromotedVideos', options.disableAutoPlayOnBrowse);
+        setCheckboxState('dontPromptStillThere', options.skipStillHere);
+        setCheckboxState('dontMinimizeEndCredits', options.dontMinimzeEndCreditsOfShow);
+        setCheckboxState('hideDownvotedContent', options.hideDisliked);
         
+        setupEventListeners();
         reloadSearchLibrary();
-        searchOnTypingListener();
     });
 });
 
+// Set checkbox state visually
 function setCheckboxState(checkboxId, isChecked) {
-    const checkbox = document.getElementById(checkboxId);
+    const checkbox = document.querySelector(`[data-option="${checkboxId}"]`);
     if (checkbox) {
         if (isChecked) {
             checkbox.classList.add('checked');
@@ -43,161 +71,240 @@ function setCheckboxState(checkboxId, isChecked) {
     }
 }
 
+// Setup all event listeners
 function setupEventListeners() {
     // Checkbox click handlers
-    document.querySelectorAll('.checkbox').forEach(checkbox => {
+    const checkboxes = document.querySelectorAll('.checkbox');
+    checkboxes.forEach(checkbox => {
         checkbox.addEventListener('click', function() {
-            this.classList.toggle('checked');
             changeOption(this);
         });
     });
 
-    // Label click handlers
-    document.querySelectorAll('.option-text').forEach(label => {
-        label.addEventListener('click', function() {
+    // Option text click handlers (for accessibility)
+    const optionTexts = document.querySelectorAll('.option-text');
+    optionTexts.forEach(text => {
+        text.addEventListener('click', function() {
             const checkbox = this.parentElement.querySelector('.checkbox');
             if (checkbox) {
-                checkbox.classList.toggle('checked');
                 changeOption(checkbox);
             }
         });
     });
 
-    // Toggle handlers
-    const toggle = document.getElementById('mainToggle');
-    if (toggle) {
-        toggle.addEventListener('click', function(e) {
-            if (e.target.classList.contains('toggle-option')) {
-                document.querySelectorAll('.toggle-option').forEach(opt => opt.classList.remove('active'));
-                e.target.classList.add('active');
-            }
+    // Toggle switch handlers
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+    toggleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active from all options
+            toggleOptions.forEach(opt => opt.classList.remove('active'));
+            // Add active to clicked option
+            this.classList.add('active');
         });
+    });
+
+    // Search input handler
+    const searchInput = document.getElementById('genreSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', searchOnTypingListener);
     }
 
-    // Button handlers
+    // Help and Source button handlers
     const helpButton = document.getElementById('helpButton');
     const sourceButton = document.getElementById('sourceButton');
     
     if (helpButton) {
         helpButton.addEventListener('click', function() {
-            chrome.tabs.create({url: 'https://www.github.com/jeed2424/EndlessFlix'});
+            browserType.tabs.create({ url: 'https://www.github.com/jeed2424/EndlessFlix' });
         });
     }
     
     if (sourceButton) {
         sourceButton.addEventListener('click', function() {
-            chrome.tabs.create({url: 'https://www.github.com/jeed2424/EndlessFlix'});
+            browserType.tabs.create({ url: 'https://www.github.com/jeed2424/EndlessFlix' });
         });
     }
 }
 
+// Handle option changes
 function changeOption(elem) {
-    const isChecked = elem.classList.contains('checked');
+    const optionName = elem.getAttribute('data-option');
+    const isCurrentlyChecked = elem.classList.contains('checked');
+    const newState = !isCurrentlyChecked;
     
-    switch (elem.id) {
-        case "chkTitleSequence":
-            options.skipTitleSequence = isChecked;
-            break;
-        case "chkPlayNext":
-            options.autoPlayNext = isChecked;
-            if (options.autoPlayNext && options.watchCredits) {
-                options.watchCredits = false;
-                setCheckboxState('chkWatchCredits', false);
-            }
-            break;
-        case "chkPromptStillHere":
-            options.skipStillHere = isChecked;
-            break;
-        case "chkDisAutoPlayInBrowse":
-            options.disableAutoPlayOnBrowse = isChecked;
-            break;
-        case "chkDontMinimzeEndCreditsOfShow":
-            options.dontMinimzeEndCreditsOfShow = isChecked;
-            break;
-        case "chkWatchCredits":
-            options.watchCredits = isChecked;
-            if (options.autoPlayNext && options.watchCredits) {
-                options.autoPlayNext = false;
-                setCheckboxState('chkPlayNext', false);
-            }
-            break;
-        case "chkHideDownvoted":
-            options.hideDisliked = isChecked;
-            break;
+    // Update the global options object first
+    const optionMap = {
+        'skipTitleSequences': 'skipTitleSequence',
+        'autoPlayNext': 'autoPlayNext',
+        'alwaysWatchCredits': 'watchCredits',
+        'hidePromotedVideos': 'disableAutoPlayOnBrowse',
+        'dontPromptStillThere': 'skipStillHere',
+        'dontMinimizeEndCredits': 'dontMinimzeEndCreditsOfShow',
+        'hideDownvotedContent': 'hideDisliked'
+    };
+    
+    const mappedName = optionMap[optionName] || optionName;
+    
+    // Handle mutual exclusivity - ONLY when ENABLING (checking) an option
+    if (mappedName === 'autoPlayNext' && newState === true) {
+        options.autoPlayNext = true;
+        if (options.watchCredits === true) {
+            options.watchCredits = false;
+            setCheckboxState('alwaysWatchCredits', false);
+        }
+    } else if (mappedName === 'watchCredits' && newState === true) {
+        options.watchCredits = true;
+        if (options.autoPlayNext === true) {
+            options.autoPlayNext = false;
+            setCheckboxState('autoPlayNext', false);
+        }
+    } else {
+        // For all other cases (including disabling), just update the option normally
+        options[mappedName] = newState;
     }
+    
+    // Set the visual state of the clicked checkbox to match the options value
+    setCheckboxState(optionName, options[mappedName]);
+    
+    // Save options
     saveOptions();
 }
 
-function constructResultDiv(elem) {
-    return `<div class='entry'><a href="${elem.link}">${elem.genre}</a></div>`;
+// Save options with error handling - matches original storage structure
+function saveOptions() {
+    try {
+        // Save to browser storage using the same structure as original
+        browserType.storage.sync.set({ 'options': options }, function() {
+            if (browserType.runtime.lastError) {
+                console.warn('Error saving options:', browserType.runtime.lastError);
+                return;
+            }
+            
+            console.log('Options saved:', options);
+            
+            // Send options to other parts of extension with safe error handling
+            safeSendOptions(options);
+        });
+    } catch (error) {
+        console.error('Error in saveOptions:', error);
+    }
 }
 
+// Helper function to handle sendOptions errors
+function handleSendOptionsError(error) {
+    if (error && (
+        (error.message && error.message.includes('Could not establish connection')) ||
+        (error.message && error.message.includes('Receiving end does not exist')) ||
+        error.toString().includes('Could not establish connection') ||
+        error.toString().includes('Receiving end does not exist')
+    )) {
+        console.log('Extension content scripts not available - options saved locally');
+    } else {
+        console.warn('Error sending options:', error);
+    }
+}
+
+// Safe wrapper for sendOptions that handles all possible errors
+async function safeSendOptions(options) {
+    if (typeof sendOptions !== 'function') {
+        return;
+    }
+    
+    try {
+        // Wrap in Promise to catch any async errors
+        await new Promise((resolve, reject) => {
+            try {
+                sendOptions(options);
+                
+                // Check for immediate runtime errors
+                if (browserType.runtime.lastError) {
+                    reject(browserType.runtime.lastError);
+                    return;
+                }
+                
+                // Give time for async errors to surface
+                setTimeout(() => {
+                    if (browserType.runtime.lastError) {
+                        reject(browserType.runtime.lastError);
+                    } else {
+                        resolve();
+                    }
+                }, 100);
+                
+            } catch (syncError) {
+                reject(syncError);
+            }
+        });
+        
+    } catch (error) {
+        handleSendOptionsError(error);
+    }
+}
+
+// Genre search functionality
+let fuse;
+let genreData = [];
+
 function reloadSearchLibrary() {
-    fetch(chrome.runtime.getURL("data/genres.json"))
+    fetch(browserType.runtime.getURL('../data/genres.json'))
         .then(response => response.json())
         .then(data => {
-            let fuseOptions = {
-                shouldSort: true,
-                threshold: 0.6,
-                location: 0,
-                distance: 100,
-                maxPatternLength: 32,
-                minMatchCharLength: 1,
-                keys: ["genre"]
-            };
-            fuse = new Fuse(data, fuseOptions);
+            genreData = data;
+            fuse = new Fuse(genreData, {
+                keys: ['name'],
+                threshold: 0.3,
+                includeScore: true
+            });
         })
         .catch(error => {
-            console.error('Error loading genres:', error);
+            console.warn('Could not load genres.json:', error);
         });
 }
 
 function searchOnTypingListener() {
-    const genreSearch = document.getElementById('genreSearch');
-    const results = document.getElementById('results');
+    const searchInput = document.getElementById('genreSearch');
+    const resultsContainer = document.getElementById('searchResults');
     
-    if (!genreSearch || !results) return;
+    if (!searchInput || !resultsContainer || !fuse) return;
     
-    genreSearch.addEventListener('keyup', function() {
-        results.innerHTML = "";
-        
-        if (this.value.trim() === '') {
-            results.classList.add('hide');
-            return;
-        }
-        
-        if (fuse) {
-            let searchResults = fuse.search(this.value);
-            if (searchResults.length) {
-                let max = searchResults.length < 100 ? searchResults.length : 100;
-                let entry = "";
-                for (let i = 0; i < max; i++) {
-                    entry += constructResultDiv(searchResults[i]);
-                }
-                results.innerHTML = entry;
-                results.classList.remove('hide');
-            } else {
-                results.classList.add('hide');
-            }
-        } else {
-            results.innerHTML = "<div class='entry'>Genres not loaded! Contact developer if issue persists.</div>";
-            results.classList.remove('hide');
-        }
+    const query = searchInput.value.trim();
+    
+    if (query.length === 0) {
+        resultsContainer.style.display = 'none';
+        resultsContainer.innerHTML = '';
+        return;
+    }
+    
+    const results = fuse.search(query);
+    
+    if (results.length === 0) {
+        resultsContainer.style.display = 'none';
+        resultsContainer.innerHTML = '';
+        return;
+    }
+    
+    // Display results
+    resultsContainer.innerHTML = '';
+    results.slice(0, 5).forEach(result => {
+        const item = document.createElement('div');
+        item.className = 'search-result-item';
+        item.textContent = result.item.name;
+        item.addEventListener('click', function() {
+            searchInput.value = result.item.name;
+            resultsContainer.style.display = 'none';
+        });
+        resultsContainer.appendChild(item);
     });
-
-    // Hide results when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!genreSearch.contains(e.target) && !results.contains(e.target)) {
-            results.classList.add('hide');
-        }
-    });
+    
+    resultsContainer.style.display = 'block';
 }
 
-function saveOptions() {
-    console.log('Saving options:', options);
-    chrome.storage.sync.set({
-        'options': options
-    }, () => {
-        sendOptions(options);
-    });
-}
+// Hide search results when clicking outside
+document.addEventListener('click', function(event) {
+    const searchContainer = document.querySelector('.search-container');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (searchContainer && resultsContainer && !searchContainer.contains(event.target)) {
+        resultsContainer.style.display = 'none';
+    }
+});
