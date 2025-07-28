@@ -95,6 +95,12 @@ function startMonitoringForSelectors(selectors, numTries) {
 }
 
 function startHelper() {
+
+  if (options.extensionEnabled === false) {
+    console.log('EndlessFlix is disabled - no modifications applied');
+    return;
+  }
+  
   let selectors = [];
 
   if (options.skipTitleSequence) {
