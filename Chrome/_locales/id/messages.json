@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Tidak Pernah Mengakhiri Netflix"
-  },
-  "manifest_description": {
-    "message": "Putar episode berikutnya secara otomatis, lewati urutan judul, lewati \"Anda masih menonton?\" meminta, dan cari lebih dari 3000 genre!"
-  },
-  "skipTitleSequences": {
-    "message": "Lewati Urutan Judul"
-  },
-  "autoPlayNext": {
-    "message": "Putar Episode Berikutnya secara otomatis"
-  },
-  "alwaysWatchCredits": {
-    "message": "Selalu Perhatikan Kredit"
-  },
-  "hideAutoPlayVid": {
-    "message": "Sembunyikan Putar Otomatis Video yang Dipromosikan"
-  },
-  "dontPromptStillWatching": {
-    "message": "Don't Prompt \"Apakah kamu masih menonton?\""
-  },
-  "hideDownvoted": {
-    "message": "Sembunyikan Konten yang Diturunkan"
-  },
-  "support": {
-    "message": "Mendukung"
-  },
-  "highContrast": {
-    "message": "Mode Kontras Tinggi"
-  },
-  "genreSearch": {
-    "message": "Pencarian Genre"
-  },
-  "sourceCode": {
-    "message": "Kode sumber"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Judul aplikasi yang ditampilkan di toko web." },
+                "manifest_description": { "message": "Otomatis memutar episode berikutnya, melewati urutan judul, melewati pesan \"Masih menonton?\", dan mencari di lebih dari 3000 genre!", "description": "Deskripsi aplikasi yang ditampilkan di toko web." },
+                "skipTitleSequences": { "message": "Lewati Urutan Judul", "description": "" },
+                "autoPlayNext": { "message": "Putar Episode Berikutnya Otomatis", "description": "Teks untuk opsi memutar episode berikutnya secara otomatis" },
+                "alwaysWatchCredits": { "message": "Selalu Tonton Kredit", "description": "Teks untuk opsi selalu menonton kredit" },
+                "hideAutoPlayVid": { "message": "Sembunyikan Video Promosi", "description": "Teks untuk opsi menyembunyikan video promosi yang diputar otomatis di halaman beranda Netflix" },
+                "dontPromptStillWatching": { "message": "Jangan Tanya \"Masih Di Sana?\"", "description": "Teks untuk opsi tidak menanyakan apakah masih menonton setelah 8 jam berlalu" },
+                "hideDownvoted": { "message": "Sembunyikan Konten dengan Suara Negatif", "description": "Teks untuk opsi menyembunyikan konten dengan suara negatif" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Jangan Minimalkan Kredit Akhir", "description": "Teks untuk opsi tidak meminimalkan kredit akhir konten acara" },
+                "support": { "message": "Dukungan", "description": "Teks dengan tautan ke situs web saya, untuk dukungan" },
+                "genreSearch": { "message": "Pencarian Genre", "description": "Teks placeholder untuk mencari genre" },
+                "sourceButton": { "message": "Kode Sumber", "description": "Kode sumber asli yang dipublikasikan di GitHub untuk ekstensi ini" },
+                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }
+            }

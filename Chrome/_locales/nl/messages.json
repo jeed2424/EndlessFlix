@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Nooit Netflix beëindigen"
-  },
-  "manifest_description": {
-    "message": "Speel automatisch de volgende aflevering, sla titellquenties over, sla \"Bekijk je nog steeds?\" prompts en zoek in meer dan 3000 genres!"
-  },
-  "skipTitleSequences": {
-    "message": "Titelvolgorde overslaan"
-  },
-  "autoPlayNext": {
-    "message": "Speel automatisch de volgende aflevering af"
-  },
-  "alwaysWatchCredits": {
-    "message": "Let altijd op Credits"
-  },
-  "hideAutoPlayVid": {
-    "message": "Verberg Auto gesponsorde video's afspelen"
-  },
-  "dontPromptStillWatching": {
-    "message": "Niet vragen \"Bekijk je nog steeds?\""
-  },
-  "hideDownvoted": {
-    "message": "Verberg gestemde inhoud"
-  },
-  "support": {
-    "message": "Ondersteuning"
-  },
-  "highContrast": {
-    "message": "Hoge contrastmodus"
-  },
-  "genreSearch": {
-    "message": "Genre zoeken"
-  },
-  "sourceCode": {
-    "message": "Broncode"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "De titel van de applicatie, weergegeven in de webwinkel." },
+                "manifest_description": { "message": "Speelt automatisch de volgende aflevering af, slaat titelsequenties over, slaat \"Kijk je nog steeds?\" prompts over, en zoekt in meer dan 3000 genres!", "description": "De beschrijving van de applicatie, weergegeven in de webwinkel." },
+                "skipTitleSequences": { "message": "Titelsequenties Overslaan", "description": "" },
+                "autoPlayNext": { "message": "Volgende Aflevering Automatisch Afspelen", "description": "Tekst voor de optie om de volgende aflevering automatisch af te spelen" },
+                "alwaysWatchCredits": { "message": "Altijd Credits Bekijken", "description": "Tekst voor de optie om altijd credits te bekijken" },
+                "hideAutoPlayVid": { "message": "Promotievideo's Verbergen", "description": "Tekst voor de optie om automatisch afspelende promotievideo's op de Netflix-startpagina te verbergen" },
+                "dontPromptStillWatching": { "message": "Niet Vragen \"Ben Je Er Nog?\"", "description": "Tekst voor de optie om niet te vragen of je nog steeds kijkt na 8 uur" },
+                "hideDownvoted": { "message": "Negatief Beoordeelde Inhoud Verbergen", "description": "Tekst voor de optie om negatief beoordeelde inhoud te verbergen" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Eindcredits Niet Minimaliseren", "description": "Tekst voor de optie om de eindcredits van programma-inhoud niet te minimaliseren" },
+                "support": { "message": "Ondersteuning", "description": "Tekst met link naar mijn website, voor ondersteuning" },
+                "genreSearch": { "message": "Genre Zoeken", "description": "Plaatshouder tekst voor het zoeken van een genre" },
+                "sourceButton": { "message": "Broncode", "description": "Originele broncode gepubliceerd op GitHub voor deze extensie" },
+                "helpButton": { "message": "Help", "description": "Hulp vragen" }
+            }

@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Älä koskaan lopeta Netflixiä"
-  },
-  "manifest_description": {
-    "message": "Toista automaattisesti seuraava jakso, ohita otsikkosarjat, ohita \"Oletko edelleen katsomassa?\" ohjeita ja etsi yli 3000 lajityyppiä!"
-  },
-  "skipTitleSequences": {
-    "message": "Ohita otsikkosekvenssit"
-  },
-  "autoPlayNext": {
-    "message": "Toista automaattisesti seuraava jakso"
-  },
-  "alwaysWatchCredits": {
-    "message": "Katso aina luottoja"
-  },
-  "hideAutoPlayVid": {
-    "message": "Piilota suosittujen videoiden toistaminen"
-  },
-  "dontPromptStillWatching": {
-    "message": "Älä pyydä \"Katsotko vielä?\""
-  },
-  "hideDownvoted": {
-    "message": "Piilota alaspäin siirretty sisältö"
-  },
-  "support": {
-    "message": "Tuki"
-  },
-  "highContrast": {
-    "message": "Korkea kontrasti-tila"
-  },
-  "genreSearch": {
-    "message": "Genre Search"
-  },
-  "sourceCode": {
-    "message": "Lähdekoodi"
+    "manifest_name": {
+      "message": "EndlessFlix",
+      "description": "Sovelluksen otsikko, joka näkyy verkkokaupassa."
+    },
+    "manifest_description": {
+      "message": "Toistaa automaattisesti seuraavan jakson, ohittaa nimiketekstit, ohittaa \"Katsotko vielä?\" -viestit ja hakee yli 3000 lajityypistä!",
+      "description": "Sovelluksen kuvaus, joka näkyy verkkokaupassa."
+    },
+    "skipTitleSequences": {
+      "message": "Ohita Nimiketekstit",
+      "description": ""
+    },
+    "autoPlayNext": {
+      "message": "Toista Seuraava Jakso Automaattisesti",
+      "description": "Teksti seuraavan jakson automaattisen toiston vaihtoehdolle"
+    },
+    "alwaysWatchCredits": {
+      "message": "Katso Aina Lopputekstit",
+      "description": "Teksti lopputekstien aina katsomisen vaihtoehdolle"
+    },
+    "hideAutoPlayVid": {
+      "message": "Piilota Mainosvideot",
+      "description": "Teksti Netflixin etusivulla automaattisesti toistuvien mainosvideoiden piilottamisen vaihtoehdolle"
+    },
+    "dontPromptStillWatching": {
+      "message": "Älä Kysy \"Katsotko Vielä?\"",
+      "description": "Teksti vaihtoehdolle olla kysymättä katsotko vielä 8 tunnin kuluttua"
+    },
+    "hideDownvoted": {
+      "message": "Piilota Alaäänestetty Sisältö",
+      "description": "Teksti alaäänestetyn sisällön piilottamisen vaihtoehdolle"
+    },
+    "dontMinimzeEndCreditsOfShow": {
+      "message": "Älä Pienennä Lopputekstejä",
+      "description": "Teksti ohjelman sisällön lopputekstien pienentämättä jättämisen vaihtoehdolle"
+    },
+    "support": {
+      "message": "Tuki",
+      "description": "Teksti linkillä verkkosivulleni, tukea varten"
+    },
+    "genreSearch": {
+      "message": "Lajityyppihaku",
+      "description": "Paikkamerkkiteksti lajityypin hakua varten"
+    },
+    "sourceButton": {
+      "message": "Lähdekoodi",
+      "description": "Alkuperäinen lähdekoodi julkaistu GitHubissa tälle laajennukselle"
+    },
+    "helpButton": {
+      "message": "Apua",
+      "description": "Pyydä apua"
+    }
   }
-}

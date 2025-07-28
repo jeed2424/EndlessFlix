@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Soha nem zárja le a Netflix-et"
-  },
-  "manifest_description": {
-    "message": "Automatikusan lejátssza a következő epizódot, hagyja ki a címsorozatokat, hagyja ki a \"Még mindig figyel?\" kéri, és keressen több mint 3000 műfajot!"
-  },
-  "skipTitleSequences": {
-    "message": "Ugrás a cím sorozatokra"
-  },
-  "autoPlayNext": {
-    "message": "A következő epizód automatikus lejátszása"
-  },
-  "alwaysWatchCredits": {
-    "message": "Mindig nézz krediteket"
-  },
-  "hideAutoPlayVid": {
-    "message": "Az előléptetett videók automatikus lejátszása elrejtése"
-  },
-  "dontPromptStillWatching": {
-    "message": "Ne kérjen \"Még mindig figyel?\""
-  },
-  "hideDownvoted": {
-    "message": "Elrejtett tartalom elrejtése"
-  },
-  "support": {
-    "message": "Támogatás"
-  },
-  "highContrast": {
-    "message": "Nagy kontraszt mód"
-  },
-  "genreSearch": {
-    "message": "Műfaj keresés"
-  },
-  "sourceCode": {
-    "message": "Forráskód"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Az alkalmazás címe, amely megjelenik a webáruházban." },
+                "manifest_description": { "message": "Automatikusan lejátssza a következő epizódot, átugorja a címszekvenciákat, átugorja a \"Még mindig nézi?\" üzeneteket, és több mint 3000 műfajban keres!", "description": "Az alkalmazás leírása, amely megjelenik a webáruházban." },
+                "skipTitleSequences": { "message": "Címszekvenciák Átugrása", "description": "" },
+                "autoPlayNext": { "message": "Következő Epizód Automatikus Lejátszása", "description": "Szöveg a következő epizód automatikus lejátszása opcióhoz" },
+                "alwaysWatchCredits": { "message": "Mindig Nézze a Stáblistát", "description": "Szöveg a stáblista mindig nézése opcióhoz" },
+                "hideAutoPlayVid": { "message": "Promóciós Videók Elrejtése", "description": "Szöveg a Netflix főoldalon automatikusan lejátszódó promóciós videók elrejtése opcióhoz" },
+                "dontPromptStillWatching": { "message": "Ne Kérdezze \"Még Mindig Ott Van?\"", "description": "Szöveg az opcióhoz, hogy ne kérdezze, még mindig nézi-e 8 óra eltelte után" },
+                "hideDownvoted": { "message": "Negatívan Értékelt Tartalom Elrejtése", "description": "Szöveg a negatívan értékelt tartalom elrejtése opcióhoz" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Ne Kicsinyítse a Záró Stáblistát", "description": "Szöveg az opcióhoz, hogy ne kicsinyítse a műsor tartalmának záró stáblistáját" },
+                "support": { "message": "Támogatás", "description": "Szöveg az én webhelyemre mutató linkkel, támogatásért" },
+                "genreSearch": { "message": "Műfaj Keresés", "description": "Helyőrző szöveg egy műfaj keresésére" },
+                "sourceButton": { "message": "Forráskód", "description": "Eredeti forráskód publikálva a GitHubon ehhez a bővítményhez" },
+                "helpButton": { "message": "Segítség", "description": "Segítség kérése" }
+            }

@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Aldri slutter Netflix"
-  },
-  "manifest_description": {
-    "message": "Spill automatisk neste episode, hopp over tittelsekvenser, hopp over \"Ser du fortsatt?\" spør, og søk over 3000 sjangere!"
-  },
-  "skipTitleSequences": {
-    "message": "Hopp over tittelsekvenser"
-  },
-  "autoPlayNext": {
-    "message": "Spill automatisk neste episode automatisk"
-  },
-  "alwaysWatchCredits": {
-    "message": "Se alltid på kreditt"
-  },
-  "hideAutoPlayVid": {
-    "message": "Skjul Auto Playing Promoted Videos"
-  },
-  "dontPromptStillWatching": {
-    "message": "Ikke spør \"Ser du fortsatt?\""
-  },
-  "hideDownvoted": {
-    "message": "Skjul nedvurdert innhold"
-  },
-  "support": {
-    "message": "Brukerstøtte"
-  },
-  "highContrast": {
-    "message": "Høy kontrastmodus"
-  },
-  "genreSearch": {
-    "message": "Genre søk"
-  },
-  "sourceCode": {
-    "message": "Kildekode"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Applikasjonens tittel, vist i nettbutikken." },
+                "manifest_description": { "message": "Spiller automatisk neste episode, hopper over tittelsekvenser, hopper over \"Ser du fortsatt?\" meldinger, og søker i over 3000 sjangre!", "description": "Applikasjonens beskrivelse, vist i nettbutikken." },
+                "skipTitleSequences": { "message": "Hopp Over Tittelsekvenser", "description": "" },
+                "autoPlayNext": { "message": "Spill Neste Episode Automatisk", "description": "Tekst for alternativet å automatisk spille neste episode" },
+                "alwaysWatchCredits": { "message": "Se Alltid Rulletekster", "description": "Tekst for alternativet å alltid se rulletekster" },
+                "hideAutoPlayVid": { "message": "Skjul Reklamevideoer", "description": "Tekst for alternativet å skjule automatisk spillende reklamevideoer på Netflix hjemmeside" },
+                "dontPromptStillWatching": { "message": "Ikke Spør \"Er Du Fortsatt Der?\"", "description": "Tekst for alternativet å ikke spørre om du fortsatt ser etter 8 timer" },
+                "hideDownvoted": { "message": "Skjul Negativt Vurdert Innhold", "description": "Tekst for alternativet å skjule negativt vurdert innhold" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Ikke Minimer Sluttekster", "description": "Tekst for alternativet å ikke minimere sluttekster for programinnhold" },
+                "support": { "message": "Støtte", "description": "Tekst med lenke til min nettside, for støtte" },
+                "genreSearch": { "message": "Sjangersøk", "description": "Plassholdertekst for søking etter en sjanger" },
+                "sourceButton": { "message": "Kildekode", "description": "Original kildekode publisert på GitHub for denne utvidelsen" },
+                "helpButton": { "message": "Hjelp", "description": "Be om hjelp" }
+            }

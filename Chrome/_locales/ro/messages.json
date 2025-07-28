@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Nu se încheie niciodată Netflix"
-  },
-  "manifest_description": {
-    "message": "Redați automat episodul următor, săriți secvențe de titluri, săriți \"Încă mai urmărești?\" solicită și căutați peste 3000 de genuri!"
-  },
-  "skipTitleSequences": {
-    "message": "Ștergeți secvențele din titlu"
-  },
-  "autoPlayNext": {
-    "message": "Redați automat Episodul următor"
-  },
-  "alwaysWatchCredits": {
-    "message": "Vizionați întotdeauna creditele"
-  },
-  "hideAutoPlayVid": {
-    "message": "Ascundeți redarea automată a videoclipurilor promovate"
-  },
-  "dontPromptStillWatching": {
-    "message": "Nu promovați \"Încă mai urmăriți?\""
-  },
-  "hideDownvoted": {
-    "message": "Ascundeți Conținutul cu valoare inferioară"
-  },
-  "support": {
-    "message": "A sustine"
-  },
-  "highContrast": {
-    "message": "Mod de contrast înalt"
-  },
-  "genreSearch": {
-    "message": "Căutarea genului"
-  },
-  "sourceCode": {
-    "message": "Cod sursa"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Titlul aplicației afișat în magazinul web." },
+                "manifest_description": { "message": "Redă automat următorul episod, omite secvențele de titlu, omite mesajele \"Încă urmăriți?\", și caută în peste 3000 de genuri!", "description": "Descrierea aplicației afișată în magazinul web." },
+                "skipTitleSequences": { "message": "Omite Secvențele de Titlu", "description": "" },
+                "autoPlayNext": { "message": "Redă Automat Următorul Episod", "description": "Text pentru opțiunea de redare automată a următorului episod" },
+                "alwaysWatchCredits": { "message": "Urmărește Întotdeauna Genericul", "description": "Text pentru opțiunea de urmărire întotdeauna a genericului" },
+                "hideAutoPlayVid": { "message": "Ascunde Videoclipurile Promoționale", "description": "Text pentru opțiunea de ascundere a videoclipurilor promoționale care se redau automat pe pagina principală Netflix" },
+                "dontPromptStillWatching": { "message": "Nu Întreba \"Încă Sunteți Acolo?\"", "description": "Text pentru opțiunea de a nu întreba dacă încă urmăriți după 8 ore" },
+                "hideDownvoted": { "message": "Ascunde Conținutul Votat Negativ", "description": "Text pentru opțiunea de ascundere a conținutului votat negativ" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Nu Minimiza Genericul Final", "description": "Text pentru opțiunea de a nu minimiza genericul final al conținutului emisiunii" },
+                "support": { "message": "Suport", "description": "Text cu link către website-ul meu, pentru suport" },
+                "genreSearch": { "message": "Căutare Gen", "description": "Text placeholder pentru căutarea unui gen" },
+                "sourceButton": { "message": "Cod Sursă", "description": "Codul sursă original publicat pe GitHub pentru această extensie" },
+                "helpButton": { "message": "Ajutor", "description": "Solicită ajutor" }
+            }

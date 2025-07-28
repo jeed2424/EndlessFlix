@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Nekad nebeidziet Netflix"
-  },
-  "manifest_description": {
-    "message": "Automātiski atskaņot nākamo epizodi, izlaidiet nosaukumu sekvences, izlaidiet \"Vai jūs joprojām skatāties?\" uzvedne un meklēt vairāk nekā 3000 žanru!"
-  },
-  "skipTitleSequences": {
-    "message": "Izlaist nosaukuma secības"
-  },
-  "autoPlayNext": {
-    "message": "Automātiski atskaņot nākamo epizodi"
-  },
-  "alwaysWatchCredits": {
-    "message": "Vienmēr skatiet kredītus"
-  },
-  "hideAutoPlayVid": {
-    "message": "Paslēpt reklamēto videoklipu automātisko atskaņošanu"
-  },
-  "dontPromptStillWatching": {
-    "message": "Nepieprasiet \"Vai jūs joprojām skatāties?\""
-  },
-  "hideDownvoted": {
-    "message": "Slēpt lejupvērstu saturu"
-  },
-  "support": {
-    "message": "Atbalsts"
-  },
-  "highContrast": {
-    "message": "Augsta kontrasta režīms"
-  },
-  "genreSearch": {
-    "message": "Žanra meklēšana"
-  },
-  "sourceCode": {
-    "message": "Avota kods"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Lietotnes nosaukums, kas tiek rādīts tīmekļa veikalā." },
+                "manifest_description": { "message": "Automātiski atskaņo nākamo epizodi, izlaiž virsrakstu secības, izlaiž \"Vai jūs vēl skatāties?\" uzvednes un meklē vairāk nekā 3000 žanros!", "description": "Lietotnes apraksts, kas tiek rādīts tīmekļa veikalā." },
+                "skipTitleSequences": { "message": "Izlaist Virsrakstu Secības", "description": "" },
+                "autoPlayNext": { "message": "Automātiski Atskaņot Nākamo Epizodi", "description": "Teksts nākamās epizodes automātiskas atskaņošanas opcijai" },
+                "alwaysWatchCredits": { "message": "Vienmēr Skatīties Titrus", "description": "Teksts vienmēr skatīties titrus opcijai" },
+                "hideAutoPlayVid": { "message": "Paslēpt Reklāmas Video", "description": "Teksts automātiski atskaņojamo reklāmas video paslēpšanas Netflix mājas lapā opcijai" },
+                "dontPromptStillWatching": { "message": "Nejautāt \"Vai Jūs Vēl Esat Tur?\"", "description": "Teksts opcijai nejautāt, vai jūs vēl skatāties pēc 8 stundām" },
+                "hideDownvoted": { "message": "Paslēpt Negatīvi Novērtētu Saturu", "description": "Teksts negatīvi novērtēta satura paslēpšanas opcijai" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Neminimizēt Beigu Titrus", "description": "Teksts programmas satura beigu titru neminimizēšanas opcijai" },
+                "support": { "message": "Atbalsts", "description": "Teksts ar saiti uz manu vietni atbalstam" },
+                "genreSearch": { "message": "Žanru Meklēšana", "description": "Viettura teksts žanra meklēšanai" },
+                "sourceButton": { "message": "Pirmkods", "description": "Oriģinālais pirmkods publicēts GitHub šim paplašinājumam" },
+                "helpButton": { "message": "Palīdzība", "description": "Pieprasīt palīdzību" }
+            }

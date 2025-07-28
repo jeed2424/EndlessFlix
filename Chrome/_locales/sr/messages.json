@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Невер Ендинг Нетфлик"
-  },
-  "manifest_description": {
-    "message": "Аутоматски репродукујте следећу епизоду, прескочите секвенце наслова, прескочите \"Да ли још увек гледате?\" тражи и тражи преко 3000 жанрова!"
-  },
-  "skipTitleSequences": {
-    "message": "Прескочи секвенце наслова"
-  },
-  "autoPlayNext": {
-    "message": "Аутоматски репродуцирај следећу епизоду"
-  },
-  "alwaysWatchCredits": {
-    "message": "Увек гледај кредите"
-  },
-  "hideAutoPlayVid": {
-    "message": "Сакриј аутоматско репродуковање промовисаних видеозаписа"
-  },
-  "dontPromptStillWatching": {
-    "message": "Не питајте \"Да ли још увек гледате?\""
-  },
-  "hideDownvoted": {
-    "message": "Хиде Довнвотед Цонтент"
-  },
-  "support": {
-    "message": "Подршка"
-  },
-  "highContrast": {
-    "message": "Режим високог контраста"
-  },
-  "genreSearch": {
-    "message": "Сеарцх Генре"
-  },
-  "sourceCode": {
-    "message": "Изворни код"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Назив апликације приказан у веб продавници." },
+                "manifest_description": { "message": "Аутоматски пушта следећу епизоду, прескаче секвенце наслова, прескаче поруке \"Да ли још увек гледате?\", и претражује преко 3000 жанрова!", "description": "Опис апликације приказан у веб продавници." },
+                "skipTitleSequences": { "message": "Прескочи Секвенце Наслова", "description": "" },
+                "autoPlayNext": { "message": "Аутоматски Пусти Следећу Епизоду", "description": "Текст за опцију аутоматског пуштања следеће епизоде" },
+                "alwaysWatchCredits": { "message": "Увек Гледај Завршне Титлове", "description": "Текст за опцију увек гледања завршних титлова" },
+                "hideAutoPlayVid": { "message": "Сакриј Промотивне Видео Снимке", "description": "Текст за опцију сакривања аутоматски пуштаних промотивних видео снимака на Netflix почетној страници" },
+                "dontPromptStillWatching": { "message": "Не Питај \"Да ли сте још ту?\"", "description": "Текст за опцију да се не пита да ли још увек гледате након 8 сати" },
+                "hideDownvoted": { "message": "Сакриј Негативно Оцењен Садржај", "description": "Текст за опцију сакривања негативно оцењеног садржаја" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Не Минимизуј Завршне Титлове", "description": "Текст за опцију да се не минимизују завршни титлови садржаја емисије" },
+                "support": { "message": "Подршка", "description": "Текст са везом до мог веб сајта, за подршку" },
+                "genreSearch": { "message": "Претрага Жанрова", "description": "Заменски текст за претрагу жанра" },
+                "sourceButton": { "message": "Изворни Код", "description": "Оригинални изворни код објављен на GitHub за ову екстензију" },
+                "helpButton": { "message": "Помоћ", "description": "Затражи помоћ" }
+            }

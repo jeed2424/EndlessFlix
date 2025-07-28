@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "नेटफ्लिक्स को कभी समाप्त न करें"
-  },
-  "manifest_description": {
-    "message": "स्वचालित रूप से अगला एपिसोड चलाएं, शीर्षक अनुक्रम छोड़ें, छोड़ें \"क्या आप अभी भी देख रहे हैं?\" संकेत देता है, और 3000 से अधिक शैलियों की खोज!"
-  },
-  "skipTitleSequences": {
-    "message": "शीर्षक अनुक्रम छोड़ें"
-  },
-  "autoPlayNext": {
-    "message": "स्वचालित रूप से अगला एपिसोड खेलें"
-  },
-  "alwaysWatchCredits": {
-    "message": "हमेशा वॉच क्रेडिट"
-  },
-  "hideAutoPlayVid": {
-    "message": "छिपाएँ ऑटो प्लेइंग प्रचारित वीडियो"
-  },
-  "dontPromptStillWatching": {
-    "message": "शीघ्र मत करो \"क्या आप अभी भी देख रहे हैं?\""
-  },
-  "hideDownvoted": {
-    "message": "नीचे की ओर छिपी हुई सामग्री छिपाएँ"
-  },
-  "support": {
-    "message": "समर्थन"
-  },
-  "highContrast": {
-    "message": "उच्च कंट्रास्ट मोड"
-  },
-  "genreSearch": {
-    "message": "शैली खोज"
-  },
-  "sourceCode": {
-    "message": "सोर्स कोड"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "एप्लिकेशन का शीर्षक, वेब स्टोर में दिखाया गया।" },
+                "manifest_description": { "message": "अगला एपिसोड अपने आप चलाता है, शीर्षक अनुक्रम छोड़ता है, \"क्या आप अभी भी देख रहे हैं?\" संकेत छोड़ता है, और 3000+ शैलियों में खोजता है!", "description": "एप्लिकेशन का विवरण, वेब स्टोर में दिखाया गया।" },
+                "skipTitleSequences": { "message": "शीर्षक अनुक्रम छोड़ें", "description": "" },
+                "autoPlayNext": { "message": "अगला एपिसोड अपने आप चलाएं", "description": "अगला एपिसोड अपने आप चलाने के विकल्प का टेक्स्ट" },
+                "alwaysWatchCredits": { "message": "हमेशा क्रेडिट देखें", "description": "हमेशा क्रेडिट देखने के विकल्प का टेक्स्ट" },
+                "hideAutoPlayVid": { "message": "प्रचारक वीडियो छुपाएं", "description": "Netflix होम पेज पर अपने आप चलने वाले प्रचारक वीडियो छुपाने के विकल्प का टेक्स्ट" },
+                "dontPromptStillWatching": { "message": "\"क्या आप अभी भी यहाँ हैं?\" न पूछें", "description": "8 घंटे बाद अभी भी देख रहे हैं या नहीं न पूछने के विकल्प का टेक्स्ट" },
+                "hideDownvoted": { "message": "नकारात्मक वोट वाली सामग्री छुपाएं", "description": "नकारात्मक वोट वाली सामग्री छुपाने के विकल्प का टेक्स्ट" },
+                "dontMinimzeEndCreditsOfShow": { "message": "अंतिम क्रेडिट छोटे न करें", "description": "शो सामग्री के अंतिम क्रेडिट छोटे न करने के विकल्प का टेक्स्ट" },
+                "support": { "message": "सहायता", "description": "सहायता के लिए मेरी वेबसाइट का लिंक वाला टेक्स्ट" },
+                "genreSearch": { "message": "शैली खोज", "description": "एक शैली खोजने के लिए प्लेसहोल्डर टेक्स्ट" },
+                "sourceButton": { "message": "स्रोत कोड", "description": "इस एक्सटेंशन के लिए GitHub पर प्रकाशित मूल स्रोत कोड" },
+                "helpButton": { "message": "सहायता", "description": "सहायता का अनुरोध" }
+            }

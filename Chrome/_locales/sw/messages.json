@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Kamwe Kumalizika Netflix"
-  },
-  "manifest_description": {
-    "message": "Furahia tukio la pili kwa moja kwa moja, ruka ufuatiliaji wa kichwa, ruka \"Je, bado unaangalia?\" husababisha, na kutafuta zaidi ya aina 3,000!"
-  },
-  "skipTitleSequences": {
-    "message": "Ruka Kichwa cha Utaratibu"
-  },
-  "autoPlayNext": {
-    "message": "Jaribu Kipindi cha Ijayo kwa moja kwa moja"
-  },
-  "alwaysWatchCredits": {
-    "message": "Tazama Credits Zote"
-  },
-  "hideAutoPlayVid": {
-    "message": "Ficha Auto kucheza Video Kukuzwa"
-  },
-  "dontPromptStillWatching": {
-    "message": "Usiruhusu \"Je, bado unaangalia?\""
-  },
-  "hideDownvoted": {
-    "message": "Ficha Maudhui yaliyopunguzwa"
-  },
-  "support": {
-    "message": "Msaada"
-  },
-  "highContrast": {
-    "message": "Njia ya Tofauti ya Juu"
-  },
-  "genreSearch": {
-    "message": "Utafutaji wa aina"
-  },
-  "sourceCode": {
-    "message": "Chanzo Kanuni"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Kichwa cha programu kinachoonyeshwa katika duka la wavuti." },
+                "manifest_description": { "message": "Inacheza kipindi kijacho kiotomatiki, inaruka mlolongo wa vichwa, inaruka vidokezo vya \"Je, bado unaangalia?\", na inatafuta katika zaidi ya jinsi 3000!", "description": "Maelezo ya programu yanayoonyeshwa katika duka la wavuti." },
+                "skipTitleSequences": { "message": "Ruka Mlolongo wa Vichwa", "description": "" },
+                "autoPlayNext": { "message": "Cheza Kipindi Kijacho Kiotomatiki", "description": "Nakala ya chaguo la kucheza kipindi kijacho kiotomatiki" },
+                "alwaysWatchCredits": { "message": "Angalia Mikrediti Kila Wakati", "description": "Nakala ya chaguo la kuangalia mikrediti kila wakati" },
+                "hideAutoPlayVid": { "message": "Ficha Video za Utangazaji", "description": "Nakala ya chaguo la kuficha video za utangazaji zinazochezwa kiotomatiki kwenye ukurasa wa nyumbani wa Netflix" },
+                "dontPromptStillWatching": { "message": "Usiulize \"Je, Bado Uko Pale?\"", "description": "Nakala ya chaguo la kutouliza ikiwa bado unaangalia baada ya saa 8 kupita" },
+                "hideDownvoted": { "message": "Ficha Maudhui Yaliyopigiwa Kura Hasi", "description": "Nakala ya chaguo la kuficha maudhui yaliyopigiwa kura hasi" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Usipunguze Mikrediti ya Mwisho", "description": "Nakala ya chaguo la kutopunguza mikrediti ya mwisho ya maudhui ya kipindi" },
+                "support": { "message": "Msaada", "description": "Nakala yenye kiungo cha tovuti yangu, kwa msaada" },
+                "genreSearch": { "message": "Utafutaji wa Aina", "description": "Nakala ya kishikilia kwa kutafuta aina" },
+                "sourceButton": { "message": "Msimbo wa Chanzo", "description": "Msimbo wa chanzo wa asili uliochapishwa kwenye GitHub kwa kiendelezi hiki" },
+                "helpButton": { "message": "Msaada", "description": "Omba msaada" }
+            }

@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Nikoli ne konča Netflixa"
-  },
-  "manifest_description": {
-    "message": "Samodejno predvajajte naslednjo epizodo, preskočite zaporedje posnetkov, preskočite »Ali še vedno gledate?« pozove in preišče več kot 3000 žanrov!"
-  },
-  "skipTitleSequences": {
-    "message": "Preskoči zaporedje naslovov"
-  },
-  "autoPlayNext": {
-    "message": "Samodejno predvajaj naslednjo epizodo"
-  },
-  "alwaysWatchCredits": {
-    "message": "Vedno si oglejte kredite"
-  },
-  "hideAutoPlayVid": {
-    "message": "Skrij samodejno predvajanje predstavljenih videoposnetkov"
-  },
-  "dontPromptStillWatching": {
-    "message": "Ne opomni \"Ali še vedno gledaš?\""
-  },
-  "hideDownvoted": {
-    "message": "Skrij preračunano vsebino"
-  },
-  "support": {
-    "message": "Podpora"
-  },
-  "highContrast": {
-    "message": "Način visoke kontrasta"
-  },
-  "genreSearch": {
-    "message": "Iskanje po zvrsti"
-  },
-  "sourceCode": {
-    "message": "Izvorna koda"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "Naslov aplikacije, prikazan v spletni trgovini." },
+                "manifest_description": { "message": "Samodejno predvaja naslednjo epizodo, preskoči naslove, preskoči pozive \"Ali še vedno gledate?\", in išče v več kot 3000 žanrih!", "description": "Opis aplikacije, prikazan v spletni trgovini." },
+                "skipTitleSequences": { "message": "Preskoči Naslove", "description": "" },
+                "autoPlayNext": { "message": "Samodejno Predvajaj Naslednjo Epizodo", "description": "Besedilo za možnost samodejnega predvajanja naslednje epizode" },
+                "alwaysWatchCredits": { "message": "Vedno Glejte Odjavno Špico", "description": "Besedilo za možnost vedno gledanja odjavne špice" },
+                "hideAutoPlayVid": { "message": "Skrij Promocijske Video", "description": "Besedilo za možnost skrivanja samodejno predvajanih promocijskih videoposnetkov na Netflix domači strani" },
+                "dontPromptStillWatching": { "message": "Ne Sprašuj \"Ali Ste Še Tam?\"", "description": "Besedilo za možnost, da se ne sprašuje, ali še vedno gledate po 8 urah" },
+                "hideDownvoted": { "message": "Skrij Negativno Ocenjeno Vsebino", "description": "Besedilo za možnost skrivanja negativno ocenjene vsebine" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Ne Minimiziraj Končne Špice", "description": "Besedilo za možnost, da se ne minimizira končna špica vsebine oddaje" },
+                "support": { "message": "Podpora", "description": "Besedilo s povezavo do moje spletne strani, za podporo" },
+                "genreSearch": { "message": "Iskanje Žanrov", "description": "Nadomestno besedilo za iskanje žanra" },
+                "sourceButton": { "message": "Izvorna Koda", "description": "Originalna izvorna koda objavljena na GitHubu za to razširitev" },
+                "helpButton": { "message": "Pomoč", "description": "Zahtevaj pomoč" }
+            }

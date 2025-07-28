@@ -1,38 +1,15 @@
 {
-  "manifest_name": {
-    "message": "Never Ending Netflix"
-  },
-  "manifest_description": {
-    "message": "次のエピソードを自動再生し、イントロ画面を自動スキップし、「まだ視聴していますか？」の確認画面を非表示にします。3000以上のジャンル検索にも対応！"
-  },
-  "skipTitleSequences": {
-    "message": "イントロ画面を自動スキップする"
-  },
-  "autoPlayNext": {
-    "message": "次のエピソードを自動再生する"
-  },
-  "alwaysWatchCredits": {
-    "message": "常にクレジットを見る"
-  },
-  "hideAutoPlayVid": {
-    "message": "自動再生のプロモート動画を非表示にする"
-  },
-  "dontPromptStillWatching": {
-    "message": "「まだ見ていますか？」という確認画面を非表示にする"
-  },
-  "hideDownvoted": {
-    "message": "イマイチと評価した作品を非表示にする"
-  },
-  "support": {
-    "message": "サポート"
-  },
-  "highContrast": {
-    "message": "ハイコントラストモード"
-  },
-  "genreSearch": {
-    "message": "ジャンル検索"
-  },
-  "sourceCode": {
-    "message": "ソースコード"
-  }
-}
+                "manifest_name": { "message": "EndlessFlix", "description": "ウェブストアに表示されるアプリケーションのタイトル。" },
+                "manifest_description": { "message": "次のエピソードを自動再生し、タイトルシーケンスをスキップし、「まだ見ていますか？」プロンプトをスキップし、3000以上のジャンルを検索します！", "description": "ウェブストアに表示されるアプリケーションの説明。" },
+                "skipTitleSequences": { "message": "タイトルシーケンスをスキップ", "description": "" },
+                "autoPlayNext": { "message": "次のエピソードを自動再生", "description": "次のエピソードの自動再生オプションのテキスト" },
+                "alwaysWatchCredits": { "message": "常にクレジットを視聴", "description": "常にクレジットを視聴するオプションのテキスト" },
+                "hideAutoPlayVid": { "message": "プロモーション動画を非表示", "description": "Netflixホームページで自動再生されるプロモーション動画を非表示にするオプションのテキスト" },
+                "dontPromptStillWatching": { "message": "「まだそこにいますか？」と聞かない", "description": "8時間経過後にまだ見ているかを聞かないオプションのテキスト" },
+                "hideDownvoted": { "message": "低評価コンテンツを非表示", "description": "低評価コンテンツを非表示にするオプションのテキスト" },
+                "dontMinimzeEndCreditsOfShow": { "message": "エンドクレジットを最小化しない", "description": "番組コンテンツのエンドクレジットを最小化しないオプションのテキスト" },
+                "support": { "message": "サポート", "description": "サポート用の私のウェブサイトへのリンク付きテキスト" },
+                "genreSearch": { "message": "ジャンル検索", "description": "ジャンル検索のプレースホルダーテキスト" },
+                "sourceButton": { "message": "ソースコード", "description": "この拡張機能のためにGitHubで公開された元のソースコード" },
+                "helpButton": { "message": "ヘルプ", "description": "ヘルプを求める" }
+            }

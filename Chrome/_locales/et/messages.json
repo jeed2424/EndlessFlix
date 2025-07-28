@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Mitte kunagi Netflixi lõpetamine"
-  },
-  "manifest_description": {
-    "message": "Esita automaatselt järgmine episood, jätke pealkirjajada vahele, jätke vahele \"Kas sa ikka vaatad?\" küsib ja otsige üle 3000 žanri!"
-  },
-  "skipTitleSequences": {
-    "message": "Jäta pealkirja järjestused vahele"
-  },
-  "autoPlayNext": {
-    "message": "Esita järgmine episood automaatselt"
-  },
-  "alwaysWatchCredits": {
-    "message": "Jälgige alati krediiti"
-  },
-  "hideAutoPlayVid": {
-    "message": "Peida reklaamitud videote automaatne esitamine"
-  },
-  "dontPromptStillWatching": {
-    "message": "Ära küsi \"Kas sa ikka vaatad?\""
-  },
-  "hideDownvoted": {
-    "message": "Peida allalaaditud sisu"
-  },
-  "support": {
-    "message": "Toetus"
-  },
-  "highContrast": {
-    "message": "Kõrge kontrasti režiim"
-  },
-  "genreSearch": {
-    "message": "Žanri otsing"
-  },
-  "sourceCode": {
-    "message": "Lähtekood"
-  }
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "Rakenduse pealkiri, mis kuvatakse veebikaupluses."
+ },
+"manifest_description": {
+"message": "Esitab automaatselt järgmise episoodi, jätab vahele pealkirja järjestused, jätab vahele \"Kas vaatate veel?\" küsimused ja otsib üle 3000 žanri!",
+"description": "Rakenduse kirjeldus, mis kuvatakse veebikaupluses."
+ },
+"skipTitleSequences": {
+"message": "Jäta Pealkirja Järjestused Vahele",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "Esita Järgmine Episood Automaatselt",
+"description": "Tekst järgmise episoodi automaatse esitamise valiku jaoks"
+ },
+"alwaysWatchCredits": {
+"message": "Vaata Alati Tiitrit",
+"description": "Tekst tiitrite alati vaatamise valiku jaoks"
+ },
+"hideAutoPlayVid": {
+"message": "Peida Reklaamvideod",
+"description": "Tekst Netflixi avalehel automaatselt esitatavate reklaamvideote peitmise valiku jaoks"
+ },
+"dontPromptStillWatching": {
+"message": "Ära Küsi \"Kas oled veel seal?\"",
+"description": "Tekst valiku jaoks, mis ei küsi, kas vaatate veel pärast 8 tunni möödumist"
+ },
+"hideDownvoted": {
+"message": "Peida Negatiivselt Hinnatud Sisu",
+"description": "Tekst negatiivselt hinnatud sisu peitmise valiku jaoks"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "Ära Minimeeri Lõputiitrit",
+"description": "Tekst saate sisu lõputiitrite mitteminimeerimise valiku jaoks"
+ },
+"support": {
+"message": "Tugi",
+"description": "Tekst lingiga minu veebilehele, toe saamiseks"
+ },
+"genreSearch": {
+"message": "Žanri Otsing",
+"description": "Kohatäite tekst žanri otsingu jaoks"
+ },
+"sourceButton": {
+"message": "Lähtekood",
+"description": "Originaal lähtekood avaldatud GitHubis selle laienduse jaoks"
+ },
+"helpButton": {
+"message": "Abi",
+"description": "Abi taotlemine"
+ }
 }

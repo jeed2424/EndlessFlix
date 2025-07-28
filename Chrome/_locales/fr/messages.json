@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Ne jamais terminer Netflix"
-  },
-  "manifest_description": {
-    "message": "Lire automatiquement le prochain épisode, ignorer les séquences de titres, ignorer \"Regardez-vous toujours?\" invite et recherchez plus de 3000 genres!"
-  },
-  "skipTitleSequences": {
-    "message": "Ignorer les séquences de titre"
-  },
-  "autoPlayNext": {
-    "message": "Lire automatiquement l'épisode suivant"
-  },
-  "alwaysWatchCredits": {
-    "message": "Toujours regarder les crédits"
-  },
-  "hideAutoPlayVid": {
-    "message": "Masquer la lecture automatique des vidéos sponsorisées"
-  },
-  "dontPromptStillWatching": {
-    "message": "Ne demandez pas \"Regardez-vous encore?\""
-  },
-  "hideDownvoted": {
-    "message": "Masquer le contenu défavorisé"
-  },
-  "support": {
-    "message": "Soutien"
-  },
-  "highContrast": {
-    "message": "Mode de contraste élevé"
-  },
-  "genreSearch": {
-    "message": "Recherche de genre"
-  },
-  "sourceCode": {
-    "message": "Code source"
-  }
+"manifest_name": {
+      "message": "EndlessFlix",
+      "description": "Le titre de l'application, affiché dans le magasin web."
+    },
+    "manifest_description": {
+      "message": "Lit automatiquement l'épisode suivant, ignore les séquences de titre, ignore les invites \"Regardez-vous toujours ?\", et recherche dans plus de 3000 genres !",
+      "description": "La description de l'application, affichée dans le magasin web."
+    },
+    "skipTitleSequences": {
+      "message": "Ignorer les Séquences de Titre",
+      "description": ""
+    },
+    "autoPlayNext": {
+      "message": "Lire Automatiquement l'Épisode Suivant",
+      "description": "Texte pour l'option de lecture automatique de l'épisode suivant"
+    },
+    "alwaysWatchCredits": {
+      "message": "Toujours Regarder les Crédits",
+      "description": "Texte pour l'option de toujours regarder les crédits"
+    },
+    "hideAutoPlayVid": {
+      "message": "Masquer les Vidéos Promotionnelles",
+      "description": "Texte pour l'option de masquer les vidéos promotionnelles qui se lisent automatiquement sur la page d'accueil Netflix"
+    },
+    "dontPromptStillWatching": {
+      "message": "Ne Pas Demander \"Êtes-vous Toujours Là ?\"",
+      "description": "Texte pour l'option de ne pas demander si vous regardez toujours après 8 heures"
+    },
+    "hideDownvoted": {
+      "message": "Masquer le Contenu avec Vote Négatif",
+      "description": "Texte pour l'option de masquer le contenu avec vote négatif"
+    },
+    "dontMinimzeEndCreditsOfShow": {
+      "message": "Ne Pas Minimiser les Crédits de Fin",
+      "description": "Texte pour l'option de ne pas minimiser les crédits de fin du contenu de l'émission"
+    },
+    "support": {
+      "message": "Support",
+      "description": "Texte avec lien vers mon site web, pour le support"
+    },
+    "genreSearch": {
+      "message": "Recherche de Genre",
+      "description": "Texte d'espace réservé pour la recherche d'un genre"
+    },
+    "sourceButton": {
+      "message": "Source",
+      "description": "Code source original publié sur GitHub pour cette extension"
+    },
+    "helpButton": {
+      "message": "Aide",
+      "description": "Demander de l'aide"
+    }
 }
