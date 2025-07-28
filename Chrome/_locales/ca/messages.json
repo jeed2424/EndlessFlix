@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Mai acabes Netflix"
-  },
-  "manifest_description": {
-    "message": "Reproduir automàticament el següent episodi, saltar les seqüències de títols, ometre \"Encara està veient?\" sol·licituds i cerca més de 3000 gèneres!"
-  },
-  "skipTitleSequences": {
-    "message": "Saltar les seqüències de títol"
-  },
-  "autoPlayNext": {
-    "message": "Reprodueix automàticament el següent episodi"
-  },
-  "alwaysWatchCredits": {
-    "message": "Vegeu sempre els crèdits"
-  },
-  "hideAutoPlayVid": {
-    "message": "Amaga la reproducció automàtica de vídeos promocionats"
-  },
-  "dontPromptStillWatching": {
-    "message": "No demanis \"Encara estàs veient?\""
-  },
-  "hideDownvoted": {
-    "message": "Amaga el contingut baixat"
-  },
-  "support": {
-    "message": "Suport"
-  },
-  "highContrast": {
-    "message": "Mode de contrast alt"
-  },
-  "genreSearch": {
-    "message": "Cerca de gèneres"
-  },
-  "sourceCode": {
-    "message": "Codi font"
-  }
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "El títol de l'aplicació, mostrat a la botiga web."
+ },
+"manifest_description": {
+"message": "Reprodueix automàticament el següent episodi, omet seqüències de títols, omet els avisos \"Encara estàs mirant?\", i cerca entre més de 3000 gèneres!",
+"description": "La descripció de l'aplicació, mostrada a la botiga web."
+ },
+"skipTitleSequences": {
+"message": "Ometre Seqüències de Títols",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "Reproduir Automàticament el Següent Episodi",
+"description": "Text per a l'opció de reproduir automàticament el següent episodi"
+ },
+"alwaysWatchCredits": {
+"message": "Mirar Sempre els Crèdits",
+"description": "Text per a l'opció de mirar sempre els crèdits"
+ },
+"hideAutoPlayVid": {
+"message": "Amagar Vídeos Promocionals",
+"description": "Text per a l'opció d'amagar vídeos promocionals que es reprodueixen automàticament a la pàgina d'inici de Netflix"
+ },
+"dontPromptStillWatching": {
+"message": "No Preguntar \"Encara hi ets?\"",
+"description": "Text per a l'opció de no preguntar si encara estàs mirant després que hagin passat 8 hores"
+ },
+"hideDownvoted": {
+"message": "Amagar Contingut amb Vot Negatiu",
+"description": "Text per a l'opció d'amagar contingut amb vot negatiu"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "No Minimitzar Crèdits Finals",
+"description": "Text per a l'opció de no minimitzar els crèdits finals del contingut del programa"
+ },
+"support": {
+"message": "Suport",
+"description": "Text amb enllaç al meu lloc web, per a suport"
+ },
+"genreSearch": {
+"message": "Cerca de Gèneres",
+"description": "Text de marcador de posició per a la cerca d'un gènere"
+ },
+"sourceButton": {
+"message": "Codi Font",
+"description": "Codi font original publicat a GitHub per a aquesta extensió"
+ },
+"helpButton": {
+"message": "Ajuda",
+"description": "Sol·licitar ajuda"
+ }
 }

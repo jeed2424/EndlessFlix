@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Netflix لا يتوقّف" 
-  },
-  "manifest_description": {
-    "message": "بدء الحلقة التالية تلقائيًا، تخطي المقدمة، تخطي تنبيه \"هل ما زلت تشاهد؟\"، والبحث في أكثر من 3000 تصنيف!"
-  },
-  "skipTitleSequences": {
-    "message": "تخطي المقدمة"
-  },
-  "autoPlayNext": {
-    "message": "بدء الحلقة التالية تلقائيًا"
-  },
-  "alwaysWatchCredits": {
-    "message": "مشاهدة أسماء طاقم العمل"
-  },
-  "hideAutoPlayVid": {
-    "message": "إخفاء الفيديوهات الدعائية"
-  },
-  "dontPromptStillWatching": {
-    "message": "إخفاء\"هل ما زلت تشاهد؟\""
-  },
-  "hideDownvoted": {
-    "message": "إخفاء التقييمات السيئة"
-  },
-  "support": {
-    "message": "الدعم الفني"
-  },
-  "highContrast": {
-    "message": "وضع التباين العالي"
-  },
-  "genreSearch": {
-    "message": "بحث في التصنيفات"
-  },
-  "sourceCode": {
-    "message": "Source Code"
-  }
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "عنوان التطبيق، يُعرض في متجر الويب."
+ },
+"manifest_description": {
+"message": "تشغيل الحلقة التالية تلقائياً، تخطي تسلسل العناوين، تخطي رسائل \"هل ما زلت تشاهد؟\"، والبحث في أكثر من 3000 نوع!",
+"description": "وصف التطبيق، يُعرض في متجر الويب."
+ },
+"skipTitleSequences": {
+"message": "تخطي تسلسل العناوين",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "تشغيل الحلقة التالية تلقائياً",
+"description": "نص خيار تشغيل الحلقة التالية تلقائياً"
+ },
+"alwaysWatchCredits": {
+"message": "مشاهدة الإعتمادات دائماً",
+"description": "نص خيار مشاهدة الإعتمادات دائماً"
+ },
+"hideAutoPlayVid": {
+"message": "إخفاء الفيديوهات الترويجية",
+"description": "نص خيار إخفاء الفيديوهات الترويجية التي تُشغل تلقائياً في الصفحة الرئيسية لنتفليكس"
+ },
+"dontPromptStillWatching": {
+"message": "لا تسأل \"هل ما زلت هناك؟\"",
+"description": "نص خيار عدم السؤال إن كنت ما زلت تشاهد بعد مرور 8 ساعات"
+ },
+"hideDownvoted": {
+"message": "إخفاء المحتوى المُصوت ضده",
+"description": "نص خيار إخفاء المحتوى المُصوت ضده بالسالب"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "لا تُصغر إعتمادات النهاية",
+"description": "نص خيار عدم تصغير إعتمادات نهاية محتوى البرنامج"
+ },
+"support": {
+"message": "الدعم",
+"description": "نص مع رابط إلى موقعي الإلكتروني، للحصول على الدعم"
+ },
+"genreSearch": {
+"message": "البحث في الأنواع",
+"description": "نص نائب للبحث في نوع معين"
+ },
+"sourceButton": {
+"message": "الكود المصدري",
+"description": "الكود المصدري الأصلي المنشور على جيت هب لهذا الإضافة"
+ },
+"helpButton": {
+"message": "المساعدة",
+"description": "طلب المساعدة"
+ }
 }

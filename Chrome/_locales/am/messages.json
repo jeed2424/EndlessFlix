@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Netflix ጨርሶ አያጠፋም"
-  },
-  "manifest_description": {
-    "message": "ቀጣዩን ክፍል በራስ-ሰር ይጫወቱ, የርዕስ ቅደም ተከተሎችን ይዝለሉ, ዘለሉ \"አሁንም እየተመለከቱ ነዎት?\" መጥቀስ እና ከ 3000 በላይ የሆኑ ዘውጎችን መፈለግ!"
-  },
-  "skipTitleSequences": {
-    "message": "የርዕስ ቅደም ተከተሎችን ዝለል"
-  },
-  "autoPlayNext": {
-    "message": "የሚቀጥለውን ክፍል በራስ-ሰር አጫውት"
-  },
-  "alwaysWatchCredits": {
-    "message": "ሁልጊዜም ብሬቶችን ይዩ"
-  },
-  "hideAutoPlayVid": {
-    "message": "የሚተዋወቁ ቪዲዮዎች በራስ አጫውት ደብቅ"
-  },
-  "dontPromptStillWatching": {
-    "message": "አትፍቀድ \"አሁንም ድረስ እያዩ ነው?\""
-  },
-  "hideDownvoted": {
-    "message": "ዝቅ የተደረገ ይዘት ደብቅ"
-  },
-  "support": {
-    "message": "ድጋፍ"
-  },
-  "highContrast": {
-    "message": "ከፍተኛ ንፅፅር ሁነታ"
-  },
-  "genreSearch": {
-    "message": "ዘውግ ፍለጋ"
-  },
-  "sourceCode": {
-    "message": "ምንጭ ኮድ"
-  }
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "የመተግበሪያው ርእስ፣ በድር መደብር ውስጥ የሚታይ።"
+ },
+"manifest_description": {
+"message": "በራስ ሰር የሚቀጥለውን ክፍል ያጫውታል፣ የርእስ ቅደም ተከተሎችን ይዘልላል፣ \"አሁንም እየተመለከቱ ነው?\" የሚለውን ጥያቄ ይዘልላል፣ እና ከ3000 በላይ ዘውጎችን ይፈልጋል!",
+"description": "የመተግበሪያው መግለጫ፣ በድር መደብር ውስጥ የሚታይ።"
+ },
+"skipTitleSequences": {
+"message": "የርእስ ቅደም ተከተሎችን ዝለል",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "የሚቀጥለውን ክፍል በራስ ሰር አጫውት",
+"description": "በራስ ሰር የሚቀጥለውን ክፍል የማጫወት አማራጭ ጽሑፍ"
+ },
+"alwaysWatchCredits": {
+"message": "ሁልጊዜ ክሬዲቶችን ተመልከት",
+"description": "ሁልጊዜ ክሬዲቶችን የመመልከት አማራጭ ጽሑፍ"
+ },
+"hideAutoPlayVid": {
+"message": "የተስፋፋ ቪዲዮዎችን ደብቅ",
+"description": "በኔትፍሊክስ መነሻ ገጽ ላይ በራስ ሰር የሚጫወቱ የተስፋፋ ቪዲዮዎችን የመደበቅ አማራጭ ጽሑፍ"
+ },
+"dontPromptStillWatching": {
+"message": "\"አሁንም እዚያ ነህ?\" አትጠይቅ",
+"description": "8 ሰዓት ካለፈ በኋላ አሁንም እየተመለከቱ እንደሆነ የማይጠይቅ አማራጭ ጽሑፍ"
+ },
+"hideDownvoted": {
+"message": "የተቃወመ ይዘት ደብቅ",
+"description": "የተቃወመ ይዘት የመደበቅ አማራጭ ጽሑፍ"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "የመጨረሻ ክሬዲቶችን አትቀንስ",
+"description": "የፕሮግራም ይዘት የመጨረሻ ክሬዲቶችን የማይቀንስ አማራጭ ጽሑፍ"
+ },
+"support": {
+"message": "ድጋፍ",
+"description": "ለድጋፍ፣ ወደ ድህረ ገጼ የሚወስድ አገናኝ ያለው ጽሑፍ"
+ },
+"genreSearch": {
+"message": "ዘውግ ፍለጋ",
+"description": "የዘውግ ፍለጋ ቦታ ያዥ ጽሑፍ"
+ },
+"sourceButton": {
+"message": "ምንጭ ኮድ",
+"description": "ለዚህ ማራዘሚያ በጊትሃብ የታተመ ዋናው ምንጭ ኮድ"
+ },
+"helpButton": {
+"message": "እርዳታ",
+"description": "እርዳታ ጠይቅ"
+ }
 }

@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Netflix ohne Ende"
-  },
-  "manifest_description": {
-    "message": "Nächste Folge automatisch abspielen, Titelsequenzen überspringen, überspringen \"Siehst du noch?\" Eingabeaufforderungen und suchen Sie in über 3000 Genres!"
-  },
-  "skipTitleSequences": {
-    "message": "Titelsequenzen überspringen"
-  },
-  "autoPlayNext": {
-    "message": "Nächste Episode automatisch abspielen"
-  },
-  "alwaysWatchCredits": {
-    "message": "Immer Credits ansehen"
-  },
-  "hideAutoPlayVid": {
-    "message": "Automatische Wiedergabe von gesponserten Videos verbergen"
-  },
-  "dontPromptStillWatching": {
-    "message": "Nicht auffordern \"Siehst du immer noch zu?\""
-  },
-  "hideDownvoted": {
-    "message": "Downvoted-Inhalt ausblenden"
-  },
-  "support": {
-    "message": "Unterstützung"
-  },
-  "highContrast": {
-    "message": "Kontrastreicher Modus"
-  },
-  "genreSearch": {
-    "message": "Genre-Suche"
-  },
-  "sourceCode": {
-    "message": "Quellcode"
-  }
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "Der Titel der Anwendung, angezeigt im Web Store."
+ },
+"manifest_description": {
+"message": "Spielt automatisch die nächste Folge ab, überspringt Titelsequenzen, überspringt \"Schauen Sie noch zu?\"-Meldungen und durchsucht über 3000 Genres!",
+"description": "Die Beschreibung der Anwendung, angezeigt im Web Store."
+ },
+"skipTitleSequences": {
+"message": "Titelsequenzen Überspringen",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "Nächste Folge Automatisch Abspielen",
+"description": "Text für die Option zum automatischen Abspielen der nächsten Folge"
+ },
+"alwaysWatchCredits": {
+"message": "Abspann Immer Ansehen",
+"description": "Text für die Option, den Abspann immer anzusehen"
+ },
+"hideAutoPlayVid": {
+"message": "Werbevideos Ausblenden",
+"description": "Text für die Option zum Ausblenden automatisch abspielender Werbevideos auf der Netflix-Startseite"
+ },
+"dontPromptStillWatching": {
+"message": "Nicht Fragen \"Schauen Sie noch zu?\"",
+"description": "Text für die Option, nicht zu fragen, ob Sie noch zuschauen, nachdem 8 Stunden vergangen sind"
+ },
+"hideDownvoted": {
+"message": "Negativ Bewertete Inhalte Ausblenden",
+"description": "Text für die Option zum Ausblenden negativ bewerteter Inhalte"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "End-Abspann Nicht Minimieren",
+"description": "Text für die Option, den End-Abspann des Programminhalts nicht zu minimieren"
+ },
+"support": {
+"message": "Support",
+"description": "Text mit Link zu meiner Website für Support"
+ },
+"genreSearch": {
+"message": "Genre-Suche",
+"description": "Platzhaltertext für die Suche nach einem Genre"
+ },
+"sourceButton": {
+"message": "Quellcode",
+"description": "Original-Quellcode auf GitHub veröffentlicht für diese Erweiterung"
+ },
+"helpButton": {
+"message": "Hilfe",
+"description": "Um Hilfe bitten"
+ }
 }

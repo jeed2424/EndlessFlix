@@ -1,38 +1,54 @@
 {
-  "manifest_name": {
-    "message": "Netflix শেষ না"
-  },
-  "manifest_description": {
-    "message": "স্বয়ংক্রিয়ভাবে পরবর্তী পর্বটি খেলুন, শিরোনাম ক্রমগুলি এড়িয়ে যান, \"আপনি কি এখনও দেখছেন?\" অনুরোধ, এবং 3,000 শৈলী উপর অনুসন্ধান!"
-  },
-  "skipTitleSequences": {
-    "message": "শিরোনাম ক্রম উপেক্ষা করুন"
-  },
-  "autoPlayNext": {
-    "message": "স্বয়ংক্রিয়ভাবে পরবর্তী পর্ব খেলা"
-  },
-  "alwaysWatchCredits": {
-    "message": "সর্বদা ক্রেডিট দেখুন"
-  },
-  "hideAutoPlayVid": {
-    "message": "অটো বাজানো প্রচারিত ভিডিও লুকান"
-  },
-  "dontPromptStillWatching": {
-    "message": "প্রম্পট করবেন না \"আপনি কি এখনও দেখছেন?\""
-  },
-  "hideDownvoted": {
-    "message": "Downvoted কন্টেন্ট লুকান"
-  },
-  "support": {
-    "message": "সমর্থন"
-  },
-  "highContrast": {
-    "message": "উচ্চ বিপরীতে মোড"
-  },
-  "genreSearch": {
-    "message": "জেনার অনুসন্ধান"
-  },
-  "sourceCode": {
-    "message": "সোর্স কোড"
-  }
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "অ্যাপ্লিকেশনের শিরোনাম, ওয়েব স্টোরে প্রদর্শিত।"
+ },
+"manifest_description": {
+"message": "স্বয়ংক্রিয়ভাবে পরবর্তী এপিসোড চালায়, শিরোনাম ক্রম এড়িয়ে যায়, \"আপনি কি এখনও দেখছেন?\" প্রম্পট এড়িয়ে যায়, এবং ৩০০০+ জেনারে খোঁজ করে!",
+"description": "অ্যাপ্লিকেশনের বিবরণ, ওয়েব স্টোরে প্রদর্শিত।"
+ },
+"skipTitleSequences": {
+"message": "শিরোনাম ক্রম এড়িয়ে যান",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "স্বয়ংক্রিয়ভাবে পরবর্তী এপিসোড চালান",
+"description": "স্বয়ংক্রিয়ভাবে পরবর্তী এপিসোড চালানোর বিকল্পের টেক্সট"
+ },
+"alwaysWatchCredits": {
+"message": "সর্বদা ক্রেডিট দেখুন",
+"description": "সর্বদা ক্রেডিট দেখার বিকল্পের টেক্সট"
+ },
+"hideAutoPlayVid": {
+"message": "প্রচারিত ভিডিও লুকান",
+"description": "নেটফ্লিক্স হোম পেজে স্বয়ংক্রিয় চালিত প্রচারিত ভিডিও লুকানোর বিকল্পের টেক্সট"
+ },
+"dontPromptStillWatching": {
+"message": "\"আপনি কি এখনও এখানে?\" জিজ্ঞাসা করবেন না",
+"description": "৮ ঘন্টা অতিক্রান্ত হওয়ার পর এখনও দেখছেন কিনা জিজ্ঞাসা না করার বিকল্পের টেক্সট"
+ },
+"hideDownvoted": {
+"message": "নেতিবাচক ভোটপ্রাপ্ত কন্টেন্ট লুকান",
+"description": "নেতিবাচক ভোটপ্রাপ্ত কন্টেন্ট লুকানোর বিকল্পের টেক্সট"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "শেষ ক্রেডিট ছোট করবেন না",
+"description": "শো কন্টেন্টের শেষ ক্রেডিট ছোট না করার বিকল্পের টেক্সট"
+ },
+"support": {
+"message": "সাহায্য",
+"description": "সহায়তার জন্য আমার ওয়েবসাইটের লিংক সহ টেক্সট"
+ },
+"genreSearch": {
+"message": "জেনার অনুসন্ধান",
+"description": "একটি জেনার অনুসন্ধানের জন্য প্লেসহোল্ডার টেক্সট"
+ },
+"sourceButton": {
+"message": "সোর্স কোড",
+"description": "এই এক্সটেনশনের জন্য গিটহাবে প্রকাশিত মূল সোর্স কোড"
+ },
+"helpButton": {
+"message": "সাহায্য",
+"description": "সাহায্যের অনুরোধ"
+ }
 }

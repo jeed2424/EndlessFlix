@@ -20,11 +20,11 @@
     "description": "Text for the always watch credits option"
   },
   "hideAutoPlayVid": {
-    "message": "Hide Auto Playing Promoted Videos",
+    "message": "Hide Promoted Videos",
     "description": "Text for the hide auto playing promoted video on netflix home page option"
   },
   "dontPromptStillWatching": {
-    "message": "Don't Prompt \"Are you still watching?\"",
+    "message": "Don't Prompt \"Still there?\"",
     "description": "Text for the dont prompt are you still watching after 8 hours have passed option"
   },
   "hideDownvoted": {
@@ -32,23 +32,23 @@
     "description": "Text for the hide downvoted content option"
   },
   "dontMinimzeEndCreditsOfShow": {
-    "message": "Don't Minimize End Credits Of Show",
+    "message": "Don't Minimize End Credits",
     "description": "Text for the dont minize end credits of show content option"
   },
   "support": {
     "message": "Support",
     "description": "Text with a link to my websitem, for support"
   },
-  "highContrast": {
-    "message": "High Contrast Mode",
-    "description": "Text to change the color scheme to have better contrast"
-  },
   "genreSearch": {
     "message": "Genre Search",
     "description": "Place holder text for the search of a genre"
   },
-  "sourceCode": {
-    "message": "Source Code",
+  "sourceButton": {
+    "message": "Source",
     "description": "Original source code published on github for this extension"
+  },
+  "helpButton": {
+    "message": "Help",
+    "description": "Request help"
   }
 }

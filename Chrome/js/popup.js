@@ -1,76 +1,131 @@
 let options;
 let fuse;
 
-$(() => {
-    $('body').on('click', 'a', function () {
-        if (this && $(this).attr('href')) {
-            chrome.tabs.create({url: $(this).attr('href')});
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle link clicks
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A' && e.target.getAttribute('href')) {
+            chrome.tabs.create({url: e.target.getAttribute('href')});
+            e.preventDefault();
+            return false;
         }
-        return false;
     });
+
     loadOptions(function (recOptions) {
         options = recOptions;
-        // Set values on page to those saved
-        $("#chkTitleSequence").prop('checked', options.skipTitleSequence);
-        $("#chkPromptStillHere").prop('checked', options.skipStillHere);
-        $("#chkPlayNext").prop('checked', options.autoPlayNext);
-        $("#chkWatchCredits").prop('checked', options.watchCredits);
-        $("#chkDontMinimzeEndCreditsOfShow").prop('checked', options.dontMinimzeEndCreditsOfShow);
-        $("#chkDisAutoPlayInBrowse").prop('checked', options.disableAutoPlayOnBrowse);
-        $("#chkHideDownvoted").prop('checked', options.hideDisliked);
+        
+        // Set checkbox states based on loaded options
+        setCheckboxState("chkTitleSequence", options.skipTitleSequence);
+        setCheckboxState("chkPromptStillHere", options.skipStillHere);
+        setCheckboxState("chkPlayNext", options.autoPlayNext);
+        setCheckboxState("chkWatchCredits", options.watchCredits);
+        setCheckboxState("chkDontMinimzeEndCreditsOfShow", options.dontMinimzeEndCreditsOfShow);
+        setCheckboxState("chkDisAutoPlayInBrowse", options.disableAutoPlayOnBrowse);
+        setCheckboxState("chkHideDownvoted", options.hideDisliked);
 
-        if (options.highContrast) {
-            $("#contrast").text("Normal Contrast Mode");
-            $("#contrast").attr('data-value', "high");
-        } else {
-            $("#contrast").text("High Contrast Mode");
-            $("#contrast").attr('data-value', "low");
-        }
-
-        // Trigger gumby update to show visual changes
-        $('input:checked').trigger('gumby.check');
-
-        $('input').parent().on('gumby.onChange', function () {
-            changeOption(this);
-        });
-
+        // Setup event listeners
+        setupEventListeners();
+        
         reloadSearchLibrary();
         searchOnTypingListener();
-        registerContrastModeHandler();
-        setContrastMode();
     });
 });
 
-function registerContrastModeHandler() {
-    $("#contrast").click(e => {
-        if ($("#contrast").attr('data-value') === "high") {
-            $("#contrast").attr('data-value', "low");
-            options.highContrast = false;
-            $("#contrast").text("High Contrast Mode");
+function setCheckboxState(checkboxId, isChecked) {
+    const checkbox = document.getElementById(checkboxId);
+    if (checkbox) {
+        if (isChecked) {
+            checkbox.classList.add('checked');
         } else {
-            $("#contrast").attr('data-value', "high");
-            options.highContrast = true;
-            $("#contrast").text("Normal Contrast Mode");
+            checkbox.classList.remove('checked');
         }
-        saveOptions();
-        setContrastMode();
-    });
+    }
 }
 
-function setContrastMode() {
-    if (options.highContrast) {
-        $("body").addClass("high-contrast");
-        $("a").addClass("high-contrast");
-        $("#genreSearch").addClass("high-contrast");
-        $(".checkBackground").addClass("high-contrast");
-        $(".checkBackground").removeClass("checkBackground");
-    } else {
-        $("body").removeClass("high-contrast");
-        $("a").removeClass("high-contrast");
-        $(".high-contrast").addClass("checkBackground");
-        $("#genreSearch").removeClass("high-contrast");
-        $(".high-contrast").removeClass("high-contrast");
+function setupEventListeners() {
+    // Checkbox click handlers
+    document.querySelectorAll('.checkbox').forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            this.classList.toggle('checked');
+            changeOption(this);
+        });
+    });
+
+    // Label click handlers
+    document.querySelectorAll('.option-text').forEach(label => {
+        label.addEventListener('click', function() {
+            const checkbox = this.parentElement.querySelector('.checkbox');
+            if (checkbox) {
+                checkbox.classList.toggle('checked');
+                changeOption(checkbox);
+            }
+        });
+    });
+
+    // Toggle handlers
+    const toggle = document.getElementById('mainToggle');
+    if (toggle) {
+        toggle.addEventListener('click', function(e) {
+            if (e.target.classList.contains('toggle-option')) {
+                document.querySelectorAll('.toggle-option').forEach(opt => opt.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
     }
+
+    // Button handlers
+    const helpButton = document.getElementById('helpButton');
+    const sourceButton = document.getElementById('sourceButton');
+    
+    if (helpButton) {
+        helpButton.addEventListener('click', function() {
+            chrome.tabs.create({url: 'https://www.github.com/jeed2424/EndlessFlix'});
+        });
+    }
+    
+    if (sourceButton) {
+        sourceButton.addEventListener('click', function() {
+            chrome.tabs.create({url: 'https://www.github.com/jeed2424/EndlessFlix'});
+        });
+    }
+}
+
+function changeOption(elem) {
+    const isChecked = elem.classList.contains('checked');
+    
+    switch (elem.id) {
+        case "chkTitleSequence":
+            options.skipTitleSequence = isChecked;
+            break;
+        case "chkPlayNext":
+            options.autoPlayNext = isChecked;
+            if (options.autoPlayNext && options.watchCredits) {
+                options.watchCredits = false;
+                setCheckboxState('chkWatchCredits', false);
+            }
+            break;
+        case "chkPromptStillHere":
+            options.skipStillHere = isChecked;
+            break;
+        case "chkDisAutoPlayInBrowse":
+            options.disableAutoPlayOnBrowse = isChecked;
+            break;
+        case "chkDontMinimzeEndCreditsOfShow":
+            options.dontMinimzeEndCreditsOfShow = isChecked;
+            break;
+        case "chkWatchCredits":
+            options.watchCredits = isChecked;
+            if (options.autoPlayNext && options.watchCredits) {
+                options.autoPlayNext = false;
+                setCheckboxState('chkPlayNext', false);
+            }
+            break;
+        case "chkHideDownvoted":
+            options.hideDisliked = isChecked;
+            break;
+    }
+    saveOptions();
 }
 
 function constructResultDiv(elem) {
@@ -78,12 +133,10 @@ function constructResultDiv(elem) {
 }
 
 function reloadSearchLibrary() {
-    $.ajax({
-        method: 'GET',
-        url: chrome.runtime.getURL("data/genres.json"),
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            let options = {
+    fetch(chrome.runtime.getURL("data/genres.json"))
+        .then(response => response.json())
+        .then(data => {
+            let fuseOptions = {
                 shouldSort: true,
                 threshold: 0.6,
                 location: 0,
@@ -92,74 +145,56 @@ function reloadSearchLibrary() {
                 minMatchCharLength: 1,
                 keys: ["genre"]
             };
-            fuse = new Fuse(data, options); // Text search library through all genres
-        }
-    });
+            fuse = new Fuse(data, fuseOptions);
+        })
+        .catch(error => {
+            console.error('Error loading genres:', error);
+        });
 }
 
 function searchOnTypingListener() {
-    /*Event listenere for typing in genre*/
-    $('#genreSearch').on('keyup', function () {
-        // Clear previous results
-        $("#results").html("");
-        // If fuse is loaded, do a search
+    const genreSearch = document.getElementById('genreSearch');
+    const results = document.getElementById('results');
+    
+    if (!genreSearch || !results) return;
+    
+    genreSearch.addEventListener('keyup', function() {
+        results.innerHTML = "";
+        
+        if (this.value.trim() === '') {
+            results.classList.add('hide');
+            return;
+        }
+        
         if (fuse) {
-            // do search for this.value here
-            let results = fuse.search(this.value);
-            if (results.length) {
-                let max = results.length < 100 ? results.length : 100;
+            let searchResults = fuse.search(this.value);
+            if (searchResults.length) {
+                let max = searchResults.length < 100 ? searchResults.length : 100;
                 let entry = "";
                 for (let i = 0; i < max; i++) {
-                    entry += constructResultDiv(results[i]);
+                    entry += constructResultDiv(searchResults[i]);
                 }
-                $("#results").append(entry);
+                results.innerHTML = entry;
+                results.classList.remove('hide');
+            } else {
+                results.classList.add('hide');
             }
         } else {
-            $("#results").append("<div class='entry'>Genres not loaded! Contact developer if issue persists.</div>");
+            results.innerHTML = "<div class='entry'>Genres not loaded! Contact developer if issue persists.</div>";
+            results.classList.remove('hide');
+        }
+    });
+
+    // Hide results when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!genreSearch.contains(e.target) && !results.contains(e.target)) {
+            results.classList.add('hide');
         }
     });
 }
 
-function changeOption(elem) {
-    switch (elem.htmlFor) {
-        case "chkTitleSequence":
-            options.skipTitleSequence = $('#chkTitleSequence')[0].checked;
-            break;
-        case "chkPlayNext":
-            options.autoPlayNext = $('#chkPlayNext')[0].checked;
-            if (options.autoPlayNext && options.watchCredits) {
-                options.watchCredits = false;
-                // Uncheck the watch credits checkbox, as you can't both watch the credits and skip them
-                $('#chkWatchCredits').click();
-            }
-            break;
-        case "chkPromptStillHere":
-            options.skipStillHere = $('#chkPromptStillHere')[0].checked;
-            break;
-        case "chkDisAutoPlayInBrowse":
-            options.disableAutoPlayOnBrowse = $('#chkDisAutoPlayInBrowse')[0].checked;
-            break;
-        case "chkDontMinimzeEndCreditsOfShow":
-            options.dontMinimzeEndCreditsOfShow = $('#chkDontMinimzeEndCreditsOfShow')[0].checked;
-            break;
-        case "chkWatchCredits":
-            options.watchCredits = $('#chkWatchCredits')[0].checked;
-            if (options.autoPlayNext && options.watchCredits) {
-                options.autoPlayNext = false;
-                // Uncheck the auto play next checkbox, as you can't both watch the credits and skip them
-                $("#chkPlayNext").click();
-            }
-            break;
-        case "chkHideDownvoted":
-            options.hideDisliked = $('#chkHideDownvoted')[0].checked;
-            break;
-    }
-    saveOptions();
-
-}
-
 function saveOptions() {
-    console.log(options);
+    console.log('Saving options:', options);
     chrome.storage.sync.set({
         'options': options
     }, () => {

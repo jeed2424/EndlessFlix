@@ -1,38 +1,54 @@
 {
   "manifest_name": {
-    "message": "EndlessFlix"
+    "message": "EndlessFlix",
+    "description": "The title of the application, displayed in the web store."
   },
   "manifest_description": {
-    "message": "Automatically play next episode, skip title sequences, skip \"Are you still watching?\" prompts, and search over 3000 genres!"
+    "message": "Automatically play next episode, skip title sequences, skip \"Are you still watching?\" prompts, and search over 3000 genres!",
+    "description": "The description of the application, displayed in the web store."
   },
   "skipTitleSequences": {
-    "message": "Skip Title Sequences"
+    "message": "Skip Title Sequences",
+    "description": ""
   },
   "autoPlayNext": {
-    "message": "Automatically Play Next Episode"
+    "message": "Automatically Play Next Episode",
+    "description": "Text for the automatically play next episode option"
   },
   "alwaysWatchCredits": {
-    "message": "Always Watch Credits"
+    "message": "Always Watch Credits",
+    "description": "Text for the always watch credits option"
   },
   "hideAutoPlayVid": {
-    "message": "Hide Auto Playing Promoted Videos"
+    "message": "Hide Promoted Videos",
+    "description": "Text for the hide auto playing promoted video on netflix home page option"
   },
   "dontPromptStillWatching": {
-    "message": "Don't Prompt \"Are you still watching?\""
+    "message": "Don't Prompt \"Still there?\"",
+    "description": "Text for the dont prompt are you still watching after 8 hours have passed option"
   },
   "hideDownvoted": {
-    "message": "Hide Downvoted Content"
+    "message": "Hide Downvoted Content",
+    "description": "Text for the hide downvoted content option"
+  },
+  "dontMinimzeEndCreditsOfShow": {
+    "message": "Don't Minimize End Credits",
+    "description": "Text for the dont minize end credits of show content option"
   },
   "support": {
-    "message": "Support"
-  },
-  "highContrast": {
-    "message": "High Contrast Mode"
+    "message": "Support",
+    "description": "Text with a link to my websitem, for support"
   },
   "genreSearch": {
-    "message": "Genre Search"
+    "message": "Genre Search",
+    "description": "Place holder text for the search of a genre"
   },
-  "sourceCode": {
-    "message": "Source Code"
+  "sourceButton": {
+    "message": "Source",
+    "description": "Original source code published on github for this extension"
+  },
+  "helpButton": {
+    "message": "Help",
+    "description": "Request help"
   }
 }
