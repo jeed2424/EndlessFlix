@@ -11,7 +11,7 @@ EndlessFlix is a [Chrome](https://chromewebstore.google.com/detail/endlessflix/j
 
 EndlessFlix allows you to customize it's functionality with an options menu, which can be accessed by clicking the logo in the top bar.
 
-![options](https://i.imgur.com/mCeWRH2.png)
+![options](https://i.imgur.com/xPyGzCY.png)
 
 ## Live link
 
