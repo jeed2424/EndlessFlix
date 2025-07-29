@@ -462,8 +462,11 @@ function reloadSearchLibrary() {
         .then(response => response.json())
         .then(data => {
             genreData = data;
+            console.log('📚 Loaded genres:', genreData.length, 'genres');
+            console.log('📚 Sample genre:', genreData[0]); // Debug log
+            
             fuse = new Fuse(genreData, {
-                keys: ['name'],
+                keys: ['genre'], // Changed from 'name' to 'genre'
                 threshold: 0.3,
                 includeScore: true
             });
@@ -477,9 +480,17 @@ function searchOnTypingListener() {
     const searchInput = document.getElementById('genreSearch');
     const resultsContainer = document.getElementById('searchResults');
     
-    if (!searchInput || !resultsContainer || !fuse) return;
+    if (!searchInput || !resultsContainer || !fuse) {
+        console.log('🔍 Search components not ready:', {
+            searchInput: !!searchInput,
+            resultsContainer: !!resultsContainer,
+            fuse: !!fuse
+        });
+        return;
+    }
     
     const query = searchInput.value.trim();
+    console.log('🔍 Searching for:', query);
     
     if (query.length === 0) {
         resultsContainer.style.display = 'none';
@@ -488,6 +499,7 @@ function searchOnTypingListener() {
     }
     
     const results = fuse.search(query);
+    console.log('🔍 Search results:', results.length, 'matches');
     
     if (results.length === 0) {
         resultsContainer.style.display = 'none';
@@ -497,18 +509,39 @@ function searchOnTypingListener() {
     
     // Display results
     resultsContainer.innerHTML = '';
-    results.slice(0, 5).forEach(result => {
+    results.slice(0, 5).forEach((result, index) => {
+        console.log(`🔍 Result ${index}:`, result.item.genre);
+        
         const item = document.createElement('div');
         item.className = 'search-result-item';
-        item.textContent = result.item.name;
+        item.textContent = result.item.genre; // Changed from result.item.name
+        
         item.addEventListener('click', function() {
-            searchInput.value = result.item.name;
+            console.log('🔍 Genre clicked:', result.item.genre, 'Link:', result.item.link);
+            
+            // Set the input value
+            searchInput.value = result.item.genre;
             resultsContainer.style.display = 'none';
+            
+            // Open the Netflix genre link in a new tab
+            if (result.item.link) {
+                popupBrowserAPI.tabs.create({ 
+                    url: result.item.link,
+                    active: true // Make the new tab active
+                });
+                
+                // Optional: Close the popup after opening the link
+                setTimeout(() => {
+                    window.close();
+                }, 100);
+            }
         });
+        
         resultsContainer.appendChild(item);
     });
     
     resultsContainer.style.display = 'block';
+    console.log('🔍 Displayed', results.slice(0, 5).length, 'results');
 }
 
 // Hide search results when clicking outside
