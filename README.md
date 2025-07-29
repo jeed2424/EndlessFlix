@@ -27,6 +27,4 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 
 * [Original Credits - JonLuca](https://github.com/jonluca/Never-Ending-Netflix) - Original Author
 * [Fuse.js](http://fusejs.io/) - Genre search
-* [gumby](https://gumbyframework.com/docs/javascript/) - Options page
-* [modernizr](https://modernizr.com/) - Options page
 * [jQuery](https://jquery.com/)
