@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Applikationens titel, visad i webbbutiken." },
+                "manifest_description": { "message": "Spelar automatiskt nästa avsnitt, hoppar över titelsekvenser, hoppar över \"Tittar du fortfarande?\" meddelanden, och söker i över 3000 genrer!", "description": "Applikationens beskrivning, visad i webbbutiken." },
+                "skipTitleSequences": { "message": "Hoppa Över Titelsekvenser", "description": "" },
+                "autoPlayNext": { "message": "Spela Nästa Avsnitt Automatiskt", "description": "Text för alternativet att automatiskt spela nästa avsnitt" },
+                "alwaysWatchCredits": { "message": "Titta Alltid på Eftertexterna", "description": "Text för alternativet att alltid titta på eftertexterna" },
+                "hideAutoPlayVid": { "message": "Dölj Reklamvideor", "description": "Text för alternativet att dölja automatiskt spelande reklamvideor på Netflix startsida" },
+                "dontPromptStillWatching": { "message": "Fråga Inte \"Är Du Fortfarande Där?\"", "description": "Text för alternativet att inte fråga om du fortfarande tittar efter 8 timmar" },
+                "hideDownvoted": { "message": "Dölj Negativt Betygsatt Innehåll", "description": "Text för alternativet att dölja negativt betygsatt innehåll" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Minimera Inte Sluttexter", "description": "Text för alternativet att inte minimera sluttexter för programinnehåll" },
+                "support": { "message": "Support", "description": "Text med länk till min webbplats, för support" },
+                "genreSearch": { "message": "Genresökning", "description": "Platshållartext för sökning av en genre" },
+                "sourceButton": { "message": "Källkod", "description": "Original källkod publicerad på GitHub för denna tillägg" },
+                "helpButton": { "message": "Hjälp", "description": "Begär hjälp" }, "toggleOn": { "message": "På", "description": "Aktivera tillägg" },
+                "toggleOff": { "message": "Av", "description": "Inaktivera tillägg" }
+            }

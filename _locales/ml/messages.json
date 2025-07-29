@@ -1,0 +1,16 @@
+{
+  "manifest_name": { "message": "EndlessFlix", "description": "Te ingoa o te taupānga, kitea ai i te toa ipurangi." },
+  "manifest_description": { "message": "Ka whakatangihia aunoa te wāhanga kē atu, ka kape i ngā raina ingoa, ka kape i ngā pātai \"Kei te mātakitaki tonu koe?\", ā ka rapu hoki i ngā momo 3000+!", "description": "Te whakaahua o te taupānga, kitea ai i te toa ipurangi." },
+  "skipTitleSequences": { "message": "Kape i ngā Raina Ingoa", "description": "" },
+  "autoPlayNext": { "message": "Whakatangihia Aunoa te Wāhanga Kē Atu", "description": "Kupu mō te kōwhiringa whakatangi aunoa i te wāhanga kē atu" },
+  "alwaysWatchCredits": { "message": "Mātakitaki Mutunga Rawa ngā Raina Whakatōhū", "description": "Kupu mō te kōwhiringa mātakitaki mutunga rawa i ngā raina whakatōhū" },
+  "hideAutoPlayVid": { "message": "Hunaia ngā Ataata Whakatairanga", "description": "Kupu mō te kōwhiringa huna i ngā ataata whakatairanga whakatangi aunoa i te whārangi kāinga Netflix" },
+  "dontPromptStillWatching": { "message": "Kaua e Uia \"Kei konā tonu koe?\"", "description": "Kupu mō te kōwhiringa kore ui mēnā kei te mātakitaki tonu i muri i ngā hāora 8" },
+  "hideDownvoted": { "message": "Hunaia te Ihirangi Pōti Raro", "description": "Kupu mō te kōwhiringa huna i te ihirangi pōti raro" },
+  "dontMinimzeEndCreditsOfShow": { "message": "Kaua e Whakaiti ngā Raina Whakatōhū Mutunga", "description": "Kupu mō te kōwhiringa kore whakaiti i ngā raina whakatōhū mutunga o te ihirangi whakaaturanga" },
+  "support": { "message": "Tautoko", "description": "Kupu me te hononga ki taku pae tukutuku, mō te tautoko" },
+  "genreSearch": { "message": "Rapu Momo", "description": "Kupu pupuri wāhi mō te rapu momo" },
+  "sourceButton": { "message": "Waehere Puna", "description": "Te waehere puna taketake whakaputaina ki GitHub mō tēnei taupiri" },
+  "helpButton": { "message": "Āwhina", "description": "Tono āwhina" }, "toggleOn": { "message": "Kā", "description": "Whakangāwari Taupiri" },
+  "toggleOff": { "message": "Weto", "description": "Whakakore Taupiri" }
+}

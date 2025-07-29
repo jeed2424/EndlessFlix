@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "વેબ સ્ટોરમાં દર્શાવેલ એપ્લિકેશનનું શીર્ષક." },
+                "manifest_description": { "message": "આગલો એપિસોડ આપમેળે ચલાવે છે, શીર્ષક ક્રમ છોડે છે, \"શું તમે હજુ જોઈ રહ્યા છો?\" સંકેતો છોડે છે, અને 3000+ શૈલીઓમાં શોધે છે!", "description": "વેબ સ્ટોરમાં દર્શાવેલ એપ્લિકેશનનું વર્ણન." },
+                "skipTitleSequences": { "message": "શીર્ષક ક્રમ છોડો", "description": "" },
+                "autoPlayNext": { "message": "આગલો એપિસોડ આપમેળે ચલાવો", "description": "આગલો એપિસોડ આપમેળે ચલાવવાના વિકલ્પ માટેનું ટેક્સ્ટ" },
+                "alwaysWatchCredits": { "message": "હંમેશા ક્રેડિટ્સ જુઓ", "description": "હંમેશા ક્રેડિટ્સ જોવાના વિકલ્પ માટેનું ટેક્સ્ટ" },
+                "hideAutoPlayVid": { "message": "પ્રમોશનલ વિડિયો છુપાવો", "description": "Netflix હોમ પેજ પર આપમેળે ચાલતા પ્રમોશનલ વિડિયો છુપાવવાના વિકલ્પ માટેનું ટેક્સ્ટ" },
+                "dontPromptStillWatching": { "message": "\"શું તમે હજુ ત્યાં છો?\" ન પૂછો", "description": "8 કલાક પછી હજુ જોઈ રહ્યા છો કે કેમ તે ન પૂછવાના વિકલ્પ માટેનું ટેક્સ્ટ" },
+                "hideDownvoted": { "message": "નકારાત્મક મત આપેલ સામગ્રી છુપાવો", "description": "નકારાત્મક મત આપેલ સામગ્રી છુપાવવાના વિકલ્પ માટેનું ટેક્સ્ટ" },
+                "dontMinimzeEndCreditsOfShow": { "message": "અંતિમ ક્રેડિટ્સ નાના ન કરો", "description": "શોની સામગ્રીના અંતિમ ક્રેડિટ્સ નાના ન કરવાના વિકલ્પ માટેનું ટેક્સ્ટ" },
+                "support": { "message": "સહાય", "description": "સહાય માટે મારી વેબસાઇટની લિંક સાથેનું ટેક્સ્ટ" },
+                "genreSearch": { "message": "શૈલી શોધ", "description": "એક શૈલી શોધવા માટે પ્લેસહોલ્ડર ટેક્સ્ટ" },
+                "sourceButton": { "message": "સોર્સ કોડ", "description": "આ એક્સ્ટેન્શન માટે GitHub પર પ્રકાશિત મૂળ સોર્સ કોડ" },
+                "helpButton": { "message": "સહાય", "description": "સહાયની વિનંતી" }, "toggleOn": { "message": "ચાલુ", "description": "એક્સ્ટેન્શન સક્રિય કરો" },
+                "toggleOff": { "message": "બંધ", "description": "એક્સ્ટેન્શન નિષ્ક્રિય કરો" }
+            }

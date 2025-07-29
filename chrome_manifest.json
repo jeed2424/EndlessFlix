@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "EndlessFlix",
+  "version": "2.7.1",
+  "description": "Automatically play next episode, skip intros, skip \"Are you still watching?\" prompt, and more! Check out website for more details.",
+  "host_permissions": [
+    "*://*.netflix.com/*"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.netflix.com/*"
+      ],
+      "js": [
+        "js/libs/jquery.js",
+        "js/selectors.js",
+        "js/common.js",
+        "NEN.js"
+      ]
+    }
+  ],
+  "icons": {
+    "32": "images/icon32.png",
+    "38": "images/icon.png",
+    "64": "images/icon64.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "service_worker": "js/service-worker.js"
+  },
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_title": "EndlessFlix"
+  },
+  "default_locale": "en",
+  "homepage_url": "https://github.com/jeed2424/EndlessFlix",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/*",
+        "data/*"
+      ],
+      "matches": [
+        "*://*.netflix.com/*"
+      ]
+    }
+  ]
+}

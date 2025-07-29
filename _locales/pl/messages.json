@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Tytuł aplikacji wyświetlany w sklepie internetowym." },
+                "manifest_description": { "message": "Automatycznie odtwarza następny odcinek, pomija sekwencje tytułowe, pomija zapytania \"Czy nadal oglądasz?\", i przeszukuje ponad 3000 gatunków!", "description": "Opis aplikacji wyświetlany w sklepie internetowym." },
+                "skipTitleSequences": { "message": "Pomiń Sekwencje Tytułowe", "description": "" },
+                "autoPlayNext": { "message": "Automatycznie Odtwórz Następny Odcinek", "description": "Tekst dla opcji automatycznego odtwarzania następnego odcinka" },
+                "alwaysWatchCredits": { "message": "Zawsze Oglądaj Napisy Końcowe", "description": "Tekst dla opcji zawsze oglądania napisów końcowych" },
+                "hideAutoPlayVid": { "message": "Ukryj Filmy Promocyjne", "description": "Tekst dla opcji ukrywania automatycznie odtwarzanych filmów promocyjnych na stronie głównej Netflix" },
+                "dontPromptStillWatching": { "message": "Nie Pytaj \"Czy Nadal Tam Jesteś?\"", "description": "Tekst dla opcji niepytania czy nadal oglądasz po upływie 8 godzin" },
+                "hideDownvoted": { "message": "Ukryj Treści z Negatywną Oceną", "description": "Tekst dla opcji ukrywania treści z negatywną oceną" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Nie Minimalizuj Napisów Końcowych", "description": "Tekst dla opcji nieminimalizowania napisów końcowych treści programu" },
+                "support": { "message": "Wsparcie", "description": "Tekst z linkiem do mojej strony internetowej, dla wsparcia" },
+                "genreSearch": { "message": "Wyszukiwanie Gatunku", "description": "Tekst zastępczy dla wyszukiwania gatunku" },
+                "sourceButton": { "message": "Kod Źródłowy", "description": "Oryginalny kod źródłowy opublikowany na GitHub dla tego rozszerzenia" },
+                "helpButton": { "message": "Pomoc", "description": "Poproś o pomoc" }, "toggleOn": { "message": "Włączony", "description": "Włącz rozszerzenie" },
+                "toggleOff": { "message": "Wyłączony", "description": "Wyłącz rozszerzenie" }
+            }

@@ -1,0 +1,56 @@
+{
+    "manifest_name": {
+      "message": "EndlessFlix",
+      "description": "عنوان برنامه که در فروشگاه وب نمایش داده می‌شود."
+    },
+    "manifest_description": {
+      "message": "به طور خودکار قسمت بعدی را پخش می‌کند، دنباله‌های عنوان را رد می‌کند، پیام‌های \"هنوز تماشا می‌کنید؟\" را رد می‌کند، و در بیش از ۳۰۰۰ ژانر جستجو می‌کند!",
+      "description": "توضیحات برنامه که در فروشگاه وب نمایش داده می‌شود."
+    },
+    "skipTitleSequences": {
+      "message": "رد کردن دنباله‌های عنوان",
+      "description": ""
+    },
+    "autoPlayNext": {
+      "message": "پخش خودکار قسمت بعدی",
+      "description": "متن برای گزینه پخش خودکار قسمت بعدی"
+    },
+    "alwaysWatchCredits": {
+      "message": "همیشه تیتراژ را تماشا کنید",
+      "description": "متن برای گزینه همیشه تماشای تیتراژ"
+    },
+    "hideAutoPlayVid": {
+      "message": "مخفی کردن ویدیوهای تبلیغاتی",
+      "description": "متن برای گزینه مخفی کردن ویدیوهای تبلیغاتی که به طور خودکار در صفحه اصلی نتفلیکس پخش می‌شوند"
+    },
+    "dontPromptStillWatching": {
+      "message": "نپرسید \"هنوز آنجا هستید؟\"",
+      "description": "متن برای گزینه عدم سوال کردن اینکه آیا هنوز تماشا می‌کنید پس از گذشت ۸ ساعت"
+    },
+    "hideDownvoted": {
+      "message": "مخفی کردن محتوای رای منفی",
+      "description": "متن برای گزینه مخفی کردن محتوای رای منفی"
+    },
+    "dontMinimzeEndCreditsOfShow": {
+      "message": "تیتراژ پایانی را کوچک نکنید",
+      "description": "متن برای گزینه کوچک نکردن تیتراژ پایانی محتوای برنامه"
+    },
+    "support": {
+      "message": "پشتیبانی",
+      "description": "متن با پیوند به وب‌سایت من، برای پشتیبانی"
+    },
+    "genreSearch": {
+      "message": "جستجوی ژانر",
+      "description": "متن جایگزین برای جستجوی یک ژانر"
+    },
+    "sourceButton": {
+      "message": "کد منبع",
+      "description": "کد منبع اصلی منتشر شده در گیت‌هاب برای این افزونه"
+    },
+    "helpButton": {
+      "message": "کمک",
+      "description": "درخواست کمک"
+    },
+    "toggleOn": { "message": "روشن", "description": "فعال کردن افزونه" },
+    "toggleOff": { "message": "خاموش", "description": "غیرفعال کردن افزونه" }
+  }
