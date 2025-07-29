@@ -50,5 +50,7 @@
     "helpButton": {
       "message": "کمک",
       "description": "درخواست کمک"
-    }
+    },
+    "toggleOn": { "message": "روشن", "description": "فعال کردن افزونه" },
+    "toggleOff": { "message": "خاموش", "description": "غیرفعال کردن افزونه" }
   }

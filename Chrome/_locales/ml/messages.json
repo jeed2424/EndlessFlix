@@ -11,5 +11,6 @@
   "support": { "message": "Tautoko", "description": "Kupu me te hononga ki taku pae tukutuku, mō te tautoko" },
   "genreSearch": { "message": "Rapu Momo", "description": "Kupu pupuri wāhi mō te rapu momo" },
   "sourceButton": { "message": "Waehere Puna", "description": "Te waehere puna taketake whakaputaina ki GitHub mō tēnei taupiri" },
-  "helpButton": { "message": "Āwhina", "description": "Tono āwhina" }
+  "helpButton": { "message": "Āwhina", "description": "Tono āwhina" }, "toggleOn": { "message": "Kā", "description": "Whakangāwari Taupiri" },
+  "toggleOff": { "message": "Weto", "description": "Whakakore Taupiri" }
 }

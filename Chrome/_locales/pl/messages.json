@@ -11,5 +11,6 @@
                 "support": { "message": "Wsparcie", "description": "Tekst z linkiem do mojej strony internetowej, dla wsparcia" },
                 "genreSearch": { "message": "Wyszukiwanie Gatunku", "description": "Tekst zastępczy dla wyszukiwania gatunku" },
                 "sourceButton": { "message": "Kod Źródłowy", "description": "Oryginalny kod źródłowy opublikowany na GitHub dla tego rozszerzenia" },
-                "helpButton": { "message": "Pomoc", "description": "Poproś o pomoc" }
+                "helpButton": { "message": "Pomoc", "description": "Poproś o pomoc" }, "toggleOn": { "message": "Włączony", "description": "Włącz rozszerzenie" },
+                "toggleOff": { "message": "Wyłączony", "description": "Wyłącz rozszerzenie" }
             }

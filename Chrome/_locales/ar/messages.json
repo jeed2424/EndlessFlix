@@ -50,5 +50,13 @@
 "helpButton": {
 "message": "المساعدة",
 "description": "طلب المساعدة"
- }
+ },
+ "toggleOn": { 
+    "message": "تشغيل", 
+    "description": "تفعيل الإضافة" 
+},
+"toggleOff": { 
+    "message": "إيقاف", 
+    "description": "إلغاء تفعيل الإضافة" 
+}
 }

@@ -11,5 +11,6 @@
                 "support": { "message": "Palaikymas", "description": "Tekstas su nuoroda į mano svetainę palaikymui" },
                 "genreSearch": { "message": "Žanrų Paieška", "description": "Vietženklio tekstas žanro paieškai" },
                 "sourceButton": { "message": "Šaltinio Kodas", "description": "Originalus šaltinio kodas paskelbtas GitHub šiam plėtiniui" },
-                "helpButton": { "message": "Pagalba", "description": "Prašyti pagalbos" }
+                "helpButton": { "message": "Pagalba", "description": "Prašyti pagalbos" }, "toggleOn": { "message": "Įjungta", "description": "Įjungti plėtinį" },
+                "toggleOff": { "message": "Išjungta", "description": "Išjungti plėtinį" }
             }

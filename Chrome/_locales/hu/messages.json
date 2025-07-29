@@ -11,5 +11,6 @@
                 "support": { "message": "Támogatás", "description": "Szöveg az én webhelyemre mutató linkkel, támogatásért" },
                 "genreSearch": { "message": "Műfaj Keresés", "description": "Helyőrző szöveg egy műfaj keresésére" },
                 "sourceButton": { "message": "Forráskód", "description": "Eredeti forráskód publikálva a GitHubon ehhez a bővítményhez" },
-                "helpButton": { "message": "Segítség", "description": "Segítség kérése" }
+                "helpButton": { "message": "Segítség", "description": "Segítség kérése" }, "toggleOn": { "message": "Be", "description": "Bővítmény engedélyezése" },
+                "toggleOff": { "message": "Ki", "description": "Bővítmény letiltása" }
             }

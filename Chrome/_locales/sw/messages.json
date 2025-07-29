@@ -11,5 +11,6 @@
                 "support": { "message": "Msaada", "description": "Nakala yenye kiungo cha tovuti yangu, kwa msaada" },
                 "genreSearch": { "message": "Utafutaji wa Aina", "description": "Nakala ya kishikilia kwa kutafuta aina" },
                 "sourceButton": { "message": "Msimbo wa Chanzo", "description": "Msimbo wa chanzo wa asili uliochapishwa kwenye GitHub kwa kiendelezi hiki" },
-                "helpButton": { "message": "Msaada", "description": "Omba msaada" }
+                "helpButton": { "message": "Msaada", "description": "Omba msaada" }, "toggleOn": { "message": "Imewashwa", "description": "Wezesha Kiendelezi" },
+                "toggleOff": { "message": "Imezimwa", "description": "Lemaza Kiendelezi" }
             }

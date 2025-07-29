@@ -50,5 +50,13 @@
 "helpButton": {
 "message": "እርዳታ",
 "description": "እርዳታ ጠይቅ"
- }
+ },
+ "toggleOn": { 
+    "message": "በራስ", 
+    "description": "ማራዘሚያ አንቃ" 
+},
+"toggleOff": { 
+    "message": "አጥፋ", 
+    "description": "ማራዘሚያ አሰናክል" 
+}
 }

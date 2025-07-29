@@ -50,5 +50,7 @@
     "helpButton": {
       "message": "Apua",
       "description": "Pyydä apua"
-    }
+    },
+    "toggleOn": { "message": "Nakabukas", "description": "I-enable ang Extension" },
+    "toggleOff": { "message": "Nakasara", "description": "I-disable ang Extension" }
 }

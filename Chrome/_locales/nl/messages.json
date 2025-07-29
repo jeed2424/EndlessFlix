@@ -11,5 +11,6 @@
                 "support": { "message": "Ondersteuning", "description": "Tekst met link naar mijn website, voor ondersteuning" },
                 "genreSearch": { "message": "Genre Zoeken", "description": "Plaatshouder tekst voor het zoeken van een genre" },
                 "sourceButton": { "message": "Broncode", "description": "Originele broncode gepubliceerd op GitHub voor deze extensie" },
-                "helpButton": { "message": "Help", "description": "Hulp vragen" }
+                "helpButton": { "message": "Help", "description": "Hulp vragen" }, "toggleOn": { "message": "Aan", "description": "Extensie inschakelen" },
+                "toggleOff": { "message": "Uit", "description": "Extensie uitschakelen" }
             }

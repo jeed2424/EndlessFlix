@@ -50,5 +50,7 @@
 "helpButton": {
 "message": "Abi",
 "description": "Abi taotlemine"
- }
+ },
+ "toggleOn": { "message": "Sees", "description": "Laienduse lubamine" },
+"toggleOff": { "message": "Väljas", "description": "Laienduse keelamine" }
 }

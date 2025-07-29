@@ -11,5 +11,6 @@
                 "support": { "message": "Подршка", "description": "Текст са везом до мог веб сајта, за подршку" },
                 "genreSearch": { "message": "Претрага Жанрова", "description": "Заменски текст за претрагу жанра" },
                 "sourceButton": { "message": "Изворни Код", "description": "Оригинални изворни код објављен на GitHub за ову екстензију" },
-                "helpButton": { "message": "Помоћ", "description": "Затражи помоћ" }
+                "helpButton": { "message": "Помоћ", "description": "Затражи помоћ" }, "toggleOn": { "message": "Укључено", "description": "Омогући проширење" },
+                "toggleOff": { "message": "Искључено", "description": "Онемогући проширење" }
             }

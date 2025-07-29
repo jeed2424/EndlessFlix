@@ -11,5 +11,6 @@
                 "support": { "message": "การสนับสนุน", "description": "ข้อความพร้อมลิงก์ไปยังเว็บไซต์ของฉันสำหรับการสนับสนุน" },
                 "genreSearch": { "message": "ค้นหาประเภท", "description": "ข้อความตัวอย่างสำหรับการค้นหาประเภท" },
                 "sourceButton": { "message": "ซอร์สโค้ด", "description": "ซอร์สโค้ดต้นฉบับที่เผยแพร่บน GitHub สำหรับส่วนขยายนี้" },
-                "helpButton": { "message": "ความช่วยเหลือ", "description": "ขอความช่วยเหลือ" }
+                "helpButton": { "message": "ความช่วยเหลือ", "description": "ขอความช่วยเหลือ" }, "toggleOn": { "message": "เปิด", "description": "เปิดใช้งานส่วนขยาย" },
+                "toggleOff": { "message": "ปิด", "description": "ปิดใช้งานส่วนขยาย" }
             }

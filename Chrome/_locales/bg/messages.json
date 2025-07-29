@@ -50,5 +50,13 @@
 "helpButton": {
 "message": "Помощ",
 "description": "Заявка за помощ"
- }
+ },
+ "toggleOn": { 
+    "message": "Включен", 
+    "description": "Активиране на разширението" 
+},
+"toggleOff": { 
+    "message": "Изключен", 
+    "description": "Деактивиране на разширението" 
+}
 }

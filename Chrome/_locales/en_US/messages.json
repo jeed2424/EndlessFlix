@@ -50,5 +50,13 @@
   "helpButton": {
     "message": "Help",
     "description": "Request help"
+  },
+  "toggleOn": {
+    "message": "On",
+    "description": "Enable Extension"
+  },
+  "toggleOff": {
+    "message": "Off",
+    "description": "Disable Extension"
   }
 }

@@ -50,5 +50,7 @@
     "helpButton": {
       "message": "Apua",
       "description": "Pyydä apua"
-    }
+    },
+    "toggleOn": { "message": "Päällä", "description": "Ota laajennus käyttöön" },
+    "toggleOff": { "message": "Pois", "description": "Poista laajennus käytöstä" }
   }

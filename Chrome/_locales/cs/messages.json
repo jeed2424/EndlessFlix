@@ -50,5 +50,7 @@
 "helpButton": {
 "message": "Nápověda",
 "description": "Požádat o pomoc"
- }
+ },
+ "toggleOn": { "message": "Zapnuto", "description": "Povolit rozšíření" },
+"toggleOff": { "message": "Vypnuto", "description": "Zakázat rozšíření" }
 }

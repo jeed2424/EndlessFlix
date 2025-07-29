@@ -11,5 +11,6 @@
                 "support": { "message": "תמיכה", "description": "טקסט עם קישור לאתר שלי, לתמיכה" },
                 "genreSearch": { "message": "חיפוש ז'אנר", "description": "טקסט מציין מקום לחיפוש ז'אנר" },
                 "sourceButton": { "message": "קוד מקור", "description": "קוד המקור המקורי שפורסם ב-GitHub עבור הרחבה זו" },
-                "helpButton": { "message": "עזרה", "description": "בקש עזרה" }
+                "helpButton": { "message": "עזרה", "description": "בקש עזרה" }, "toggleOn": { "message": "פועל", "description": "הפעל הרחבה" },
+                "toggleOff": { "message": "כבוי", "description": "השבת הרחבה" }
             }

@@ -11,5 +11,6 @@
                 "support": { "message": "સહાય", "description": "સહાય માટે મારી વેબસાઇટની લિંક સાથેનું ટેક્સ્ટ" },
                 "genreSearch": { "message": "શૈલી શોધ", "description": "એક શૈલી શોધવા માટે પ્લેસહોલ્ડર ટેક્સ્ટ" },
                 "sourceButton": { "message": "સોર્સ કોડ", "description": "આ એક્સ્ટેન્શન માટે GitHub પર પ્રકાશિત મૂળ સોર્સ કોડ" },
-                "helpButton": { "message": "સહાય", "description": "સહાયની વિનંતી" }
+                "helpButton": { "message": "સહાય", "description": "સહાયની વિનંતી" }, "toggleOn": { "message": "ચાલુ", "description": "એક્સ્ટેન્શન સક્રિય કરો" },
+                "toggleOff": { "message": "બંધ", "description": "એક્સ્ટેન્શન નિષ્ક્રિય કરો" }
             }

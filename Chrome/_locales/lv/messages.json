@@ -11,5 +11,6 @@
                 "support": { "message": "Atbalsts", "description": "Teksts ar saiti uz manu vietni atbalstam" },
                 "genreSearch": { "message": "Žanru Meklēšana", "description": "Viettura teksts žanra meklēšanai" },
                 "sourceButton": { "message": "Pirmkods", "description": "Oriģinālais pirmkods publicēts GitHub šim paplašinājumam" },
-                "helpButton": { "message": "Palīdzība", "description": "Pieprasīt palīdzību" }
+                "helpButton": { "message": "Palīdzība", "description": "Pieprasīt palīdzību" }, "toggleOn": { "message": "Ieslēgts", "description": "Iespējot paplašinājumu" },
+                "toggleOff": { "message": "Izslēgts", "description": "Atspējot paplašinājumu" }
             }

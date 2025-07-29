@@ -11,5 +11,6 @@
                 "support": { "message": "지원", "description": "지원을 위한 내 웹사이트 링크가 있는 텍스트" },
                 "genreSearch": { "message": "장르 검색", "description": "장르 검색을 위한 플레이스홀더 텍스트" },
                 "sourceButton": { "message": "소스 코드", "description": "이 확장 프로그램을 위해 GitHub에 게시된 원본 소스 코드" },
-                "helpButton": { "message": "도움말", "description": "도움 요청" }
+                "helpButton": { "message": "도움말", "description": "도움 요청" }, "toggleOn": { "message": "켜짐", "description": "확장 프로그램 활성화" },
+                "toggleOff": { "message": "꺼짐", "description": "확장 프로그램 비활성화" }
             }

@@ -11,5 +11,6 @@
                 "support": { "message": "ஆதரவு", "description": "ஆதரவிற்காக என் வலைதளத்திற்கான இணைப்புடன் உரை" },
                 "genreSearch": { "message": "வகை தேடல்", "description": "ஒரு வகையை தேடுவதற்கான placeholder உரை" },
                 "sourceButton": { "message": "மூல குறியீடு", "description": "இந்த நீட்டிப்புக்காக GitHub இல் வெளியிடப்பட்ட அசல் மூல குறியீடு" },
-                "helpButton": { "message": "உதவி", "description": "உதவி கேட்கவும்" }
+                "helpButton": { "message": "உதவி", "description": "உதவி கேட்கவும்" }, "toggleOn": { "message": "ஆன்", "description": "நீட்டிப்பை இயக்கவும்" },
+                "toggleOff": { "message": "ஆஃப்", "description": "நீட்டிப்பை முடக்கவும்" }
             }

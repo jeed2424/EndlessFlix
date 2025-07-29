@@ -11,5 +11,6 @@
                 "support": { "message": "Supporto", "description": "Testo con link al mio sito web, per supporto" },
                 "genreSearch": { "message": "Ricerca Genere", "description": "Testo segnaposto per la ricerca di un genere" },
                 "sourceButton": { "message": "Codice Sorgente", "description": "Codice sorgente originale pubblicato su GitHub per questa estensione" },
-                "helpButton": { "message": "Aiuto", "description": "Richiedi aiuto" }
+                "helpButton": { "message": "Aiuto", "description": "Richiedi aiuto" }, "toggleOn": { "message": "Attivo", "description": "Abilita Estensione" },
+                "toggleOff": { "message": "Disattivo", "description": "Disabilita Estensione" }
             }

@@ -50,5 +50,7 @@
     "helpButton": {
       "message": "Aide",
       "description": "Demander de l'aide"
-    }
+    },
+    "toggleOn": { "message": "Activé", "description": "Activer l'extension" },
+    "toggleOff": { "message": "Désactivé", "description": "Désactiver l'extension" }
 }

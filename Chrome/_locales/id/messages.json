@@ -11,5 +11,6 @@
                 "support": { "message": "Dukungan", "description": "Teks dengan tautan ke situs web saya, untuk dukungan" },
                 "genreSearch": { "message": "Pencarian Genre", "description": "Teks placeholder untuk mencari genre" },
                 "sourceButton": { "message": "Kode Sumber", "description": "Kode sumber asli yang dipublikasikan di GitHub untuk ekstensi ini" },
-                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }
+                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }, "toggleOn": { "message": "Hidup", "description": "Aktifkan Ekstensi" },
+                "toggleOff": { "message": "Mati", "description": "Nonaktifkan Ekstensi" }
             }

@@ -11,5 +11,7 @@
                 "support": { "message": "Podpora", "description": "Text s odkazom na moju webovú stránku pre podporu" },
                 "genreSearch": { "message": "Vyhľadávanie Žánrov", "description": "Zástupný text pre vyhľadávanie žánru" },
                 "sourceButton": { "message": "Zdrojový Kód", "description": "Pôvodný zdrojový kód zverejnený na GitHube pre toto rozšírenie" },
-                "helpButton": { "message": "Pomocník", "description": "Požiadať o pomoc" }
+                "helpButton": { "message": "Pomocník", "description": "Požiadať o pomoc" },
+                "toggleOn": { "message": "Zapnuté", "description": "Povoliť rozšírenie" },
+                "toggleOff": { "message": "Vypnuté", "description": "Zakázať rozšírenie" }
             }

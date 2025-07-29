@@ -15,6 +15,7 @@ function loadOptions(callback) {
     options.dontMinimzeEndCreditsOfShow = options.hasOwnProperty('dontMinimzeEndCreditsOfShow') ? options.dontMinimzeEndCreditsOfShow : false;
     options.hideDisliked = options.hasOwnProperty('hideDisliked') ? options.hideDisliked : false;
     options.highContrast = options.hasOwnProperty('highContrast') ? options.highContrast : false;
+    options.extensionEnabled = options.hasOwnProperty('extensionEnabled') ? options.extensionEnabled : true;
 
     chrome.storage.sync.set({
       'options': options

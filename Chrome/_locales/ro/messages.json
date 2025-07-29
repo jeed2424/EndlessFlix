@@ -11,5 +11,6 @@
                 "support": { "message": "Suport", "description": "Text cu link către website-ul meu, pentru suport" },
                 "genreSearch": { "message": "Căutare Gen", "description": "Text placeholder pentru căutarea unui gen" },
                 "sourceButton": { "message": "Cod Sursă", "description": "Codul sursă original publicat pe GitHub pentru această extensie" },
-                "helpButton": { "message": "Ajutor", "description": "Solicită ajutor" }
+                "helpButton": { "message": "Ajutor", "description": "Solicită ajutor" }, "toggleOn": { "message": "Pornit", "description": "Activează Extensia" },
+                "toggleOff": { "message": "Oprit", "description": "Dezactivează Extensia" }
             }

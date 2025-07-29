@@ -50,5 +50,7 @@
 "helpButton": {
 "message": "Βοήθεια",
 "description": "Αίτηση βοήθειας"
- }
+ },
+"toggleOn": { "message": "Ενεργό", "description": "Ενεργοποίηση Επέκτασης" },
+"toggleOff": { "message": "Ανενεργό", "description": "Απενεργοποίηση Επέκτασης" }
 }

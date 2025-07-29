@@ -11,5 +11,6 @@
                 "support": { "message": "Suporte", "description": "Texto com link para meu site, para suporte" },
                 "genreSearch": { "message": "Busca de Gênero", "description": "Texto placeholder para busca de um gênero" },
                 "sourceButton": { "message": "Código Fonte", "description": "Código fonte original publicado no GitHub para esta extensão" },
-                "helpButton": { "message": "Ajuda", "description": "Solicitar ajuda" }
+                "helpButton": { "message": "Ajuda", "description": "Solicitar ajuda" }, "toggleOn": { "message": "Ligado", "description": "Ativar Extensão" },
+                "toggleOff": { "message": "Desligado", "description": "Desativar Extensão" }
             }

@@ -11,5 +11,6 @@
                 "support": { "message": "Støtte", "description": "Tekst med lenke til min nettside, for støtte" },
                 "genreSearch": { "message": "Sjangersøk", "description": "Plassholdertekst for søking etter en sjanger" },
                 "sourceButton": { "message": "Kildekode", "description": "Original kildekode publisert på GitHub for denne utvidelsen" },
-                "helpButton": { "message": "Hjelp", "description": "Be om hjelp" }
+                "helpButton": { "message": "Hjelp", "description": "Be om hjelp" }, "toggleOn": { "message": "På", "description": "Aktiver utvidelse" },
+                "toggleOff": { "message": "Av", "description": "Deaktiver utvidelse" }
             }

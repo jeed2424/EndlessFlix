@@ -11,5 +11,6 @@
                 "support": { "message": "Podpora", "description": "Besedilo s povezavo do moje spletne strani, za podporo" },
                 "genreSearch": { "message": "Iskanje Žanrov", "description": "Nadomestno besedilo za iskanje žanra" },
                 "sourceButton": { "message": "Izvorna Koda", "description": "Originalna izvorna koda objavljena na GitHubu za to razširitev" },
-                "helpButton": { "message": "Pomoč", "description": "Zahtevaj pomoč" }
+                "helpButton": { "message": "Pomoč", "description": "Zahtevaj pomoč" }, "toggleOn": { "message": "Vklopljeno", "description": "Omogoči razširitev" },
+                "toggleOff": { "message": "Izklopljeno", "description": "Onemogoči razširitev" }
             }

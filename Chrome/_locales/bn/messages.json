@@ -50,5 +50,13 @@
 "helpButton": {
 "message": "সাহায্য",
 "description": "সাহায্যের অনুরোধ"
- }
+ },
+ "toggleOn": { 
+    "message": "চালু", 
+    "description": "এক্সটেনশন সক্রিয় করুন" 
+},
+"toggleOff": { 
+    "message": "বন্ধ", 
+    "description": "এক্সটেনশন নিষ্ক্রিয় করুন" 
+}
 }

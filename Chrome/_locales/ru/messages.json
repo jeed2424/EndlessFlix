@@ -11,5 +11,6 @@
                 "support": { "message": "Поддержка", "description": "Текст со ссылкой на мой веб-сайт, для поддержки" },
                 "genreSearch": { "message": "Поиск Жанров", "description": "Текст-заполнитель для поиска жанра" },
                 "sourceButton": { "message": "Исходный Код", "description": "Оригинальный исходный код, опубликованный на GitHub для этого расширения" },
-                "helpButton": { "message": "Помощь", "description": "Запросить помощь" }
+                "helpButton": { "message": "Помощь", "description": "Запросить помощь" }, "toggleOn": { "message": "Включено", "description": "Включить расширение" },
+                "toggleOff": { "message": "Отключено", "description": "Отключить расширение" }
             }

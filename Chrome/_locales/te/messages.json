@@ -11,5 +11,6 @@
                 "support": { "message": "మద్దతు", "description": "మద్దతు కోసం నా వెబ్‌సైట్‌కి లింక్‌తో టెక్స్ట్" },
                 "genreSearch": { "message": "జానర్ శోధన", "description": "జానర్‌ను వెతకడానికి ప్లేస్‌హోల్డర్ టెక్స్ట్" },
                 "sourceButton": { "message": "సోర్స్ కోడ్", "description": "ఈ ఎక్స్‌టెన్షన్ కోసం GitHub లో ప్రచురించబడిన అసలు సోర్స్ కోడ్" },
-                "helpButton": { "message": "సహాయం", "description": "సహాయం అభ్యర్థించండి" }
+                "helpButton": { "message": "సహాయం", "description": "సహాయం అభ్యర్థించండి" }, "toggleOn": { "message": "ఆన్", "description": "ఎక్స్‌టెన్షన్‌ను ప్రారంభించండి" },
+                "toggleOff": { "message": "ఆఫ్", "description": "ఎక్స్‌టెన్షన్‌ను నిలిపివేయండి" }
             }

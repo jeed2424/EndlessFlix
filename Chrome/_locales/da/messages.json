@@ -50,5 +50,7 @@
 "helpButton": {
 "message": "Hjælp",
 "description": "Anmod om hjælp"
- }
+ },
+ "toggleOn": { "message": "Til", "description": "Aktiver udvidelse" },
+"toggleOff": { "message": "Fra", "description": "Deaktiver udvidelse" }
 }

@@ -11,5 +11,6 @@
                 "support": { "message": "サポート", "description": "サポート用の私のウェブサイトへのリンク付きテキスト" },
                 "genreSearch": { "message": "ジャンル検索", "description": "ジャンル検索のプレースホルダーテキスト" },
                 "sourceButton": { "message": "ソースコード", "description": "この拡張機能のためにGitHubで公開された元のソースコード" },
-                "helpButton": { "message": "ヘルプ", "description": "ヘルプを求める" }
+                "helpButton": { "message": "ヘルプ", "description": "ヘルプを求める" }, "toggleOn": { "message": "オン", "description": "拡張機能を有効にする" },
+                "toggleOff": { "message": "オフ", "description": "拡張機能を無効にする" }
             }

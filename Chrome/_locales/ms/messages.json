@@ -11,5 +11,6 @@
                 "support": { "message": "Sokongan", "description": "Teks dengan pautan ke laman web saya, untuk sokongan" },
                 "genreSearch": { "message": "Carian Genre", "description": "Teks pemegang tempat untuk mencari genre" },
                 "sourceButton": { "message": "Kod Sumber", "description": "Kod sumber asal yang diterbitkan di GitHub untuk sambungan ini" },
-                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }
+                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }, "toggleOn": { "message": "Hidup", "description": "Dayakan Sambungan" },
+                "toggleOff": { "message": "Mati", "description": "Lumpuhkan Sambungan" }
             }

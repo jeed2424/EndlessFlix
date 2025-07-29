@@ -11,5 +11,6 @@
                 "support": { "message": "सहायता", "description": "सहायता के लिए मेरी वेबसाइट का लिंक वाला टेक्स्ट" },
                 "genreSearch": { "message": "शैली खोज", "description": "एक शैली खोजने के लिए प्लेसहोल्डर टेक्स्ट" },
                 "sourceButton": { "message": "स्रोत कोड", "description": "इस एक्सटेंशन के लिए GitHub पर प्रकाशित मूल स्रोत कोड" },
-                "helpButton": { "message": "सहायता", "description": "सहायता का अनुरोध" }
+                "helpButton": { "message": "सहायता", "description": "सहायता का अनुरोध" }, "toggleOn": { "message": "चालू", "description": "एक्सटेंशन सक्रिय करें" },
+                "toggleOff": { "message": "बंद", "description": "एक्सटेंशन निष्क्रिय करें" }
             }
