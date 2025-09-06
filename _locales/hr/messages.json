@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Naslov aplikacije prikazan u web trgovini." },
+                "manifest_description": { "message": "Automatski reproducira sljedeću epizodu, preskače sekvence naslova, preskače \"Gledate li još uvijek?\" poruke, i pretražuje više od 3000 žanrova!", "description": "Opis aplikacije prikazan u web trgovini." },
+                "skipTitleSequences": { "message": "Preskoči Sekvence Naslova", "description": "" },
+                "autoPlayNext": { "message": "Automatski Reproduciraj Sljedeću Epizodu", "description": "Tekst za opciju automatske reprodukcije sljedeće epizode" },
+                "alwaysWatchCredits": { "message": "Uvijek Gledaj Odjavnu Špicu", "description": "Tekst za opciju uvijek gledanja odjavne špice" },
+                "hideAutoPlayVid": { "message": "Sakrij Promotivne Videozapise", "description": "Tekst za opciju skrivanja automatski reproduciranih promotivnih videozapisa na Netflix početnoj stranici" },
+                "dontPromptStillWatching": { "message": "Ne Pitaj \"Jeste li još tu?\"", "description": "Tekst za opciju da se ne pita gledate li još uvijek nakon 8 sati" },
+                "hideDownvoted": { "message": "Sakrij Negativno Ocijenjeni Sadržaj", "description": "Tekst za opciju skrivanja negativno ocijenjenog sadržaja" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Ne Minimiziraj Završnu Špicu", "description": "Tekst za opciju da se ne minimizira završna špica sadržaja emisije" },
+                "support": { "message": "Podrška", "description": "Tekst s poveznicom na moju web stranicu za podršku" },
+                "genreSearch": { "message": "Pretraživanje Žanra", "description": "Zamjenski tekst za pretraživanje žanra" },
+                "sourceButton": { "message": "Izvorni Kod", "description": "Originalni izvorni kod objavljen na GitHubu za ovu ekstenziju" },
+                "helpButton": { "message": "Pomoć", "description": "Zatraži pomoć" }, "toggleOn": { "message": "Uključeno", "description": "Omogući proširenje" },
+                "toggleOff": { "message": "Isključeno", "description": "Onemogući proširenje" }
+            }

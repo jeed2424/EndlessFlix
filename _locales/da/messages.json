@@ -1,0 +1,56 @@
+{
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "Applikationens titel, vist i webbutikken."
+ },
+"manifest_description": {
+"message": "Afspiller automatisk næste afsnit, springer titelsekvenser over, springer \"Ser du stadig?\" beskeder over, og søger i over 3000 genrer!",
+"description": "Applikationens beskrivelse, vist i webbutikken."
+ },
+"skipTitleSequences": {
+"message": "Spring Titelsekvenser Over",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "Afspil Automatisk Næste Afsnit",
+"description": "Tekst for indstillingen til automatisk afspilning af næste afsnit"
+ },
+"alwaysWatchCredits": {
+"message": "Se Altid Rulletekster",
+"description": "Tekst for indstillingen til altid at se rulletekster"
+ },
+"hideAutoPlayVid": {
+"message": "Skjul Reklamevideoer",
+"description": "Tekst for indstillingen til at skjule automatisk afspillende reklamevideoer på Netflix hjemmeside"
+ },
+"dontPromptStillWatching": {
+"message": "Spørg Ikke \"Er du stadig der?\"",
+"description": "Tekst for indstillingen til ikke at spørge om du stadig ser efter 8 timer er gået"
+ },
+"hideDownvoted": {
+"message": "Skjul Negativt Bedømt Indhold",
+"description": "Tekst for indstillingen til at skjule negativt bedømt indhold"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "Minimer Ikke Slut-rulletekster",
+"description": "Tekst for indstillingen til ikke at minimere slut-rulletekster af programindhold"
+ },
+"support": {
+"message": "Support",
+"description": "Tekst med link til min hjemmeside, for support"
+ },
+"genreSearch": {
+"message": "Genresøgning",
+"description": "Pladsholdertekst til søgning efter en genre"
+ },
+"sourceButton": {
+"message": "Kildekode",
+"description": "Original kildekode udgivet på GitHub for denne udvidelse"
+ },
+"helpButton": {
+"message": "Hjælp",
+"description": "Anmod om hjælp"
+ },
+ "toggleOn": { "message": "Til", "description": "Aktiver udvidelse" },
+"toggleOff": { "message": "Fra", "description": "Deaktiver udvidelse" }
+}

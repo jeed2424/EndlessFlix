@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "כותרת האפליקציה המוצגת בחנות האינטרנט." },
+                "manifest_description": { "message": "מנגן אוטומטית את הפרק הבא, מדלג על רצפי כותרות, מדלג על הודעות \"האם אתם עדיין צופים?\", ומחפש בלמעלה מ-3000 ז'אנרים!", "description": "תיאור האפליקציה המוצג בחנות האינטרנט." },
+                "skipTitleSequences": { "message": "דלג על רצפי כותרות", "description": "" },
+                "autoPlayNext": { "message": "נגן אוטומטית את הפרק הבא", "description": "טקסט לאפשרות נגינה אוטומטית של הפרק הבא" },
+                "alwaysWatchCredits": { "message": "צפה תמיד בקרדיטים", "description": "טקסט לאפשרות צפייה תמיד בקרדיטים" },
+                "hideAutoPlayVid": { "message": "הסתר סרטוני פרסומת", "description": "טקסט לאפשרות הסתרת סרטוני פרסומת הנגנים אוטומטית בעמוד הבית של נטפליקס" },
+                "dontPromptStillWatching": { "message": "אל תשאל \"האם אתם עדיין כאן?\"", "description": "טקסט לאפשרות לא לשאול אם אתם עדיין צופים לאחר 8 שעות" },
+                "hideDownvoted": { "message": "הסתר תוכן שקיבל הצבעה שלילית", "description": "טקסט לאפשרות הסתרת תוכן שקיבל הצבעה שלילית" },
+                "dontMinimzeEndCreditsOfShow": { "message": "אל תמזער קרדיטים סופיים", "description": "טקסט לאפשרות לא למזער קרדיטים סופיים של תוכן התוכנית" },
+                "support": { "message": "תמיכה", "description": "טקסט עם קישור לאתר שלי, לתמיכה" },
+                "genreSearch": { "message": "חיפוש ז'אנר", "description": "טקסט מציין מקום לחיפוש ז'אנר" },
+                "sourceButton": { "message": "קוד מקור", "description": "קוד המקור המקורי שפורסם ב-GitHub עבור הרחבה זו" },
+                "helpButton": { "message": "עזרה", "description": "בקש עזרה" }, "toggleOn": { "message": "פועל", "description": "הפעל הרחבה" },
+                "toggleOff": { "message": "כבוי", "description": "השבת הרחבה" }
+            }

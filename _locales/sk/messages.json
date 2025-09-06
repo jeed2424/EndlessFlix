@@ -1,0 +1,17 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Názov aplikácie zobrazený v internetovom obchode." },
+                "manifest_description": { "message": "Automaticky prehráva ďalšiu epizódu, preskakuje úvodné sekvencie, preskakuje výzvy \"Stále sa pozeráte?\", a vyhľadáva vo viac ako 3000 žánroch!", "description": "Popis aplikácie zobrazený v internetovom obchode." },
+                "skipTitleSequences": { "message": "Preskočiť Úvodné Sekvencie", "description": "" },
+                "autoPlayNext": { "message": "Automaticky Prehrať Ďalšiu Epizódu", "description": "Text pre možnosť automatického prehrávania ďalšej epizódy" },
+                "alwaysWatchCredits": { "message": "Vždy Sledovať Titulky", "description": "Text pre možnosť vždy sledovať titulky" },
+                "hideAutoPlayVid": { "message": "Skryť Propagačné Videá", "description": "Text pre možnosť skrytia automaticky prehrávaných propagačných videí na domovskej stránke Netflixu" },
+                "dontPromptStillWatching": { "message": "Nepýtať sa \"Stále ste tu?\"", "description": "Text pre možnosť neotázať sa, či stále sledujete po uplynutí 8 hodín" },
+                "hideDownvoted": { "message": "Skryť Negatívne Hodnotený Obsah", "description": "Text pre možnosť skrytia negatívne hodnoteného obsahu" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Neminimalizovať Záverečné Titulky", "description": "Text pre možnosť neminimalizovať záverečné titulky obsahu programu" },
+                "support": { "message": "Podpora", "description": "Text s odkazom na moju webovú stránku pre podporu" },
+                "genreSearch": { "message": "Vyhľadávanie Žánrov", "description": "Zástupný text pre vyhľadávanie žánru" },
+                "sourceButton": { "message": "Zdrojový Kód", "description": "Pôvodný zdrojový kód zverejnený na GitHube pre toto rozšírenie" },
+                "helpButton": { "message": "Pomocník", "description": "Požiadať o pomoc" },
+                "toggleOn": { "message": "Zapnuté", "description": "Povoliť rozšírenie" },
+                "toggleOff": { "message": "Vypnuté", "description": "Zakázať rozšírenie" }
+            }

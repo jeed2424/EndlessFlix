@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "O título da aplicação, mostrado na loja web." },
+                "manifest_description": { "message": "Reproduz automaticamente o próximo episódio, ignora sequências de título, ignora avisos \"Ainda está a ver?\", e pesquisa em mais de 3000 géneros!", "description": "A descrição da aplicação, mostrada na loja web." },
+                "skipTitleSequences": { "message": "Ignorar Sequências de Título", "description": "" },
+                "autoPlayNext": { "message": "Reproduzir Automaticamente o Próximo Episódio", "description": "Texto para a opção de reproduzir automaticamente o próximo episódio" },
+                "alwaysWatchCredits": { "message": "Ver Sempre os Créditos", "description": "Texto para a opção de ver sempre os créditos" },
+                "hideAutoPlayVid": { "message": "Ocultar Vídeos Promocionais", "description": "Texto para a opção de ocultar vídeos promocionais que reproduzem automaticamente na página inicial do Netflix" },
+                "dontPromptStillWatching": { "message": "Não Perguntar \"Ainda Está Aí?\"", "description": "Texto para a opção de não perguntar se ainda está a ver após 8 horas" },
+                "hideDownvoted": { "message": "Ocultar Conteúdo com Avaliação Negativa", "description": "Texto para a opção de ocultar conteúdo com avaliação negativa" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Não Minimizar Créditos Finais", "description": "Texto para a opção de não minimizar os créditos finais do conteúdo do programa" },
+                "support": { "message": "Apoio", "description": "Texto com ligação para o meu sítio web, para apoio" },
+                "genreSearch": { "message": "Pesquisa de Género", "description": "Texto de marcador de posição para pesquisar um género" },
+                "sourceButton": { "message": "Código Fonte", "description": "Código fonte original publicado no GitHub para esta extensão" },
+                "helpButton": { "message": "Ajuda", "description": "Solicitar ajuda" }, "toggleOn": { "message": "Ligado", "description": "Ativar Extensão" },
+                "toggleOff": { "message": "Desligado", "description": "Desativar Extensão" }
+            }

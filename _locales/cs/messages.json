@@ -1,0 +1,56 @@
+{
+ "manifest_name": {
+"message": "EndlessFlix",
+"description": "Název aplikace zobrazený v internetovém obchodě."
+ },
+"manifest_description": {
+"message": "Automaticky přehrává další epizodu, přeskakuje úvodní sekvence, přeskakuje výzvy \"Stále se díváte?\", a vyhledává ve více než 3000 žánrech!",
+"description": "Popis aplikace zobrazený v internetovém obchodě."
+ },
+"skipTitleSequences": {
+"message": "Přeskočit Úvodní Sekvence",
+"description": ""
+ },
+"autoPlayNext": {
+"message": "Automaticky Přehrát Další Epizodu",
+"description": "Text pro možnost automatického přehrání další epizody"
+ },
+"alwaysWatchCredits": {
+"message": "Vždy Sledovat Titulky",
+"description": "Text pro možnost vždy sledovat titulky"
+ },
+"hideAutoPlayVid": {
+"message": "Skrýt Propagační Videa",
+"description": "Text pro možnost skrytí automaticky přehrávaných propagačních videí na domovské stránce Netflixu"
+ },
+"dontPromptStillWatching": {
+"message": "Neptat se \"Stále jste zde?\"",
+"description": "Text pro možnost neotázat se, zda stále sledujete po uplynutí 8 hodin"
+ },
+"hideDownvoted": {
+"message": "Skrýt Negativně Hodnocený Obsah",
+"description": "Text pro možnost skrytí negativně hodnoceného obsahu"
+ },
+"dontMinimzeEndCreditsOfShow": {
+"message": "Neminimalizovat Závěrečné Titulky",
+"description": "Text pro možnost neminimalizovat závěrečné titulky obsahu pořadu"
+ },
+"support": {
+"message": "Podpora",
+"description": "Text s odkazem na mé webové stránky pro podporu"
+ },
+"genreSearch": {
+"message": "Vyhledávání Žánrů",
+"description": "Zástupný text pro vyhledávání žánru"
+ },
+"sourceButton": {
+"message": "Zdrojový Kód",
+"description": "Původní zdrojový kód zveřejněný na GitHubu pro toto rozšíření"
+ },
+"helpButton": {
+"message": "Nápověda",
+"description": "Požádat o pomoc"
+ },
+ "toggleOn": { "message": "Zapnuto", "description": "Povolit rozšíření" },
+"toggleOff": { "message": "Vypnuto", "description": "Zakázat rozšíření" }
+}

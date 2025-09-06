@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Lietotnes nosaukums, kas tiek rādīts tīmekļa veikalā." },
+                "manifest_description": { "message": "Automātiski atskaņo nākamo epizodi, izlaiž virsrakstu secības, izlaiž \"Vai jūs vēl skatāties?\" uzvednes un meklē vairāk nekā 3000 žanros!", "description": "Lietotnes apraksts, kas tiek rādīts tīmekļa veikalā." },
+                "skipTitleSequences": { "message": "Izlaist Virsrakstu Secības", "description": "" },
+                "autoPlayNext": { "message": "Automātiski Atskaņot Nākamo Epizodi", "description": "Teksts nākamās epizodes automātiskas atskaņošanas opcijai" },
+                "alwaysWatchCredits": { "message": "Vienmēr Skatīties Titrus", "description": "Teksts vienmēr skatīties titrus opcijai" },
+                "hideAutoPlayVid": { "message": "Paslēpt Reklāmas Video", "description": "Teksts automātiski atskaņojamo reklāmas video paslēpšanas Netflix mājas lapā opcijai" },
+                "dontPromptStillWatching": { "message": "Nejautāt \"Vai Jūs Vēl Esat Tur?\"", "description": "Teksts opcijai nejautāt, vai jūs vēl skatāties pēc 8 stundām" },
+                "hideDownvoted": { "message": "Paslēpt Negatīvi Novērtētu Saturu", "description": "Teksts negatīvi novērtēta satura paslēpšanas opcijai" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Neminimizēt Beigu Titrus", "description": "Teksts programmas satura beigu titru neminimizēšanas opcijai" },
+                "support": { "message": "Atbalsts", "description": "Teksts ar saiti uz manu vietni atbalstam" },
+                "genreSearch": { "message": "Žanru Meklēšana", "description": "Viettura teksts žanra meklēšanai" },
+                "sourceButton": { "message": "Pirmkods", "description": "Oriģinālais pirmkods publicēts GitHub šim paplašinājumam" },
+                "helpButton": { "message": "Palīdzība", "description": "Pieprasīt palīdzību" }, "toggleOn": { "message": "Ieslēgts", "description": "Iespējot paplašinājumu" },
+                "toggleOff": { "message": "Izslēgts", "description": "Atspējot paplašinājumu" }
+            }

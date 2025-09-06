@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "ชื่อแอปพลิเคชันที่แสดงในเว็บสตอร์" },
+                "manifest_description": { "message": "เล่นตอนถัดไปโดยอัตโนมัติ ข้ามซีเควนซ์ชื่อเรื่อง ข้ามข้อความ \"คุณยังดูอยู่ไหม?\" และค้นหาในกว่า 3000 ประเภท!", "description": "คำอธิบายแอปพลิเคชันที่แสดงในเว็บสต อร์" },
+                "skipTitleSequences": { "message": "ข้ามซีเควนซ์ชื่อเรื่อง", "description": "" },
+                "autoPlayNext": { "message": "เล่นตอนถัดไปโดยอัตโนมัติ", "description": "ข้อความสำหรับตัวเลือกเล่นตอนถัดไปโดยอัตโนมัติ" },
+                "alwaysWatchCredits": { "message": "ดูเครดิตเสมอ", "description": "ข้อความสำหรับตัวเลือกดูเครดิตเสมอ" },
+                "hideAutoPlayVid": { "message": "ซ่อนวิดีโอโปรโมท", "description": "ข้อความสำหรับตัวเลือกซ่อนวิดีโอโปรโมทที่เล่นอัตโนมัติในหน้าแรกของ Netflix" },
+                "dontPromptStillWatching": { "message": "ไม่ต้องถาม \"ยังอยู่ไหม?\"", "description": "ข้อความสำหรับตัวเลือกไม่ถามว่ายังดูอยู่ไหมหลังจาก 8 ชั่วโมง" },
+                "hideDownvoted": { "message": "ซ่อนเนื้อหาที่ได้รับการโหวตลบ", "description": "ข้อความสำหรับตัวเลือกซ่อนเนื้อหาที่ได้รับการโหวตลบ" },
+                "dontMinimzeEndCreditsOfShow": { "message": "ไม่ย่อเครดิตจบ", "description": "ข้อความสำหรับตัวเลือกไม่ย่อเครดิตจบของเนื้อหารายการ" },
+                "support": { "message": "การสนับสนุน", "description": "ข้อความพร้อมลิงก์ไปยังเว็บไซต์ของฉันสำหรับการสนับสนุน" },
+                "genreSearch": { "message": "ค้นหาประเภท", "description": "ข้อความตัวอย่างสำหรับการค้นหาประเภท" },
+                "sourceButton": { "message": "ซอร์สโค้ด", "description": "ซอร์สโค้ดต้นฉบับที่เผยแพร่บน GitHub สำหรับส่วนขยายนี้" },
+                "helpButton": { "message": "ความช่วยเหลือ", "description": "ขอความช่วยเหลือ" }, "toggleOn": { "message": "เปิด", "description": "เปิดใช้งานส่วนขยาย" },
+                "toggleOff": { "message": "ปิด", "description": "ปิดใช้งานส่วนขยาย" }
+            }

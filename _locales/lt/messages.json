@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Programos pavadinimas, rodomas internetinėje parduotuvėje." },
+                "manifest_description": { "message": "Automatiškai paleidžia kitą epizodą, praleidžia pavadinimo sekas, praleidžia \"Ar vis dar žiūrite?\" pranešimus ir ieško daugiau nei 3000 žanrų!", "description": "Programos aprašymas, rodomas internetinėje parduotuvėje." },
+                "skipTitleSequences": { "message": "Praleisti Pavadinimo Sekas", "description": "" },
+                "autoPlayNext": { "message": "Automatiškai Paleisti Kitą Epizodą", "description": "Tekstas kito epizodo automatinio paleidimo parinčiai" },
+                "alwaysWatchCredits": { "message": "Visada Žiūrėti Titrus", "description": "Tekstas visada žiūrėti titrus parinčiai" },
+                "hideAutoPlayVid": { "message": "Slėpti Reklaminius Vaizdo Įrašus", "description": "Tekstas automatiškai paleidžiamų reklaminių vaizdo įrašų slėpimo Netflix pagrindiniame puslapyje parinčiai" },
+                "dontPromptStillWatching": { "message": "Neklausti \"Ar Vis Dar Čia?\"", "description": "Tekstas parinčiai neklausti, ar vis dar žiūrite po 8 valandų" },
+                "hideDownvoted": { "message": "Slėpti Neigiamai Įvertintą Turinį", "description": "Tekstas neigiamai įvertinto turinio slėpimo parinčiai" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Nesumažinti Baigiamųjų Titrų", "description": "Tekstas programos turinio baigiamųjų titrų nesumažinimo parinčiai" },
+                "support": { "message": "Palaikymas", "description": "Tekstas su nuoroda į mano svetainę palaikymui" },
+                "genreSearch": { "message": "Žanrų Paieška", "description": "Vietženklio tekstas žanro paieškai" },
+                "sourceButton": { "message": "Šaltinio Kodas", "description": "Originalus šaltinio kodas paskelbtas GitHub šiam plėtiniui" },
+                "helpButton": { "message": "Pagalba", "description": "Prašyti pagalbos" }, "toggleOn": { "message": "Įjungta", "description": "Įjungti plėtinį" },
+                "toggleOff": { "message": "Išjungta", "description": "Išjungti plėtinį" }
+            }

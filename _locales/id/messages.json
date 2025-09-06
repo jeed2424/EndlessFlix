@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Judul aplikasi yang ditampilkan di toko web." },
+                "manifest_description": { "message": "Otomatis memutar episode berikutnya, melewati urutan judul, melewati pesan \"Masih menonton?\", dan mencari di lebih dari 3000 genre!", "description": "Deskripsi aplikasi yang ditampilkan di toko web." },
+                "skipTitleSequences": { "message": "Lewati Urutan Judul", "description": "" },
+                "autoPlayNext": { "message": "Putar Episode Berikutnya Otomatis", "description": "Teks untuk opsi memutar episode berikutnya secara otomatis" },
+                "alwaysWatchCredits": { "message": "Selalu Tonton Kredit", "description": "Teks untuk opsi selalu menonton kredit" },
+                "hideAutoPlayVid": { "message": "Sembunyikan Video Promosi", "description": "Teks untuk opsi menyembunyikan video promosi yang diputar otomatis di halaman beranda Netflix" },
+                "dontPromptStillWatching": { "message": "Jangan Tanya \"Masih Di Sana?\"", "description": "Teks untuk opsi tidak menanyakan apakah masih menonton setelah 8 jam berlalu" },
+                "hideDownvoted": { "message": "Sembunyikan Konten dengan Suara Negatif", "description": "Teks untuk opsi menyembunyikan konten dengan suara negatif" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Jangan Minimalkan Kredit Akhir", "description": "Teks untuk opsi tidak meminimalkan kredit akhir konten acara" },
+                "support": { "message": "Dukungan", "description": "Teks dengan tautan ke situs web saya, untuk dukungan" },
+                "genreSearch": { "message": "Pencarian Genre", "description": "Teks placeholder untuk mencari genre" },
+                "sourceButton": { "message": "Kode Sumber", "description": "Kode sumber asli yang dipublikasikan di GitHub untuk ekstensi ini" },
+                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }, "toggleOn": { "message": "Hidup", "description": "Aktifkan Ekstensi" },
+                "toggleOff": { "message": "Mati", "description": "Nonaktifkan Ekstensi" }
+            }

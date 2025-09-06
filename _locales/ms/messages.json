@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Tajuk aplikasi yang dipaparkan di kedai web." },
+                "manifest_description": { "message": "Memainkan episod seterusnya secara automatik, melangkau urutan tajuk, melangkau gesaan \"Adakah anda masih menonton?\", dan mencari dalam lebih 3000 genre!", "description": "Huraian aplikasi yang dipaparkan di kedai web." },
+                "skipTitleSequences": { "message": "Langkau Urutan Tajuk", "description": "" },
+                "autoPlayNext": { "message": "Main Episod Seterusnya Secara Automatik", "description": "Teks untuk pilihan memainkan episod seterusnya secara automatik" },
+                "alwaysWatchCredits": { "message": "Sentiasa Tonton Kredit", "description": "Teks untuk pilihan sentiasa menonton kredit" },
+                "hideAutoPlayVid": { "message": "Sembunyikan Video Promosi", "description": "Teks untuk pilihan menyembunyikan video promosi yang dimainkan secara automatik di laman utama Netflix" },
+                "dontPromptStillWatching": { "message": "Jangan Tanya \"Adakah Anda Masih Di Sana?\"", "description": "Teks untuk pilihan tidak bertanya sama ada masih menonton selepas 8 jam berlalu" },
+                "hideDownvoted": { "message": "Sembunyikan Kandungan Undian Negatif", "description": "Teks untuk pilihan menyembunyikan kandungan undian negatif" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Jangan Minimumkan Kredit Akhir", "description": "Teks untuk pilihan tidak meminimumkan kredit akhir kandungan rancangan" },
+                "support": { "message": "Sokongan", "description": "Teks dengan pautan ke laman web saya, untuk sokongan" },
+                "genreSearch": { "message": "Carian Genre", "description": "Teks pemegang tempat untuk mencari genre" },
+                "sourceButton": { "message": "Kod Sumber", "description": "Kod sumber asal yang diterbitkan di GitHub untuk sambungan ini" },
+                "helpButton": { "message": "Bantuan", "description": "Minta bantuan" }, "toggleOn": { "message": "Hidup", "description": "Dayakan Sambungan" },
+                "toggleOff": { "message": "Mati", "description": "Lumpuhkan Sambungan" }
+            }

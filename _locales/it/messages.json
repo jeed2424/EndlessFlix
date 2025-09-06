@@ -1,0 +1,16 @@
+{
+                "manifest_name": { "message": "EndlessFlix", "description": "Il titolo dell'applicazione, mostrato nel web store." },
+                "manifest_description": { "message": "Riproduce automaticamente il prossimo episodio, salta le sequenze del titolo, salta i prompt \"Stai ancora guardando?\", e cerca in oltre 3000 generi!", "description": "La descrizione dell'applicazione, mostrata nel web store." },
+                "skipTitleSequences": { "message": "Salta Sequenze del Titolo", "description": "" },
+                "autoPlayNext": { "message": "Riproduci Automaticamente il Prossimo Episodio", "description": "Testo per l'opzione di riproduzione automatica del prossimo episodio" },
+                "alwaysWatchCredits": { "message": "Guarda Sempre i Crediti", "description": "Testo per l'opzione di guardare sempre i crediti" },
+                "hideAutoPlayVid": { "message": "Nascondi Video Promozionali", "description": "Testo per l'opzione di nascondere i video promozionali che si riproducono automaticamente nella home page di Netflix" },
+                "dontPromptStillWatching": { "message": "Non Chiedere \"Sei Ancora Qui?\"", "description": "Testo per l'opzione di non chiedere se stai ancora guardando dopo 8 ore" },
+                "hideDownvoted": { "message": "Nascondi Contenuto con Voto Negativo", "description": "Testo per l'opzione di nascondere contenuto con voto negativo" },
+                "dontMinimzeEndCreditsOfShow": { "message": "Non Minimizzare i Crediti Finali", "description": "Testo per l'opzione di non minimizzare i crediti finali del contenuto del programma" },
+                "support": { "message": "Supporto", "description": "Testo con link al mio sito web, per supporto" },
+                "genreSearch": { "message": "Ricerca Genere", "description": "Testo segnaposto per la ricerca di un genere" },
+                "sourceButton": { "message": "Codice Sorgente", "description": "Codice sorgente originale pubblicato su GitHub per questa estensione" },
+                "helpButton": { "message": "Aiuto", "description": "Richiedi aiuto" }, "toggleOn": { "message": "Attivo", "description": "Abilita Estensione" },
+                "toggleOff": { "message": "Disattivo", "description": "Disabilita Estensione" }
+            }
