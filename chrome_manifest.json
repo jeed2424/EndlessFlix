@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "EndlessFlix",
-  "version": "2.7.1",
+  "version": "3.0",
   "description": "Automatically play next episode, skip intros, skip \"Are you still watching?\" prompt, and more! Check out website for more details.",
   "host_permissions": [
     "*://*.netflix.com/*"
