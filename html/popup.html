@@ -93,10 +93,115 @@
             z-index: 2;
         }
 
-        .toggle-container {
+        .controls-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 24px;
+            gap: 12px;
+        }
+
+        .platform-selector {
+            position: relative;
+            flex: 1;
+            max-width: 140px;
+        }
+
+        .platform-current {
+            height: 24px;
+            border: 2px solid #316E7D;
+            border-radius: 4px;
+            background-color: #141F23;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .platform-current:hover {
+            background-color: #16272E;
+        }
+
+        .platform-icon {
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        .platform-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .platform-arrow {
+            font-size: 10px;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .platform-selector.open .platform-arrow {
+            transform: rotate(180deg);
+        }
+
+        .platform-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #141F23;
+            border: 2px solid #316E7D;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            z-index: 1000;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .platform-dropdown.hidden {
+            display: none;
+        }
+
+        .platform-option {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            gap: 6px;
+            transition: background-color 0.2s ease;
+            height: 24px;
+        }
+
+        .platform-option:hover {
+            background-color: #16272E;
+        }
+
+        .platform-option.active {
+            background-color: #316E7D;
+        }
+
+        .platform-icon {
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        .platform-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .toggle-container {
+            flex-shrink: 0;
         }
 
         .toggle {
@@ -115,7 +220,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             border-radius: 0px;
             transition: all 0.2s ease;
@@ -142,7 +247,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
 
         .option-item {
@@ -179,7 +284,7 @@
         }
 
         .option-text {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             line-height: 1.3;
             color: white;
@@ -201,7 +306,7 @@
             padding: 0 8px;
             color: white;
             font-family: 'Figtree', sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             outline: none;
         }
 
@@ -263,124 +368,6 @@
             background-color: #16272E;
             color: white;
         }
-        /* Disabled state for options list */
-        .options-list.disabled {
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .options-list.disabled .checkbox {
-            border-color: #555;
-            cursor: not-allowed;
-        }
-
-        .options-list.disabled .checkbox.checked {
-            background-color: #333;
-        }
-
-        .options-list.disabled .checkbox.checked::after {
-            color: #777;
-        }
-
-        .options-list.disabled .option-text {
-            color: #777;
-            cursor: not-allowed;
-        }
-
-        /* Disabled state for search container */
-        .search-container.disabled {
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .search-container.disabled .search-input {
-            border-color: #555;
-            color: #777;
-            cursor: not-allowed;
-        }
-
-        .search-container.disabled .search-input::placeholder {
-            color: #555;
-        }
-
-        /* Optional: Add a visual indicator that the extension is off */
-        .toggle-container .toggle-option[data-state="off"].active {
-            background-color: #8B4513; /* Brown/orange color to indicate "off" */
-            border: 2px solid #8B4513;
-            color: white;
-        }
-
-        /* Optional: Dim the entire popup when extension is off */
-        body.extension-disabled {
-            background-color: #0F1A1E; /* Slightly darker background */
-        }
-
-        body.extension-disabled .title {
-            color: #B8624A; /* Dimmed coral color */
-        }
-
-        body.extension-disabled .border-left,
-        body.extension-disabled .border-right,
-        body.extension-disabled .border-bottom,
-        body.extension-disabled .border-top-left,
-        body.extension-disabled .border-top-right {
-            background-color: #254A57; /* Dimmed teal color */
-        }
-
-        .refresh-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-            padding: 12px;
-            background-color: rgba(233, 108, 76, 0.1);
-            border: 1px solid #E96C4C;
-            border-radius: 4px;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .refresh-message {
-            font-size: 11px;
-            color: #E96C4C;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .refresh-button {
-            min-width: 80px;
-            height: 24px;
-            background-color: #E96C4C;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            font-family: 'Figtree', sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            padding: 0 12px;
-        }
-
-        .refresh-button:hover {
-            background-color: #D45A39;
-            transform: translateY(-1px);
-        }
-
-        .refresh-button:active {
-            transform: translateY(0);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
@@ -392,10 +379,30 @@
     <div class="container">
         <div class="title i18n" id="extName">ENDLESSFLIX</div>
         
-        <div class="toggle-container">
-            <div class="toggle" id="mainToggle">
+        <div class="controls-container">
+            <div class="platform-selector" id="platformSelector">
+                <div class="platform-current" id="platformCurrent">
+                    <span class="platform-icon">📺</span>
+                    <span class="platform-name">Netflix</span>
+                    <span class="platform-arrow">▼</span>
+                </div>
+                <div class="platform-dropdown hidden" id="platformDropdown">
+                    <div class="platform-option" data-platform="netflix">
+                        <span class="platform-icon">📺</span>
+                        <span class="platform-name">Netflix</span>
+                    </div>
+                    <div class="platform-option" data-platform="disney">
+                        <span class="platform-icon">🏰</span>
+                        <span class="platform-name">Disney+</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="toggle-container">
+                <div class="toggle" id="mainToggle">
                 <div class="toggle-option active i18n" data-state="on" id="toggleOn">On</div>
                 <div class="toggle-option i18n" data-state="off" id="toggleOff">Off</div>
+                </div>
             </div>
         </div>
 
@@ -444,13 +451,6 @@
         <div class="bottom-buttons">
             <button class="button i18n" id="helpButton">Help</button>
             <button class="button i18n" id="sourceButton">Source</button>
-        </div>
-
-        <div class="refresh-container" id="refreshContainer" style="display: none;">
-            <div class="refresh-message">
-                <span class="i18n" id="refreshMessage">Settings changed - refresh Netflix to apply</span>
-            </div>
-            <button class="refresh-button i18n" id="refreshButton">Refresh Tab</button>
         </div>
     </div>
 

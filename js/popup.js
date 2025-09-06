@@ -12,12 +12,6 @@ const popupBrowserAPI = (() => {
 
 let options = {};
 
-// Netflix tab detection and refresh functionality
-let isNetflixTab = false;
-let currentTabId = null;
-let hasUnsavedChanges = false;
-let originalOptions = {}; // Store original options to compare against
-
 // Global error handlers for unhandled Promise rejections
 window.addEventListener('unhandledrejection', function(event) {
     if (event.reason && (
@@ -47,101 +41,26 @@ window.addEventListener('error', function(event) {
     console.log('🚨 Global error:', event.error);
 });
 
-// Check if current tab is Netflix
-async function checkIfNetflixTab() {
-    try {
-        const [tab] = await popupBrowserAPI.tabs.query({ active: true, currentWindow: true });
-        if (tab && tab.url) {
-            currentTabId = tab.id;
-            isNetflixTab = tab.url.includes('netflix.com');
-            console.log('Current tab is Netflix:', isNetflixTab, 'URL:', tab.url);
-            
-            // Update refresh button visibility
-            updateRefreshButtonVisibility();
-            return isNetflixTab;
-        }
-    } catch (error) {
-        console.log('Could not check current tab:', error);
-        return false;
-    }
-    return false;
-}
-
-// Function to check if current options differ from original
-function optionsHaveChanged() {
-    // Compare relevant settings that would require a Netflix refresh
-    const relevantSettings = [
-        'extensionEnabled',
-        'skipTitleSequence', 
-        'autoPlayNext',
-        'watchCredits',
-        'disableAutoPlayOnBrowse',
-        'skipStillHere',
-        'dontMinimzeEndCreditsOfShow',
-        'hideDisliked'
-    ];
-    
-    for (const setting of relevantSettings) {
-        if (originalOptions[setting] !== options[setting]) {
-            console.log(`Setting changed: ${setting} from ${originalOptions[setting]} to ${options[setting]}`);
-            return true;
-        }
-    }
-    
-    console.log('No relevant settings have changed from original');
-    return false;
-}
-
-// Function to show/hide refresh button based on Netflix tab and actual changes
-function updateRefreshButtonVisibility() {
-    const refreshContainer = document.getElementById('refreshContainer');
-    if (!refreshContainer) return;
-    
-    const actuallyNeedsRefresh = isNetflixTab && optionsHaveChanged();
-    
-    if (actuallyNeedsRefresh) {
-        refreshContainer.style.display = 'flex';
-        console.log('Showing refresh button - Netflix tab with actual changes');
-    } else {
-        refreshContainer.style.display = 'none';
-        hasUnsavedChanges = false; // Reset since no actual changes need refresh
-        console.log('Hiding refresh button - no changes or not Netflix');
-    }
-}
-
-// Function to refresh the Netflix tab
-function refreshNetflixTab() {
-    if (currentTabId && isNetflixTab) {
-        popupBrowserAPI.tabs.reload(currentTabId);
-        
-        // Update original options to current state since we're refreshing
-        originalOptions = JSON.parse(JSON.stringify(options));
-        hasUnsavedChanges = false;
-        updateRefreshButtonVisibility();
-        console.log('Refreshed Netflix tab and updated original options');
-        
-        // Optional: Close popup after refresh
-        window.close();
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Popup loading...');
-    
-    // Check if current tab is Netflix
-    checkIfNetflixTab();
     
     loadOptions(function(receivedOptions) {
         console.log('📥 Received options from loadOptions:', JSON.stringify(receivedOptions, null, 2));
         
         options = receivedOptions;
         
-        // Store original options for comparison (deep copy)
-        originalOptions = JSON.parse(JSON.stringify(options));
-        console.log('💾 Stored original options for comparison:', JSON.stringify(originalOptions, null, 2));
+        // Load extension enabled state (default to true if not set)
+        // Make sure to handle undefined/null cases properly
+        if (options.hasOwnProperty('extensionEnabled')) {
+            isExtensionEnabled = options.extensionEnabled;
+            console.log('✅ Found extensionEnabled in options:', isExtensionEnabled);
+        } else {
+            isExtensionEnabled = true; // Default to enabled
+            options.extensionEnabled = true; // Set it in options object
+            console.log('⚠️ extensionEnabled not found, defaulting to:', isExtensionEnabled);
+        }
         
-        // Extension enabled state is already handled in loadOptions/common.js
-        console.log('🎯 Extension state from options:', options.extensionEnabled);
+        console.log('🎯 Final extension state:', isExtensionEnabled);
         console.log('🎯 Final options object:', JSON.stringify(options, null, 2));
         
         // Set checkbox states based on loaded options
@@ -163,7 +82,30 @@ document.addEventListener('DOMContentLoaded', function() {
         // Delay setupEventListeners to ensure i18n processing is complete
         setTimeout(() => {
             console.log('⏰ Timeout fired, calling setupEventListeners now...');
-            console.log('🧪 Direct test - toggle-option elements:', document.querySelectorAll('.toggle-option'));
+            
+            // DIRECT TEST - add manual event listeners to verify elements work
+            console.log('🧪 TESTING: Adding direct event listeners');
+            
+            const testToggle = document.querySelector('[data-state="on"]');
+            const testDropdown = document.getElementById('platformCurrent');
+            
+            console.log('🧪 Test toggle element:', testToggle);
+            console.log('🧪 Test dropdown element:', testDropdown);
+            
+            if (testToggle) {
+                testToggle.addEventListener('click', function() {
+                    console.log('🧪 DIRECT TEST: Toggle clicked!');
+                });
+                console.log('✅ Direct toggle listener attached');
+            }
+            
+            if (testDropdown) {
+                testDropdown.addEventListener('click', function() {
+                    console.log('🧪 DIRECT TEST: Dropdown clicked!');
+                });
+                console.log('✅ Direct dropdown listener attached');
+            }
+            
             try {
                 setupEventListeners();
                 console.log('✅ setupEventListeners completed');
@@ -195,13 +137,13 @@ function setCheckboxState(checkboxId, isChecked) {
 
 // Update toggle switch visual state
 function updateToggleState() {
-    console.log('Updating toggle state to:', options.extensionEnabled);
+    console.log('Updating toggle state to:', isExtensionEnabled);
     const toggleOptions = document.querySelectorAll('.toggle-option');
     toggleOptions.forEach(option => {
         option.classList.remove('active');
     });
     
-    if (options.extensionEnabled) {
+    if (isExtensionEnabled) {
         const onButton = document.querySelector('.toggle-option[data-state="on"]');
         if (onButton) {
             onButton.classList.add('active');
@@ -218,31 +160,78 @@ function updateToggleState() {
 
 // Enable/disable options based on extension state
 function updateOptionsAvailability() {
-    console.log('Updating options availability, enabled:', options.extensionEnabled);
+    console.log('Updating options availability, enabled:', isExtensionEnabled);
     const optionsList = document.querySelector('.options-list');
     const searchContainer = document.querySelector('.search-container');
-    const body = document.body;
     
-    if (options.extensionEnabled) {
+    if (isExtensionEnabled) {
         optionsList.classList.remove('disabled');
         searchContainer.classList.remove('disabled');
-        body.classList.remove('extension-disabled');
         console.log('Options enabled (removed disabled class)');
     } else {
         optionsList.classList.add('disabled');
         searchContainer.classList.add('disabled');
-        body.classList.add('extension-disabled');
         console.log('Options disabled (added disabled class)');
     }
 }
 
-// FIXED: Setup all event listeners
-function setupEventListeners() {
-    console.log('🎛️ Setting up event listeners...');
+// Platform dropdown functions
+function togglePlatformDropdown() {
+    const platformSelector = document.getElementById('platformSelector');
+    const platformDropdown = document.getElementById('platformDropdown');
     
+    if (platformDropdown.classList.contains('hidden')) {
+        platformDropdown.classList.remove('hidden');
+        platformSelector.classList.add('open');
+    } else {
+        platformDropdown.classList.add('hidden');
+        platformSelector.classList.remove('open');
+    }
+}
+
+function closePlatformDropdown() {
+    const platformSelector = document.getElementById('platformSelector');
+    const platformDropdown = document.getElementById('platformDropdown');
+    
+    platformDropdown.classList.add('hidden');
+    platformSelector.classList.remove('open');
+}
+
+function selectPlatform(platformKey) {
+    if (!PLATFORMS[platformKey]) return;
+    
+    const platform = PLATFORMS[platformKey];
+    const platformCurrent = document.getElementById('platformCurrent');
+    
+    // Update current platform display
+    platformCurrent.innerHTML = `
+        <span class="platform-icon">${platform.icon}</span>
+        <span class="platform-name">${platform.name}</span>
+        <span class="platform-arrow">▼</span>
+    `;
+    
+    // Update active state in dropdown
+    document.querySelectorAll('.platform-option').forEach(option => {
+        option.classList.remove('active');
+    });
+    document.querySelector(`[data-platform="${platformKey}"]`).classList.add('active');
+    
+    // Update current platform variable
+    currentPlatform = platformKey;
+    
+    // Close dropdown
+    closePlatformDropdown();
+    
+    console.log('Platform changed to:', platform.name);
+    
+    // TODO: Load platform-specific options here
+    // loadPlatformOptions(platformKey);
+}
+
+// Setup all event listeners
+function setupEventListeners() {
     // Checkbox click handlers
     const checkboxes = document.querySelectorAll('.checkbox');
-    console.log('📦 Found checkboxes:', checkboxes.length);
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('click', function() {
             changeOption(this);
@@ -251,7 +240,6 @@ function setupEventListeners() {
 
     // Option text click handlers (for accessibility)
     const optionTexts = document.querySelectorAll('.option-text');
-    console.log('📝 Found option texts:', optionTexts.length);
     optionTexts.forEach(text => {
         text.addEventListener('click', function() {
             const checkbox = this.parentElement.querySelector('.checkbox');
@@ -261,38 +249,14 @@ function setupEventListeners() {
         });
     });
 
-    // FIXED: Toggle switch handlers
+    // Toggle switch handlers
     const toggleOptions = document.querySelectorAll('.toggle-option');
-    console.log('🔄 Found toggle options:', toggleOptions.length);
-    console.log('🔄 Toggle elements:', toggleOptions);
-    
-    toggleOptions.forEach((option, index) => {
-        console.log(`🔄 Adding listener to toggle ${index}:`, option);
-        
-        option.addEventListener('click', function(event) {
-            console.log('🎯 Toggle clicked!', this, 'data-state:', this.getAttribute('data-state'));
-            
-            // Get the new state from the clicked element
-            const newState = this.getAttribute('data-state') === 'on';
-            console.log('🎯 New toggle state will be:', newState);
-            
-            // Update the options object directly
-            options.extensionEnabled = newState;
-            
-            // Update visual state
+    toggleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active from all options
             toggleOptions.forEach(opt => opt.classList.remove('active'));
+            // Add active to clicked option
             this.classList.add('active');
-            
-            // Update options availability (enable/disable other options)
-            updateOptionsAvailability();
-            
-            // Save the updated options
-            saveOptions();
-            
-            console.log('✅ Toggle state updated to:', options.extensionEnabled);
-            
-            // Prevent event bubbling
-            event.stopPropagation();
         });
     });
 
@@ -300,7 +264,6 @@ function setupEventListeners() {
     const searchInput = document.getElementById('genreSearch');
     if (searchInput) {
         searchInput.addEventListener('input', searchOnTypingListener);
-        console.log('🔍 Search input listener added');
     }
 
     // Help and Source button handlers
@@ -311,26 +274,13 @@ function setupEventListeners() {
         helpButton.addEventListener('click', function() {
             popupBrowserAPI.tabs.create({ url: 'https://www.github.com/jeed2424/EndlessFlix' });
         });
-        console.log('❓ Help button listener added');
     }
     
     if (sourceButton) {
         sourceButton.addEventListener('click', function() {
             popupBrowserAPI.tabs.create({ url: 'https://www.github.com/jeed2424/EndlessFlix' });
         });
-        console.log('📄 Source button listener added');
     }
-
-    // Refresh button handler
-    const refreshButton = document.getElementById('refreshButton');
-    if (refreshButton) {
-        refreshButton.addEventListener('click', function() {
-            refreshNetflixTab();
-        });
-        console.log('🔄 Refresh button listener added');
-    }
-    
-    console.log('✅ All event listeners set up successfully');
 }
 
 // Handle option changes
@@ -377,7 +327,7 @@ function changeOption(elem) {
     saveOptions();
 }
 
-// Modified saveOptions function to handle Netflix refresh prompt
+// Save options with error handling - matches original storage structure
 function saveOptions() {
     try {
         // Save to browser storage using the same structure as original
@@ -388,11 +338,6 @@ function saveOptions() {
             }
             
             console.log('Options saved:', options);
-            
-            // Check if refresh button should be shown based on actual changes
-            if (isNetflixTab) {
-                updateRefreshButtonVisibility();
-            }
             
             // Send options to other parts of extension with safe error handling
             safeSendOptions(options);
@@ -462,11 +407,8 @@ function reloadSearchLibrary() {
         .then(response => response.json())
         .then(data => {
             genreData = data;
-            console.log('📚 Loaded genres:', genreData.length, 'genres');
-            console.log('📚 Sample genre:', genreData[0]); // Debug log
-            
             fuse = new Fuse(genreData, {
-                keys: ['genre'], // Changed from 'name' to 'genre'
+                keys: ['name'],
                 threshold: 0.3,
                 includeScore: true
             });
@@ -480,17 +422,9 @@ function searchOnTypingListener() {
     const searchInput = document.getElementById('genreSearch');
     const resultsContainer = document.getElementById('searchResults');
     
-    if (!searchInput || !resultsContainer || !fuse) {
-        console.log('🔍 Search components not ready:', {
-            searchInput: !!searchInput,
-            resultsContainer: !!resultsContainer,
-            fuse: !!fuse
-        });
-        return;
-    }
+    if (!searchInput || !resultsContainer || !fuse) return;
     
     const query = searchInput.value.trim();
-    console.log('🔍 Searching for:', query);
     
     if (query.length === 0) {
         resultsContainer.style.display = 'none';
@@ -499,7 +433,6 @@ function searchOnTypingListener() {
     }
     
     const results = fuse.search(query);
-    console.log('🔍 Search results:', results.length, 'matches');
     
     if (results.length === 0) {
         resultsContainer.style.display = 'none';
@@ -509,39 +442,18 @@ function searchOnTypingListener() {
     
     // Display results
     resultsContainer.innerHTML = '';
-    results.slice(0, 5).forEach((result, index) => {
-        console.log(`🔍 Result ${index}:`, result.item.genre);
-        
+    results.slice(0, 5).forEach(result => {
         const item = document.createElement('div');
         item.className = 'search-result-item';
-        item.textContent = result.item.genre; // Changed from result.item.name
-        
+        item.textContent = result.item.name;
         item.addEventListener('click', function() {
-            console.log('🔍 Genre clicked:', result.item.genre, 'Link:', result.item.link);
-            
-            // Set the input value
-            searchInput.value = result.item.genre;
+            searchInput.value = result.item.name;
             resultsContainer.style.display = 'none';
-            
-            // Open the Netflix genre link in a new tab
-            if (result.item.link) {
-                popupBrowserAPI.tabs.create({ 
-                    url: result.item.link,
-                    active: true // Make the new tab active
-                });
-                
-                // Optional: Close the popup after opening the link
-                setTimeout(() => {
-                    window.close();
-                }, 100);
-            }
         });
-        
         resultsContainer.appendChild(item);
     });
     
     resultsContainer.style.display = 'block';
-    console.log('🔍 Displayed', results.slice(0, 5).length, 'results');
 }
 
 // Hide search results when clicking outside
