@@ -11,6 +11,44 @@ const popupBrowserAPI = (() => {
 })();
 
 let options = {};
+let isExtensionEnabled = true;
+let currentPlatform = 'netflix';
+let currentTab = null;
+let originalOptions = {};
+
+// Platform definitions
+const PLATFORMS = {
+    netflix: {
+        name: 'Netflix',
+        icon: '📺'
+    },
+    disney: {
+        name: 'Disney+',
+        icon: '🏰'
+    }
+};
+
+// Platform-specific feature support
+const PLATFORM_FEATURES = {
+    netflix: {
+        skipTitleSequence: true,
+        autoPlayNext: true,
+        watchCredits: true,
+        disableAutoPlayOnBrowse: true,
+        skipStillHere: true,  // Netflix has "still watching?" prompt
+        dontMinimzeEndCreditsOfShow: true,
+        hideDisliked: true
+    },
+    disney: {
+        skipTitleSequence: true,
+        autoPlayNext: true,
+        watchCredits: true,
+        disableAutoPlayOnBrowse: false,  // Disney+ doesn't have this
+        skipStillHere: false,  // Disney+ doesn't ask "still watching?"
+        dontMinimzeEndCreditsOfShow: false,  // Different UI
+        hideDisliked: false  // Disney+ uses different rating system
+    }
+};
 
 // Global error handlers for unhandled Promise rejections
 window.addEventListener('unhandledrejection', function(event) {
@@ -45,23 +83,42 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Popup loading...');
     
     loadOptions(function(receivedOptions) {
-        console.log('📥 Received options from loadOptions:', JSON.stringify(receivedOptions, null, 2));
+        console.log('🔥 Received options from loadOptions:', JSON.stringify(receivedOptions, null, 2));
         
         options = receivedOptions;
-        
-        // Load extension enabled state (default to true if not set)
-        // Make sure to handle undefined/null cases properly
-        if (options.hasOwnProperty('extensionEnabled')) {
-            isExtensionEnabled = options.extensionEnabled;
-            console.log('✅ Found extensionEnabled in options:', isExtensionEnabled);
-        } else {
-            isExtensionEnabled = true; // Default to enabled
-            options.extensionEnabled = true; // Set it in options object
-            console.log('⚠️ extensionEnabled not found, defaulting to:', isExtensionEnabled);
+        originalOptions = JSON.parse(JSON.stringify(receivedOptions));
+        // Load extension enabled state per platform
+        if (!options.platformStates) {
+            options.platformStates = {};
+        }
+
+        if (!options.platformSettings) {
+            options.platformSettings = {};
         }
         
-        console.log('🎯 Final extension state:', isExtensionEnabled);
-        console.log('🎯 Final options object:', JSON.stringify(options, null, 2));
+        // Initialize platform states if not exists
+        Object.keys(PLATFORMS).forEach(platform => {
+            if (!options.platformSettings[platform]) {
+                options.platformSettings[platform] = {
+                    skipTitleSequence: true,
+                    autoPlayNext: true,
+                    watchCredits: false,
+                    disableAutoPlayOnBrowse: false,
+                    skipStillHere: true,
+                    dontMinimzeEndCreditsOfShow: false,
+                    hideDisliked: false
+                };
+            }
+        });
+
+        updateOptionsForPlatform(currentPlatform);
+        
+        // Get current platform state
+        isExtensionEnabled = options.platformStates[currentPlatform] !== false;
+        
+        console.log('✅ Platform states:', options.platformStates);
+        console.log('🎯 Current platform:', currentPlatform);
+        console.log('🎯 Current platform enabled:', isExtensionEnabled);
         
         // Set checkbox states based on loaded options
         setCheckboxState('skipTitleSequences', options.skipTitleSequence);
@@ -75,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set toggle state and update UI
         updateToggleState();
         updateOptionsAvailability();
+        checkCurrentTab();
         
         // Add debugging before the timeout
         console.log('⏰ About to call setupEventListeners in 100ms...');
@@ -82,29 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Delay setupEventListeners to ensure i18n processing is complete
         setTimeout(() => {
             console.log('⏰ Timeout fired, calling setupEventListeners now...');
-            
-            // DIRECT TEST - add manual event listeners to verify elements work
-            console.log('🧪 TESTING: Adding direct event listeners');
-            
-            const testToggle = document.querySelector('[data-state="on"]');
-            const testDropdown = document.getElementById('platformCurrent');
-            
-            console.log('🧪 Test toggle element:', testToggle);
-            console.log('🧪 Test dropdown element:', testDropdown);
-            
-            if (testToggle) {
-                testToggle.addEventListener('click', function() {
-                    console.log('🧪 DIRECT TEST: Toggle clicked!');
-                });
-                console.log('✅ Direct toggle listener attached');
-            }
-            
-            if (testDropdown) {
-                testDropdown.addEventListener('click', function() {
-                    console.log('🧪 DIRECT TEST: Dropdown clicked!');
-                });
-                console.log('✅ Direct dropdown listener attached');
-            }
             
             try {
                 setupEventListeners();
@@ -122,6 +157,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
 });
+
+// Load options from storage
+function loadOptions(callback) {
+    try {
+        popupBrowserAPI.storage.sync.get(['options'], function(result) {
+            if (popupBrowserAPI.runtime.lastError) {
+                console.warn('Error loading options:', popupBrowserAPI.runtime.lastError);
+                callback({});
+                return;
+            }
+            
+            const loadedOptions = result.options || {};
+            console.log('Loaded options from storage:', loadedOptions);
+            callback(loadedOptions);
+        });
+    } catch (error) {
+        console.error('Error in loadOptions:', error);
+        callback({});
+    }
+}
 
 // Set checkbox state visually
 function setCheckboxState(checkboxId, isChecked) {
@@ -165,14 +220,48 @@ function updateOptionsAvailability() {
     const searchContainer = document.querySelector('.search-container');
     
     if (isExtensionEnabled) {
-        optionsList.classList.remove('disabled');
-        searchContainer.classList.remove('disabled');
-        console.log('Options enabled (removed disabled class)');
+        optionsList.style.opacity = '1';
+        optionsList.style.pointerEvents = 'auto';
+        searchContainer.style.opacity = '1';
+        searchContainer.style.pointerEvents = 'auto';
+        console.log('Options enabled');
     } else {
-        optionsList.classList.add('disabled');
-        searchContainer.classList.add('disabled');
-        console.log('Options disabled (added disabled class)');
+        optionsList.style.opacity = '0.4';
+        optionsList.style.pointerEvents = 'none';
+        searchContainer.style.opacity = '0.4';
+        searchContainer.style.pointerEvents = 'none';
+        console.log('Options disabled (greyed out)');
     }
+}
+
+function updateOptionsForPlatform(platform) {
+    const features = PLATFORM_FEATURES[platform];
+    if (!features) return;
+    
+    // Hide/show options based on platform support
+    const optionMappings = [
+        { element: 'skipTitleSequences', feature: 'skipTitleSequence' },
+        { element: 'autoPlayNext', feature: 'autoPlayNext' },
+        { element: 'alwaysWatchCredits', feature: 'watchCredits' },
+        { element: 'hidePromotedVideos', feature: 'disableAutoPlayOnBrowse' },
+        { element: 'dontPromptStillThere', feature: 'skipStillHere' },
+        { element: 'dontMinimizeEndCredits', feature: 'dontMinimzeEndCreditsOfShow' },
+        { element: 'hideDownvotedContent', feature: 'hideDisliked' }
+    ];
+    
+    optionMappings.forEach(({ element, feature }) => {
+        const optionItem = document.querySelector(`[data-option="${element}"]`).closest('.option-item');
+        if (optionItem) {
+            if (features[feature]) {
+                optionItem.style.display = 'flex';
+                // Load platform-specific setting
+                const platformSettings = options.platformSettings[platform];
+                setCheckboxState(element, platformSettings[feature]);
+            } else {
+                optionItem.style.display = 'none';
+            }
+        }
+    });
 }
 
 // Platform dropdown functions
@@ -180,12 +269,16 @@ function togglePlatformDropdown() {
     const platformSelector = document.getElementById('platformSelector');
     const platformDropdown = document.getElementById('platformDropdown');
     
+    console.log('Toggle dropdown called');
+    
     if (platformDropdown.classList.contains('hidden')) {
         platformDropdown.classList.remove('hidden');
         platformSelector.classList.add('open');
+        console.log('Dropdown opened');
     } else {
         platformDropdown.classList.add('hidden');
         platformSelector.classList.remove('open');
+        console.log('Dropdown closed');
     }
 }
 
@@ -198,6 +291,8 @@ function closePlatformDropdown() {
 }
 
 function selectPlatform(platformKey) {
+    console.log('Selecting platform:', platformKey);
+    
     if (!PLATFORMS[platformKey]) return;
     
     const platform = PLATFORMS[platformKey];
@@ -214,26 +309,71 @@ function selectPlatform(platformKey) {
     document.querySelectorAll('.platform-option').forEach(option => {
         option.classList.remove('active');
     });
-    document.querySelector(`[data-platform="${platformKey}"]`).classList.add('active');
+    const selectedOption = document.querySelector(`[data-platform="${platformKey}"]`);
+    if (selectedOption) {
+        selectedOption.classList.add('active');
+    }
     
     // Update current platform variable
     currentPlatform = platformKey;
+    
+    // Update extension enabled state for this platform
+    isExtensionEnabled = options.platformStates[currentPlatform] !== false;
+    
+    // Update options for this platform
+    updateOptionsForPlatform(platformKey);
+    
+    // Update UI to reflect the new platform's state
+    updateToggleState();
+    updateOptionsAvailability();
+    updateRefreshButtonVisibility();
     
     // Close dropdown
     closePlatformDropdown();
     
     console.log('Platform changed to:', platform.name);
-    
-    // TODO: Load platform-specific options here
-    // loadPlatformOptions(platformKey);
 }
 
 // Setup all event listeners
 function setupEventListeners() {
+    console.log('🔧 Setting up event listeners...');
+    
+    // Platform dropdown handlers
+    const platformCurrent = document.getElementById('platformCurrent');
+    const platformOptions = document.querySelectorAll('.platform-option');
+    
+    if (platformCurrent) {
+        platformCurrent.addEventListener('click', function(e) {
+            e.stopPropagation();
+            console.log('Platform dropdown clicked');
+            togglePlatformDropdown();
+        });
+        console.log('✅ Platform dropdown listener attached');
+    }
+    
+    platformOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const platformKey = this.getAttribute('data-platform');
+            console.log('Platform option clicked:', platformKey);
+            selectPlatform(platformKey);
+        });
+    });
+    console.log('✅ Platform option listeners attached');
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const platformSelector = document.getElementById('platformSelector');
+        if (platformSelector && !platformSelector.contains(e.target)) {
+            closePlatformDropdown();
+        }
+    });
+
     // Checkbox click handlers
     const checkboxes = document.querySelectorAll('.checkbox');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('click', function() {
+            if (!isExtensionEnabled) return; // Don't allow changes when disabled
             changeOption(this);
         });
     });
@@ -242,6 +382,7 @@ function setupEventListeners() {
     const optionTexts = document.querySelectorAll('.option-text');
     optionTexts.forEach(text => {
         text.addEventListener('click', function() {
+            if (!isExtensionEnabled) return; // Don't allow changes when disabled
             const checkbox = this.parentElement.querySelector('.checkbox');
             if (checkbox) {
                 changeOption(checkbox);
@@ -253,12 +394,26 @@ function setupEventListeners() {
     const toggleOptions = document.querySelectorAll('.toggle-option');
     toggleOptions.forEach(option => {
         option.addEventListener('click', function() {
+            const newState = this.getAttribute('data-state') === 'on';
+            console.log('Toggle clicked, new state:', newState);
+            
+            // Update the platform-specific state
+            isExtensionEnabled = newState;
+            options.platformStates[currentPlatform] = newState;
+            
             // Remove active from all options
             toggleOptions.forEach(opt => opt.classList.remove('active'));
             // Add active to clicked option
             this.classList.add('active');
+            
+            // Update UI
+            updateOptionsAvailability();
+            
+            // Save the changes
+            saveOptions();
         });
     });
+    console.log('✅ Toggle listeners attached');
 
     // Search input handler
     const searchInput = document.getElementById('genreSearch');
@@ -281,15 +436,23 @@ function setupEventListeners() {
             popupBrowserAPI.tabs.create({ url: 'https://www.github.com/jeed2424/EndlessFlix' });
         });
     }
+
+    const refreshButton = document.getElementById('refreshButton');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', function() {
+            refreshCurrentTab();
+        });
+    }
+    
+    console.log('✅ All event listeners set up');
 }
 
-// Handle option changes
+    // Update the global options object first
 function changeOption(elem) {
     const optionName = elem.getAttribute('data-option');
     const isCurrentlyChecked = elem.classList.contains('checked');
     const newState = !isCurrentlyChecked;
     
-    // Update the global options object first
     const optionMap = {
         'skipTitleSequences': 'skipTitleSequence',
         'autoPlayNext': 'autoPlayNext',
@@ -302,26 +465,30 @@ function changeOption(elem) {
     
     const mappedName = optionMap[optionName] || optionName;
     
-    // Handle mutual exclusivity - ONLY when ENABLING (checking) an option
+    // Update platform-specific settings
+    if (!options.platformSettings[currentPlatform]) {
+        options.platformSettings[currentPlatform] = {};
+    }
+    
+    // Handle mutual exclusivity within platform
     if (mappedName === 'autoPlayNext' && newState === true) {
-        options.autoPlayNext = true;
-        if (options.watchCredits === true) {
-            options.watchCredits = false;
+        options.platformSettings[currentPlatform].autoPlayNext = true;
+        if (options.platformSettings[currentPlatform].watchCredits === true) {
+            options.platformSettings[currentPlatform].watchCredits = false;
             setCheckboxState('alwaysWatchCredits', false);
         }
     } else if (mappedName === 'watchCredits' && newState === true) {
-        options.watchCredits = true;
-        if (options.autoPlayNext === true) {
-            options.autoPlayNext = false;
+        options.platformSettings[currentPlatform].watchCredits = true;
+        if (options.platformSettings[currentPlatform].autoPlayNext === true) {
+            options.platformSettings[currentPlatform].autoPlayNext = false;
             setCheckboxState('autoPlayNext', false);
         }
     } else {
-        // For all other cases (including disabling), just update the option normally
-        options[mappedName] = newState;
+        options.platformSettings[currentPlatform][mappedName] = newState;
     }
     
-    // Set the visual state of the clicked checkbox to match the options value
-    setCheckboxState(optionName, options[mappedName]);
+    // Set the visual state
+    setCheckboxState(optionName, options.platformSettings[currentPlatform][mappedName]);
     
     // Save options
     saveOptions();
@@ -341,6 +508,7 @@ function saveOptions() {
             
             // Send options to other parts of extension with safe error handling
             safeSendOptions(options);
+            updateRefreshButtonVisibility();
         });
     } catch (error) {
         console.error('Error in saveOptions:', error);
@@ -395,6 +563,91 @@ async function safeSendOptions(options) {
         
     } catch (error) {
         handleSendOptionsError(error);
+    }
+}
+
+async function checkCurrentTab() {
+    try {
+        const [tab] = await popupBrowserAPI.tabs.query({ active: true, currentWindow: true });
+        if (tab && tab.url) {
+            currentTab = {
+                id: tab.id,
+                url: tab.url,
+                platform: null
+            };
+            
+            // Determine platform
+            if (tab.url.includes('netflix.com')) {
+                currentTab.platform = 'netflix';
+            } else if (tab.url.includes('disneyplus.com')) {
+                currentTab.platform = 'disney';
+            }
+            
+            updateRefreshButtonVisibility();
+            return currentTab;
+        }
+    } catch (error) {
+        console.log('Could not check current tab:', error);
+        return null;
+    }
+}
+
+function platformOptionsHaveChanged(platform) {
+    if (!originalOptions.platformStates || !options.platformStates) {
+        return false;
+    }
+    
+    // Check platform enabled state
+    const originalEnabled = originalOptions.platformStates[platform] !== false;
+    const currentEnabled = options.platformStates[platform] !== false;
+    
+    if (originalEnabled !== currentEnabled) {
+        return true;
+    }
+    
+    // Check other settings if platform is enabled
+    if (currentEnabled) {
+        const relevantSettings = [
+            'skipTitleSequence', 'autoPlayNext', 'watchCredits',
+            'disableAutoPlayOnBrowse', 'skipStillHere', 
+            'dontMinimzeEndCreditsOfShow', 'hideDisliked'
+        ];
+        
+        for (const setting of relevantSettings) {
+            if (originalOptions[setting] !== options[setting]) {
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
+
+function updateRefreshButtonVisibility() {
+    const refreshContainer = document.getElementById('refreshContainer');
+    const refreshMessage = document.getElementById('refreshMessage');
+    
+    if (!refreshContainer || !currentTab) return;
+    
+    const needsRefresh = currentTab.platform && platformOptionsHaveChanged(currentTab.platform);
+    
+    if (needsRefresh) {
+        const platformName = currentTab.platform === 'netflix' ? 'Netflix' : 'Disney+';
+        if (refreshMessage) {
+            refreshMessage.textContent = `Settings changed - refresh ${platformName} to apply`;
+        }
+        refreshContainer.style.display = 'flex';
+    } else {
+        refreshContainer.style.display = 'none';
+    }
+}
+
+function refreshCurrentTab() {
+    if (currentTab && currentTab.platform) {
+        popupBrowserAPI.tabs.reload(currentTab.id);
+        originalOptions = JSON.parse(JSON.stringify(options));
+        updateRefreshButtonVisibility();
+        window.close();
     }
 }
 

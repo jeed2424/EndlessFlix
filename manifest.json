@@ -19,6 +19,7 @@
       "js": [
         "js/libs/jquery.js",
         "js/selectors.js",
+        "js/platform-selectors.js",
         "js/common.js",
         "NEN.js"
       ]

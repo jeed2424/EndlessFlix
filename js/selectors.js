@@ -12,19 +12,19 @@ function _findPropertyNameByRegex(o, r) {
 
 function enableAutoPlayNext(selectors) {
   /*Pulls all classes that start with "Watch Next" */
-  selectors.push(".WatchNext-autoplay"); // Unknown if other international have localized class names
-  selectors.push('.WatchNext-still-hover-container');
-  selectors.push('[aria-label^="Next episode"]');
-  selectors.push('[data-uia^="next-episode-seamless-button"]');
-  selectors.push('.draining');
+  if (currentPlatform == 'netflix') {
+    netflixPlayNextOptions.forEach(pushSelector);
+  };
 }
 
 function enableSkipTitleSequence(selectors) {
   /*Skip title sequence*/
-  selectors.push('[aria-label="Skip Intro"]'); // American version will have this text, most reliable
-  selectors.push('[data-uia="player-skip-intro"]'); // American version will have this text, most reliable
-  selectors.push('.skip-credits > a'); // Also include first descendant of skip-credits, in case it's international?
-  selectors.push('.watch-video--skip-content > button'); // Also include first descendant of skip-credits, in case it's international?
+  // if (currentPlatform == 'netflix') {
+    const currentlyPlayingPlatform = currentTab.platform.toLowerCase();
+    const platformSelectors = PLATFORM_SELECTORS[currentlyPlayingPlatform]?.skipIntro || [];
+    platformSelectors.forEach(selector => selectors.push(selector));
+    console.log('Platform is netflix, selecting ' + netflixSkipIntroOptions);
+//  };
 }
 
 function enableSkipStillHere(selectors) {
@@ -40,4 +40,10 @@ function enableWatchCredits(selectors) {
 
 function enableDontSkipEndShowCredits(selectors) {
   selectors.push('.watch-video--player-view-minimized > div');
+}
+
+function pushSelector(item) {
+  const itemString = String(item);
+  selectors.push(itemString);
+  console.log('Will push selectors');
 }

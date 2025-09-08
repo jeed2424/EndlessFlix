@@ -368,6 +368,61 @@
             background-color: #16272E;
             color: white;
         }
+
+        .refresh-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 12px;
+            background-color: rgba(233, 108, 76, 0.1);
+            border: 1px solid #E96C4C;
+            border-radius: 4px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .refresh-message {
+            font-size: 11px;
+            color: #E96C4C;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .refresh-button {
+            min-width: 80px;
+            height: 24px;
+            background-color: #E96C4C;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-family: 'Figtree', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0 12px;
+        }
+
+        .refresh-button:hover {
+            background-color: #D45A39;
+            transform: translateY(-1px);
+        }
+
+        .refresh-button:active {
+            transform: translateY(0);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -451,6 +506,13 @@
         <div class="bottom-buttons">
             <button class="button i18n" id="helpButton">Help</button>
             <button class="button i18n" id="sourceButton">Source</button>
+        </div>
+
+        <div class="refresh-container" id="refreshContainer" style="display: none;">
+            <div class="refresh-message">
+                <span class="i18n" id="refreshMessage">Settings changed - refresh Netflix to apply</span>
+            </div>
+            <button class="refresh-button i18n" id="refreshButton">Refresh Tab</button>
         </div>
     </div>
 
