@@ -15,7 +15,7 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 
 ## Live link
 
-[Official Website](https://www.endlessflix.org)
+[Official Website](https://endlessflix.org)
 
 [Link to Chrome Web Store](https://chromewebstore.google.com/detail/endlessflix/johfagbhdkhiiedddbhkbpbdbpeoaeco)
 
