@@ -11,9 +11,11 @@ EndlessFlix is a [Chrome](https://chromewebstore.google.com/detail/endlessflix/j
 
 EndlessFlix allows you to customize it's functionality with an options menu, which can be accessed by clicking the logo in the top bar.
 
-![options](https://i.imgur.com/mCeWRH2.png)
+![options](https://i.imgur.com/xPyGzCY.png)
 
 ## Live link
+
+[Official Website](https://endlessflix.org)
 
 [Link to Chrome Web Store](https://chromewebstore.google.com/detail/endlessflix/johfagbhdkhiiedddbhkbpbdbpeoaeco)
 
@@ -27,6 +29,4 @@ EndlessFlix allows you to customize it's functionality with an options menu, whi
 
 * [Original Credits - JonLuca](https://github.com/jonluca/Never-Ending-Netflix) - Original Author
 * [Fuse.js](http://fusejs.io/) - Genre search
-* [gumby](https://gumbyframework.com/docs/javascript/) - Options page
-* [modernizr](https://modernizr.com/) - Options page
 * [jQuery](https://jquery.com/)
