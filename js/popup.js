@@ -12,7 +12,7 @@ const popupBrowserAPI = (() => {
 
 let options = {};
 let isExtensionEnabled = true;
-var currentPlatform = 'netflix';
+let currentPlatform = 'netflix';
 let detectedPlatform = null; // The platform of the currently active tab
 
 // Platform configuration
@@ -45,47 +45,6 @@ function detectCurrentTabPlatform(callback) {
             if (callback) callback(detectedPlatform);
         }
     });
-}
-
-function optionsHaveChanged() {
-    // Compare relevant settings that would require a Netflix refresh
-    const relevantSettings = [
-        'extensionEnabled',
-        'skipTitleSequence', 
-        'autoPlayNext',
-        'watchCredits',
-        'disableAutoPlayOnBrowse',
-        'skipStillHere',
-        'dontMinimzeEndCreditsOfShow',
-        'hideDisliked'
-    ];
-    
-    for (const setting of relevantSettings) {
-        if (originalOptions[setting] !== options[setting]) {
-            console.log(`Setting changed: ${setting} from ${originalOptions[setting]} to ${options[setting]}`);
-            return true;
-        }
-    }
-    
-    console.log('No relevant settings have changed from original');
-    return false;
-}
-
-// Function to show/hide refresh button based on Netflix tab and actual changes
-function updateRefreshButtonVisibility() {
-    const refreshContainer = document.getElementById('refreshContainer');
-    if (!refreshContainer) return;
-    
-    const actuallyNeedsRefresh = isNetflixTab && optionsHaveChanged();
-    
-    if (actuallyNeedsRefresh) {
-        refreshContainer.style.display = 'flex';
-        console.log('Showing refresh button - Netflix tab with actual changes');
-    } else {
-        refreshContainer.style.display = 'none';
-        hasUnsavedChanges = false; // Reset since no actual changes need refresh
-        console.log('Hiding refresh button - no changes or not Netflix');
-    }
 }
 
 // Helper function to get platform from URL (copied from platform-config.js)
@@ -476,6 +435,14 @@ function setupEventListeners() {
             popupBrowserAPI.tabs.create({ url: 'https://www.github.com/jeed2424/EndlessFlix' });
         });
     }
+
+    // Refresh button handler
+    const refreshButton = document.getElementById('refreshButton');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', function() {
+            refreshPlatformTab();
+        });
+    }
 }
 
 // Handle option changes
@@ -533,6 +500,9 @@ function saveOptions() {
             }
             
             console.log('Options saved:', options);
+            
+            // Show refresh banner if on a supported platform
+            showRefreshBanner();
             
             // Send options to other parts of extension with safe error handling
             safeSendOptions(options);
@@ -660,3 +630,60 @@ document.addEventListener('click', function(event) {
         resultsContainer.style.display = 'none';
     }
 });
+
+// Refresh banner functionality
+let platformTabId = null; // Store the tab ID of the platform we detected
+
+function showRefreshBanner() {
+    // Check if we detected a platform tab earlier
+    if (detectedPlatform && platformTabId) {
+        const refreshContainer = document.getElementById('refreshContainer');
+        if (refreshContainer) {
+            refreshContainer.style.display = 'flex';
+            console.log('Showing refresh banner for', detectedPlatform, 'tab');
+        }
+    }
+}
+
+function refreshPlatformTab() {
+    if (platformTabId) {
+        popupBrowserAPI.tabs.reload(platformTabId, function() {
+            console.log('Refreshed tab:', platformTabId);
+            // Hide the banner after refresh
+            const refreshContainer = document.getElementById('refreshContainer');
+            if (refreshContainer) {
+                refreshContainer.style.display = 'none';
+            }
+        });
+    }
+}
+
+// Update detectCurrentTabPlatform to store tab ID
+const originalDetectCurrentTabPlatform = detectCurrentTabPlatform;
+detectCurrentTabPlatform = function(callback) {
+    popupBrowserAPI.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        if (tabs && tabs.length > 0) {
+            const url = tabs[0].url;
+            const tabId = tabs[0].id;
+            const platform = getPlatformFromUrl(url);
+            
+            if (platform) {
+                detectedPlatform = platform;
+                platformTabId = tabId; // Store the tab ID
+                console.log('🎯 Detected platform from active tab:', platform, 'Tab ID:', tabId);
+                
+                // Auto-select the detected platform in the dropdown
+                if (PLATFORMS[platform]) {
+                    currentPlatform = platform;
+                    selectPlatform(platform);
+                }
+            } else {
+                console.log('⚠️ No supported streaming platform detected in active tab');
+                detectedPlatform = null;
+                platformTabId = null;
+            }
+            
+            if (callback) callback(detectedPlatform);
+        }
+    });
+};

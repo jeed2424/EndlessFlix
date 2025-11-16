@@ -368,6 +368,46 @@
             background-color: #16272E;
             color: white;
         }
+
+        .refresh-container {
+            margin-top: 16px;
+            padding: 12px;
+            background-color: #16272E;
+            border: 2px solid #316E7D;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .refresh-message {
+            font-size: 11px;
+            font-weight: bold;
+            color: #E96C4C;
+            text-align: center;
+        }
+
+        .refresh-button {
+            min-width: 100px;
+            width: auto;
+            height: 24px;
+            background-color: #316E7D;
+            border: 2px solid #316E7D;
+            border-radius: 4px;
+            color: white;
+            font-family: 'Figtree', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0 12px;
+        }
+
+        .refresh-button:hover {
+            background-color: #3d8899;
+            border-color: #3d8899;
+        }
     </style>
 </head>
 <body>
@@ -453,9 +493,9 @@
             <button class="button i18n" id="sourceButton">Source</button>
         </div>
 
-         <div class="refresh-container" id="refreshContainer" style="display: none;">
+        <div class="refresh-container" id="refreshContainer" style="display: none;">
             <div class="refresh-message">
-                <span class="i18n" id="refreshMessage">Settings changed - refresh Netflix to apply</span>
+                <span class="i18n" id="refreshMessage">Settings changed - refresh page to apply</span>
             </div>
             <button class="refresh-button i18n" id="refreshButton">Refresh Tab</button>
         </div>
