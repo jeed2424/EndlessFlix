@@ -47,6 +47,23 @@ function detectCurrentTabPlatform(callback) {
     });
 }
 
+// Function to show/hide refresh button based on Netflix tab and actual changes
+function updateRefreshButtonVisibility() {
+    const refreshContainer = document.getElementById('refreshContainer');
+    if (!refreshContainer) return;
+    
+    const actuallyNeedsRefresh = isNetflixTab && optionsHaveChanged();
+    
+    if (actuallyNeedsRefresh) {
+        refreshContainer.style.display = 'flex';
+        console.log('Showing refresh button - Netflix tab with actual changes');
+    } else {
+        refreshContainer.style.display = 'none';
+        hasUnsavedChanges = false; // Reset since no actual changes need refresh
+        console.log('Hiding refresh button - no changes or not Netflix');
+    }
+}
+
 // Helper function to get platform from URL (copied from platform-config.js)
 function getPlatformFromUrl(url) {
     if (!url) return null;
