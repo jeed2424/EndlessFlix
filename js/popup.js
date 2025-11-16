@@ -47,6 +47,30 @@ function detectCurrentTabPlatform(callback) {
     });
 }
 
+function optionsHaveChanged() {
+    // Compare relevant settings that would require a Netflix refresh
+    const relevantSettings = [
+        'extensionEnabled',
+        'skipTitleSequence', 
+        'autoPlayNext',
+        'watchCredits',
+        'disableAutoPlayOnBrowse',
+        'skipStillHere',
+        'dontMinimzeEndCreditsOfShow',
+        'hideDisliked'
+    ];
+    
+    for (const setting of relevantSettings) {
+        if (originalOptions[setting] !== options[setting]) {
+            console.log(`Setting changed: ${setting} from ${originalOptions[setting]} to ${options[setting]}`);
+            return true;
+        }
+    }
+    
+    console.log('No relevant settings have changed from original');
+    return false;
+}
+
 // Function to show/hide refresh button based on Netflix tab and actual changes
 function updateRefreshButtonVisibility() {
     const refreshContainer = document.getElementById('refreshContainer');
