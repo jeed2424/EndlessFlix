@@ -1,5 +1,16 @@
+// Cross-browser compatibility
+const nenBrowserAPI = (() => {
+  if (typeof browser !== 'undefined') {
+    return browser; // Firefox
+  } else if (typeof chrome !== 'undefined') {
+    return chrome; // Chrome
+  } else {
+    throw new Error('Extension API not available');
+  }
+})();
+
 let options = {};
-chrome.runtime.onMessage.addListener(onMessage);
+nenBrowserAPI.runtime.onMessage.addListener(onMessage);
 
 const MAX_TRIES_DISABLE_AUTO_PREVIEW = 5;
 const MAX_TRIES_MONITOR_SKIP = 10;
@@ -41,12 +52,16 @@ function startMonitoringForSelectors(selectors, numTries) {
       const ariaLabel = elem.getAttribute("aria-label");
       const newDataUia = elem.getAttribute("data-uia") || '';
       const isCredits = newDataUia.includes('watch-credits');
+      
+      // Netflix: Check data-uia for next-episode or watch-credits
       if (isCredits || newDataUia.includes('next-episode')) {
         elem.click();
         elem.dispatchEvent(new PointerEvent('click'));
         // Send an event that tries to trigger the react version of the action
         dispatchEventToBody(isCredits ? 'watchCreditsEvent' : 'nextEpEvent');
-      } else if (ariaLabel === "Skip Intro") {
+      } 
+      // Both platforms: Skip intro buttons
+      else if (ariaLabel === "Skip Intro" || ariaLabel === "SKIP INTRO") {
         doClick(elem).then(_ => {
           doGetPlayButton();
         });
@@ -65,7 +80,15 @@ function startMonitoringForSelectors(selectors, numTries) {
         }
 
         dispatchEventToBody('skipIntroEvent');
-      } else {
+      } 
+      // Disney+: Play Next button
+      else if (ariaLabel === "PLAY NEXT") {
+        elem.click();
+        elem.dispatchEvent(new PointerEvent('click'));
+        console.log('EndlessFlix: Clicked PLAY NEXT button');
+      } 
+      // Fallback: Click other matched elements
+      else {
         elem.click();
         elem.dispatchEvent(new PointerEvent('click'));
       }
@@ -75,8 +98,22 @@ function startMonitoringForSelectors(selectors, numTries) {
     }
   });
 
-  let reactEntry = document.getElementById("appMountPoint");
+  // Get the appropriate container based on platform
+  let reactEntry = null;
+  
+  if (currentPlatform === 'netflix') {
+    // Netflix uses appMountPoint
+    reactEntry = document.getElementById("appMountPoint");
+  } else if (currentPlatform === 'disney') {
+    // Disney+ uses app_index on body, but we can also try to find a more specific container
+    reactEntry = document.getElementById("app_index") || document.body;
+  } else {
+    // Fallback for unknown platforms
+    reactEntry = document.body;
+  }
+  
   if (reactEntry) {
+    console.log('EndlessFlix: Starting MutationObserver on', reactEntry.tagName, reactEntry.id || '(no id)');
     /*Start monitoring at react's entry point*/
     monitor.observe(reactEntry, {
       attributes: false, // Don't monitor attribute changes
@@ -84,7 +121,9 @@ function startMonitoringForSelectors(selectors, numTries) {
       subtree: true // Monitor all descendants
     });
   } else {
+    console.warn('EndlessFlix: No container found, retrying...');
     if (numTries > MAX_TRIES_MONITOR_SKIP) {
+      console.error('EndlessFlix: Max retries reached, giving up');
       return;
     }
     numTries++;
@@ -96,6 +135,10 @@ function startMonitoringForSelectors(selectors, numTries) {
 
 function startHelper() {
 
+  console.log('EndlessFlix: startHelper() called');
+  console.log('EndlessFlix: Current platform detected:', currentPlatform || 'NONE');
+  console.log('EndlessFlix: Extension enabled:', options.extensionEnabled);
+  
   if (options.extensionEnabled === false) {
     console.log('EndlessFlix is disabled - no modifications applied');
     return;
@@ -133,6 +176,8 @@ function startHelper() {
     disableAutoPreview(numTries);
   }
 
+  console.log('EndlessFlix: Final selectors array:', selectors);
+  console.log('EndlessFlix: Total selectors count:', selectors.length);
   startMonitoringForSelectors(selectors, 0);
 }
 

@@ -1,3 +1,6 @@
+// EndlessFlix - Platform-Aware Selectors
+// This file builds selector lists based on the current platform
+
 function _findPropertyNameByRegex(o, r) {
   if (!o) {
     return null;
@@ -10,34 +13,131 @@ function _findPropertyNameByRegex(o, r) {
   return undefined;
 }
 
+// Detect which platform we're currently on
+function detectCurrentPlatform() {
+  // Only run in content script context (not in service worker)
+  if (typeof window === 'undefined' || !window.location) {
+    return null;
+  }
+  
+  const hostname = window.location.hostname.toLowerCase();
+  
+  if (hostname.includes('netflix.com')) {
+    return 'netflix';
+  } else if (hostname.includes('disneyplus.com')) {
+    return 'disney';
+  }
+  
+  console.log('EndlessFlix: Unknown platform:', hostname);
+  return null;
+}
+
+// Get the current platform (cached) - only in content script context
+// Using var instead of let to avoid errors if loaded multiple times
+var currentPlatform = currentPlatform || null;
+if (typeof window !== 'undefined' && window.location && !currentPlatform) {
+  currentPlatform = detectCurrentPlatform();
+  console.log('EndlessFlix: Detected platform:', currentPlatform);
+}
+
+// Platform-specific selectors configuration
+const PLATFORM_SELECTORS = {
+  netflix: {
+    autoPlayNext: [
+      ".WatchNext-autoplay",
+      '.WatchNext-still-hover-container',
+      '[aria-label^="Next episode"]',
+      '[data-uia^="next-episode-seamless-button"]',
+      '.draining'
+    ],
+    skipTitleSequence: [
+      '[aria-label="Skip Intro"]',
+      '[data-uia="player-skip-intro"]',
+      '.skip-credits > a',
+      '.watch-video--skip-content > button'
+    ],
+    skipStillHere: [
+      '[data-uia="interrupt-autoplay-continue"]',
+      '.interrupter-actions > .nf-icon-button:first-child',
+      '[aria-label^="Continue Playing"]'
+    ],
+    watchCredits: [
+      '[aria-label^="Watch credits"]',
+      '[data-uia^="watch-credits-seamless-button"]'
+    ],
+    dontMinimizeEndCredits: [
+      '.watch-video--player-view-minimized > div'
+    ]
+  },
+  
+  disney: {
+    autoPlayNext: [
+      // '[aria-label="PLAY NEXT"]',
+      // 'button[aria-label="PLAY NEXT"]',
+      // '[data-testid="icon-restart"]'  // The SVG inside (backup)
+    ],
+    skipTitleSequence: [
+      '[aria-label="SKIP INTRO"]',
+      '.skip__button',
+      'button.skip__button.body-copy',
+      '.skip-icon-btn.next-chapter'
+    ],
+    skipStillHere: [
+      // TODO: Add Disney+ "still watching" selectors when found
+      // '[aria-label*="Continue"]',
+    ],
+    watchCredits: [
+      // Disney+ might not have this feature
+    ],
+    dontMinimizeEndCredits: [
+      // Disney+ might not have this feature
+    ]
+  }
+};
+
+// Get selectors for current platform
+function getPlatformSelectors(feature) {
+  if (!currentPlatform) {
+    console.warn('EndlessFlix: No platform detected, returning empty selectors');
+    return [];
+  }
+  
+  const platformConfig = PLATFORM_SELECTORS[currentPlatform];
+  if (!platformConfig) {
+    console.warn('EndlessFlix: No config for platform:', currentPlatform);
+    return [];
+  }
+  
+  return platformConfig[feature] || [];
+}
+
+// Original functions updated to use platform-aware selectors
 function enableAutoPlayNext(selectors) {
-  /*Pulls all classes that start with "Watch Next" */
-  selectors.push(".WatchNext-autoplay"); // Unknown if other international have localized class names
-  selectors.push('.WatchNext-still-hover-container');
-  selectors.push('[aria-label^="Next episode"]');
-  selectors.push('[data-uia^="next-episode-seamless-button"]');
-  selectors.push('.draining');
+  const platformSelectors = getPlatformSelectors('autoPlayNext');
+  selectors.push(...platformSelectors);
+  console.log(`EndlessFlix: Added ${platformSelectors.length} autoPlayNext selectors for ${currentPlatform}`);
 }
 
 function enableSkipTitleSequence(selectors) {
-  /*Skip title sequence*/
-  selectors.push('[aria-label="Skip Intro"]'); // American version will have this text, most reliable
-  selectors.push('[data-uia="player-skip-intro"]'); // American version will have this text, most reliable
-  selectors.push('.skip-credits > a'); // Also include first descendant of skip-credits, in case it's international?
-  selectors.push('.watch-video--skip-content > button'); // Also include first descendant of skip-credits, in case it's international?
+  const platformSelectors = getPlatformSelectors('skipTitleSequence');
+  selectors.push(...platformSelectors);
+  console.log(`EndlessFlix: Added ${platformSelectors.length} skipTitleSequence selectors for ${currentPlatform}`);
 }
 
 function enableSkipStillHere(selectors) {
-  selectors.push('[data-uia="interrupt-autoplay-continue"]');
-  selectors.push('.interrupter-actions > .nf-icon-button:first-child');
-  selectors.push('[aria-label^="Continue Playing"]');
+  const platformSelectors = getPlatformSelectors('skipStillHere');
+  selectors.push(...platformSelectors);
+  console.log(`EndlessFlix: Added ${platformSelectors.length} skipStillHere selectors for ${currentPlatform}`);
 }
 
 function enableWatchCredits(selectors) {
-  selectors.push('[aria-label^="Watch credits"]');
-  selectors.push('[data-uia^="watch-credits-seamless-button"]');
+  const platformSelectors = getPlatformSelectors('watchCredits');
+  selectors.push(...platformSelectors);
+  console.log(`EndlessFlix: Added ${platformSelectors.length} watchCredits selectors for ${currentPlatform}`);
 }
 
 function enableDontSkipEndShowCredits(selectors) {
-  selectors.push('.watch-video--player-view-minimized > div');
+  const platformSelectors = getPlatformSelectors('dontMinimizeEndCredits');
+  selectors.push(...platformSelectors);
+  console.log(`EndlessFlix: Added ${platformSelectors.length} dontMinimizeEndCredits selectors for ${currentPlatform}`);
 }

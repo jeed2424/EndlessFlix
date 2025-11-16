@@ -1,7 +1,19 @@
+// Cross-browser compatibility layer
+// Firefox supports chrome.* as an alias, but use browser.* if available
+const commonBrowserAPI = (() => {
+  if (typeof browser !== 'undefined') {
+    return browser; // Firefox
+  } else if (typeof chrome !== 'undefined') {
+    return chrome; // Chrome
+  } else {
+    throw new Error('Extension API not available');
+  }
+})();
+
 // Load options from local storage
 // Return default values if none exist
 function loadOptions(callback) {
-  chrome.storage.sync.get('options', items => {
+  commonBrowserAPI.storage.sync.get('options', items => {
     let options = items['options'];
     if (options == null || options === "{}") {
       options = {};
@@ -17,7 +29,7 @@ function loadOptions(callback) {
     options.highContrast = options.hasOwnProperty('highContrast') ? options.highContrast : false;
     options.extensionEnabled = options.hasOwnProperty('extensionEnabled') ? options.extensionEnabled : true;
 
-    chrome.storage.sync.set({
+    commonBrowserAPI.storage.sync.set({
       'options': options
     }, _ => {
       callback(options);
@@ -33,16 +45,16 @@ function sendOptions(options) {
   };
 
   // Send options to all tabs - updated for Manifest V3
-  chrome.tabs.query({}, function(tabs) {
+  commonBrowserAPI.tabs.query({}, function(tabs) {
     for (let tab of tabs) {
-      chrome.tabs.sendMessage(tab.id, request).catch(() => {
+      commonBrowserAPI.tabs.sendMessage(tab.id, request).catch(() => {
         // Ignore errors for tabs that can't receive messages
       });
     }
   });
 
   // Send options to other extension pages
-  chrome.runtime.sendMessage(request);
+  commonBrowserAPI.runtime.sendMessage(request);
 }
 
 
@@ -54,5 +66,5 @@ function injectScript(file_path, tag) {
   node.appendChild(script);
 }
 
-injectScript(chrome.runtime.getURL('js/playerInject.js'), 'body');
-injectScript(chrome.runtime.getURL('js/selectors.js'), 'body');
+injectScript(commonBrowserAPI.runtime.getURL('js/playerInject.js'), 'body');
+injectScript(commonBrowserAPI.runtime.getURL('js/selectors.js'), 'body');

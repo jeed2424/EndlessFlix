@@ -11,6 +11,107 @@ const popupBrowserAPI = (() => {
 })();
 
 let options = {};
+let isExtensionEnabled = true;
+var currentPlatform = 'netflix';
+let detectedPlatform = null; // The platform of the currently active tab
+
+// Platform configuration
+const PLATFORMS = {
+    netflix: { name: 'Netflix', icon: '📺' },
+    disney: { name: 'Disney+', icon: '🏰' }
+};
+
+// Detect which platform the current tab is on
+function detectCurrentTabPlatform(callback) {
+    popupBrowserAPI.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        if (tabs && tabs.length > 0) {
+            const url = tabs[0].url;
+            const platform = getPlatformFromUrl(url);
+            
+            if (platform) {
+                detectedPlatform = platform;
+                console.log('🎯 Detected platform from active tab:', platform, '(', url, ')');
+                
+                // Auto-select the detected platform in the dropdown
+                if (PLATFORMS[platform]) {
+                    currentPlatform = platform;
+                    selectPlatform(platform);
+                }
+            } else {
+                console.log('⚠️ No supported streaming platform detected in active tab');
+                detectedPlatform = null;
+            }
+            
+            if (callback) callback(detectedPlatform);
+        }
+    });
+}
+
+// Helper function to get platform from URL (copied from platform-config.js)
+function getPlatformFromUrl(url) {
+    if (!url) return null;
+    
+    try {
+        const hostname = new URL(url).hostname.toLowerCase();
+        
+        // Check Netflix
+        if (hostname.includes('netflix.com')) {
+            return 'netflix';
+        }
+        
+        // Check Disney+
+        if (hostname.includes('disneyplus.com')) {
+            return 'disney';
+        }
+        
+    } catch (e) {
+        console.error('Error parsing URL:', e);
+    }
+    
+    return null;
+}
+
+// Update options UI based on platform support
+function updateOptionsForPlatform(platformKey) {
+    const platformFeatures = PLATFORM_CONFIG[platformKey];
+    if (!platformFeatures) {
+        console.warn('No platform configuration found for:', platformKey);
+        return;
+    }
+    
+    // Map of option elements to their feature keys
+    const optionMap = {
+        'skipTitleSequences': 'skipTitleSequences',
+        'autoPlayNext': 'autoPlayNext',
+        'alwaysWatchCredits': 'alwaysWatchCredits',
+        'hidePromotedVideos': 'hidePromotedVideos',
+        'dontPromptStillThere': 'dontPromptStillThere',
+        'dontMinimizeEndCredits': 'dontMinimizeEndCredits',
+        'hideDownvotedContent': 'hideDownvotedContent'
+    };
+    
+    // Show/hide options based on platform support
+    Object.keys(optionMap).forEach(optionId => {
+        const featureKey = optionMap[optionId];
+        const optionItem = document.querySelector(`[data-option="${optionId}"]`)?.parentElement;
+        
+        if (optionItem) {
+            const isSupported = platformFeatures.features[featureKey];
+            
+            if (isSupported) {
+                optionItem.style.display = 'flex';
+                optionItem.style.opacity = '1';
+            } else {
+                optionItem.style.display = 'none';
+                optionItem.style.opacity = '0.5';
+            }
+        }
+    });
+    
+    console.log('✅ Updated UI for platform:', platformKey);
+}
+
+// Note: PLATFORM_CONFIG is loaded from platform-config.js (included via script tag in popup.html)
 
 // Global error handlers for unhandled Promise rejections
 window.addEventListener('unhandledrejection', function(event) {
@@ -62,6 +163,28 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('🎯 Final extension state:', isExtensionEnabled);
         console.log('🎯 Final options object:', JSON.stringify(options, null, 2));
+        
+        // Load saved platform (default to netflix if not set)
+        if (options.selectedPlatform && PLATFORMS[options.selectedPlatform]) {
+            currentPlatform = options.selectedPlatform;
+            console.log('✅ Found saved platform:', currentPlatform);
+        } else {
+            currentPlatform = 'netflix'; // Default to Netflix
+            options.selectedPlatform = 'netflix';
+            console.log('⚠️ No saved platform, defaulting to Netflix');
+        }
+        
+        // Detect platform from current tab and auto-select it
+        detectCurrentTabPlatform(function(detectedPlatform) {
+            if (detectedPlatform) {
+                // If we detected a platform, use it and update options UI
+                updateOptionsForPlatform(detectedPlatform);
+            } else {
+                // If no platform detected, use saved platform
+                selectPlatform(currentPlatform);
+                updateOptionsForPlatform(currentPlatform);
+            }
+        });
         
         // Set checkbox states based on loaded options
         setCheckboxState('skipTitleSequences', options.skipTitleSequence);
@@ -219,13 +342,17 @@ function selectPlatform(platformKey) {
     // Update current platform variable
     currentPlatform = platformKey;
     
+    // Save selected platform to storage
+    options.selectedPlatform = platformKey;
+    saveOptions();
+    
+    // Update UI to show/hide platform-specific options
+    updateOptionsForPlatform(platformKey);
+    
     // Close dropdown
     closePlatformDropdown();
     
     console.log('Platform changed to:', platform.name);
-    
-    // TODO: Load platform-specific options here
-    // loadPlatformOptions(platformKey);
 }
 
 // Setup all event listeners
@@ -258,6 +385,33 @@ function setupEventListeners() {
             // Add active to clicked option
             this.classList.add('active');
         });
+    });
+
+    // Platform selector handlers
+    const platformCurrent = document.getElementById('platformCurrent');
+    if (platformCurrent) {
+        platformCurrent.addEventListener('click', function(e) {
+            e.stopPropagation();
+            console.log('Platform dropdown clicked');
+            togglePlatformDropdown();
+        });
+    }
+    
+    // Platform option handlers
+    const platformOptions = document.querySelectorAll('.platform-option');
+    platformOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const platformKey = this.getAttribute('data-platform');
+            selectPlatform(platformKey);
+        });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const platformSelector = document.getElementById('platformSelector');
+        if (platformSelector && !platformSelector.contains(e.target)) {
+            closePlatformDropdown();
+        }
     });
 
     // Search input handler
