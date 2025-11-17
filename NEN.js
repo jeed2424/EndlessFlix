@@ -48,9 +48,25 @@ function startMonitoringForSelectors(selectors, numTries) {
   const monitor = new MutationObserver(_ => {
     let selector = selectors.join(', ');
     let elems = document.querySelectorAll(selector);
+    
+    // Debug: Log what we're finding
+    if (elems.length > 0) {
+      console.log('EndlessFlix: MutationObserver found', elems.length, 'elements');
+      console.log('EndlessFlix: Selector string:', selector);
+    }
+    
     for (const elem of elems) {
       const ariaLabel = elem.getAttribute("aria-label");
       const newDataUia = elem.getAttribute("data-uia") || '';
+      
+      // Debug: Log what we're about to click
+      console.log('EndlessFlix: Found element:', {
+        tag: elem.tagName,
+        ariaLabel: ariaLabel,
+        dataUia: newDataUia,
+        classes: elem.className
+      });
+      
       const isCredits = newDataUia.includes('watch-credits');
       
       // Netflix: Check data-uia for next-episode or watch-credits
@@ -62,6 +78,7 @@ function startMonitoringForSelectors(selectors, numTries) {
       } 
       // Both platforms: Skip intro buttons
       else if (ariaLabel === "Skip Intro" || ariaLabel === "SKIP INTRO") {
+        console.log('EndlessFlix: Clicking skip intro button');
         doClick(elem).then(_ => {
           doGetPlayButton();
         });
@@ -81,16 +98,28 @@ function startMonitoringForSelectors(selectors, numTries) {
 
         dispatchEventToBody('skipIntroEvent');
       } 
-      // Disney+: Play Next button
-      else if (ariaLabel === "PLAY NEXT") {
+      // Disney+: Play Next button (matches "PLAY NEXT IN X")
+      else if (ariaLabel && ariaLabel.startsWith("PLAY NEXT")) {
         elem.click();
         elem.dispatchEvent(new PointerEvent('click'));
-        console.log('EndlessFlix: Clicked PLAY NEXT button');
+        console.log('EndlessFlix: Clicked PLAY NEXT button:', ariaLabel);
       } 
-      // Fallback: Click other matched elements
+      // Disney+: Watch credits video player (#hivePlayer2)
+      // else if (elem.tagName === 'VIDEO') { //&& elem.id === 'hivePlayer2') {
+      //   elem.click();
+      //   elem.dispatchEvent(new PointerEvent('click'));
+      //   console.log('EndlessFlix: Clicked hivePlayer2 video to watch credits');
+      // } 
+      // Fallback: Only click if we know what it is (don't click unknown elements)
       else {
-        elem.click();
-        elem.dispatchEvent(new PointerEvent('click'));
+        console.warn('EndlessFlix: Found element but not clicking - unknown type:', {
+          tag: elem.tagName,
+          ariaLabel: ariaLabel,
+          dataUia: newDataUia
+        });
+        // Don't click unknown elements!
+        // elem.click();
+        // elem.dispatchEvent(new PointerEvent('click'));
       }
     }
     if (options.disableAutoPlayOnBrowse) {

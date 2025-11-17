@@ -1,5 +1,5 @@
 // EndlessFlix - Platform-Aware Selectors
-// This file builds selector lists based on the current platform
+// This file uses platform-config.js as the source of truth
 
 function _findPropertyNameByRegex(o, r) {
   if (!o) {
@@ -40,75 +40,36 @@ if (typeof window !== 'undefined' && window.location && !currentPlatform) {
   console.log('EndlessFlix: Detected platform:', currentPlatform);
 }
 
-// Platform-specific selectors configuration
-const PLATFORM_SELECTORS = {
-  netflix: {
-    autoPlayNext: [
-      ".WatchNext-autoplay",
-      '.WatchNext-still-hover-container',
-      '[aria-label^="Next episode"]',
-      '[data-uia^="next-episode-seamless-button"]',
-      '.draining'
-    ],
-    skipTitleSequence: [
-      '[aria-label="Skip Intro"]',
-      '[data-uia="player-skip-intro"]',
-      '.skip-credits > a',
-      '.watch-video--skip-content > button'
-    ],
-    skipStillHere: [
-      '[data-uia="interrupt-autoplay-continue"]',
-      '.interrupter-actions > .nf-icon-button:first-child',
-      '[aria-label^="Continue Playing"]'
-    ],
-    watchCredits: [
-      '[aria-label^="Watch credits"]',
-      '[data-uia^="watch-credits-seamless-button"]'
-    ],
-    dontMinimizeEndCredits: [
-      '.watch-video--player-view-minimized > div'
-    ]
-  },
-  
-  disney: {
-    autoPlayNext: [
-      // '[aria-label="PLAY NEXT"]',
-      // 'button[aria-label="PLAY NEXT"]',
-      // '[data-testid="icon-restart"]'  // The SVG inside (backup)
-    ],
-    skipTitleSequence: [
-      '[aria-label="SKIP INTRO"]',
-      '.skip__button',
-      'button.skip__button.body-copy',
-      '.skip-icon-btn.next-chapter'
-    ],
-    skipStillHere: [
-      // TODO: Add Disney+ "still watching" selectors when found
-      // '[aria-label*="Continue"]',
-    ],
-    watchCredits: [
-      // Disney+ might not have this feature
-    ],
-    dontMinimizeEndCredits: [
-      // Disney+ might not have this feature
-    ]
-  }
-};
-
-// Get selectors for current platform
+// Get selectors for current platform from PLATFORM_CONFIG
 function getPlatformSelectors(feature) {
   if (!currentPlatform) {
     console.warn('EndlessFlix: No platform detected, returning empty selectors');
     return [];
   }
   
-  const platformConfig = PLATFORM_SELECTORS[currentPlatform];
+  // PLATFORM_CONFIG is loaded from platform-config.js
+  if (typeof PLATFORM_CONFIG === 'undefined') {
+    console.error('EndlessFlix: PLATFORM_CONFIG not loaded!');
+    return [];
+  }
+  
+  const platformConfig = PLATFORM_CONFIG[currentPlatform];
   if (!platformConfig) {
     console.warn('EndlessFlix: No config for platform:', currentPlatform);
     return [];
   }
   
-  return platformConfig[feature] || [];
+  // Map feature names to selector keys
+  const selectorKeyMap = {
+    'autoPlayNext': 'autoPlayNext',
+    'skipTitleSequence': 'skipTitleSequences',
+    'skipStillHere': 'dontPromptStillThere',
+    'watchCredits': 'alwaysWatchCredits',
+    'dontMinimizeEndCredits': 'dontMinimizeEndCredits'
+  };
+  
+  const selectorKey = selectorKeyMap[feature] || feature;
+  return platformConfig.selectors[selectorKey] || [];
 }
 
 // Original functions updated to use platform-aware selectors

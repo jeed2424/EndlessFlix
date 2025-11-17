@@ -66,5 +66,10 @@ function injectScript(file_path, tag) {
   node.appendChild(script);
 }
 
-injectScript(commonBrowserAPI.runtime.getURL('js/playerInject.js'), 'body');
+// Only inject playerInject.js on Netflix (it's Netflix-specific)
+if (window.location.hostname.includes('netflix.com')) {
+  injectScript(commonBrowserAPI.runtime.getURL('js/playerInject.js'), 'body');
+}
+
+// Always inject selectors.js (works on all platforms)
 injectScript(commonBrowserAPI.runtime.getURL('js/selectors.js'), 'body');

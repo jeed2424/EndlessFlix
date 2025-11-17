@@ -12,8 +12,9 @@ const popupBrowserAPI = (() => {
 
 let options = {};
 let isExtensionEnabled = true;
-let currentPlatform = 'netflix';
+var currentPlatform = 'netflix';
 let detectedPlatform = null; // The platform of the currently active tab
+let originalOptions = {}; // Store original options to detect changes
 
 // Platform configuration
 const PLATFORMS = {
@@ -185,6 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateOptionsForPlatform(currentPlatform);
             }
         });
+        
+        // Store original options state to detect changes
+        originalOptions = JSON.parse(JSON.stringify(options));
+        console.log('📋 Saved original options state');
         
         // Set checkbox states based on loaded options
         setCheckboxState('skipTitleSequences', options.skipTitleSequence);
@@ -634,13 +639,42 @@ document.addEventListener('click', function(event) {
 // Refresh banner functionality
 let platformTabId = null; // Store the tab ID of the platform we detected
 
+function hasOptionsChanged() {
+    // Compare current options with original options
+    const relevantKeys = [
+        'skipTitleSequence', 'autoPlayNext', 'watchCredits', 
+        'disableAutoPlayOnBrowse', 'skipStillHere', 
+        'dontMinimzeEndCreditsOfShow', 'hideDisliked', 'extensionEnabled'
+    ];
+    
+    for (const key of relevantKeys) {
+        if (options[key] !== originalOptions[key]) {
+            console.log(`⚠️ Option changed: ${key} from ${originalOptions[key]} to ${options[key]}`);
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 function showRefreshBanner() {
-    // Check if we detected a platform tab earlier
-    if (detectedPlatform && platformTabId) {
+    // Only show if:
+    // 1. We detected a platform tab
+    // 2. Options actually changed from their original state
+    if (detectedPlatform && platformTabId && hasOptionsChanged()) {
         const refreshContainer = document.getElementById('refreshContainer');
         if (refreshContainer) {
             refreshContainer.style.display = 'flex';
-            console.log('Showing refresh banner for', detectedPlatform, 'tab');
+            console.log('✅ Showing refresh banner - options changed for', detectedPlatform, 'tab');
+        }
+    } else {
+        // Hide banner if options match original (user reverted changes)
+        const refreshContainer = document.getElementById('refreshContainer');
+        if (refreshContainer) {
+            refreshContainer.style.display = 'none';
+            if (!hasOptionsChanged()) {
+                console.log('✅ Options match original - hiding refresh banner');
+            }
         }
     }
 }
@@ -649,6 +683,8 @@ function refreshPlatformTab() {
     if (platformTabId) {
         popupBrowserAPI.tabs.reload(platformTabId, function() {
             console.log('Refreshed tab:', platformTabId);
+            // Update original options to match current (since we're applying changes)
+            originalOptions = JSON.parse(JSON.stringify(options));
             // Hide the banner after refresh
             const refreshContainer = document.getElementById('refreshContainer');
             if (refreshContainer) {

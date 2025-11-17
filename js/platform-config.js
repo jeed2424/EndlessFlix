@@ -61,37 +61,39 @@ const PLATFORM_CONFIG = {
         icon: '🏰',
         domains: ['disneyplus.com'],
         
-        // Feature support flags - TODO: Verify which features Disney+ supports
         features: {
-            skipTitleSequences: true,  // Most streaming services have skip intro
-            autoPlayNext: true,         // Most have auto-play next
-            alwaysWatchCredits: false,  // Unknown if Disney+ has this
-            hidePromotedVideos: false,  // Unknown
-            dontPromptStillThere: true, // Most services have "Are you still watching?"
-            dontMinimizeEndCredits: false, // Unknown
-            hideDownvotedContent: false    // Unknown
+            skipTitleSequences: true,
+            autoPlayNext: true,
+            alwaysWatchCredits: false,  // Should be enabled, issues need to be fixed first
+            hidePromotedVideos: false,
+            dontPromptStillThere: true,
+            dontMinimizeEndCredits: false,
+            hideDownvotedContent: false
         },
         
-        // Selectors for each feature - TODO: Research and fill these in
         selectors: {
             skipTitleSequences: [
-                '[aria-label="SKIP INTRO"]',      // Primary selector (most reliable)
-                '.skip__button',                   // Disney+ specific class
-                'button.skip__button.body-copy',   // More specific selector
-                '.skip-icon-btn.next-chapter'      // Icon container (backup)
+                '[aria-label="SKIP INTRO"]',  // Most specific
             ],
             
             autoPlayNext: [
-                // TODO: Research Disney+ next episode button selectors
-                // Example placeholder (needs to be researched):
-                // '[data-testid="next-episode-button"]',
+                '[aria-label^="PLAY NEXT"]',          // Matches "PLAY NEXT IN 1", etc.
+                'button[aria-label^="PLAY NEXT"]',
+                '[data-testid="icon-restart"]',
+            ],
+            
+            alwaysWatchCredits: [
+                // '#hivePlayer2',
+                // 'video#hivePlayer2',
             ],
             
             dontPromptStillThere: [
                 // TODO: Research Disney+ "still watching" selectors
-                // Example placeholder (needs to be researched):
-                // '[data-testid="continue-watching-button"]',
-            ]
+            ],
+            
+            dontMinimizeEndCredits: [],
+            hidePromotedVideos: [],
+            hideDownvotedContent: []
         }
     }
 };
